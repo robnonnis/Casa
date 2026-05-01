@@ -186,15 +186,6 @@ function Benvenuto({go}) {
         <a href="tel:+393284699520" style={s.tel}><span style={{fontSize:13.5,color:c.dark}}>📱 Alessandro</span><span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:16,color:c.terra}}>328 469 9520</span></a>
         <a href="tel:+393473208852" style={s.telLast}><span style={{fontSize:13.5,color:c.dark}}>📱 Roberta</span><span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:16,color:c.terra}}>347 320 8852</span></a>
       </Card>
-
-      {/* Footer affreschi */}
-      <div style={{...s.darkBox, display:"flex", gap:14, alignItems:"flex-start", marginTop:4}}>
-        <span style={{fontSize:26}}>🎨</span>
-        <div>
-          <strong style={{display:"block",fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:17,color:c.sand,fontWeight:400,marginBottom:4}}>Affreschi originali anni '50</strong>
-          <span style={{fontSize:13,color:"rgba(245,240,232,0.8)"}}>I soffitti sono dipinti a mano da artigiani sardi. Un patrimonio artistico unico che attraversa ogni stanza.</span>
-        </div>
-      </div>
     </div>
   </div>;
 }
@@ -259,34 +250,66 @@ function Wifi({go}) {
 
 function Appartamento({go}) {
   const rooms = [
-    {icon:"🍳", name:"Cucina", items:["Piano cottura a induzione","Forno elettrico","Lavastoviglie","Frigorifero","Cappa aspirante","Climatizzatore Wi-Fi","Tavolo allungabile + 4 sedie","Divano letto 3 posti","Vetrata su veranda","Soffitto affrescato (rosa)"]},
-    {icon:"🛏", name:"Camera da letto", items:["Letto matrimoniale con contenitore","Armadio ~4 metri","Settimino","Comodini con applique","Condizionatore Wi-Fi","Soffitto affrescato (geometrico oro)"]},
-    {icon:"🚿", name:"Bagno", items:["Box doccia 80×100 cm","Colonna doccia con massaggio","Mobile lavandino con cassettoni","Specchio con illuminazione LED","Ventilazione automatica"]},
+    {icon:"🍳", name:"Cucina", items:["Piano cottura a induzione","Forno elettrico","Lavastoviglie","Frigorifero","Cappa aspirante","Climatizzatore Wi-Fi","Tavolo allungabile + 4 sedie","Divano letto 3 posti","Vetrata scorrevole su veranda","Soffitto affrescato anni '50 — motivi floreali rosa"]},
+    {icon:"🛏️", name:"Camera da letto", items:["Letto matrimoniale con contenitore","Armadio ~4 metri","Settimino","Comodini con applique su entrambi i lati","Condizionatore Wi-Fi","Soffitto affrescato anni '50 — geometrie dorate"]},
+    {icon:"🚿", name:"Bagno", items:["Box doccia scorrevole 80×100 cm","Colonna doccia con getti massaggio","Mobile lavandino con cassettoni","Specchio con illuminazione LED","Ventilazione automatica"]},
   ];
   return <div style={s.app}>
-    <PageHead title="L'Appartamento" sub="50 m² interno + 40 m² veranda" back={()=>go("home")} icon={<Ic.building/>}/>
+    <PageHead title="L'Appartamento" sub="50 m² interno · 40 m² veranda" back={()=>go("home")} icon={<Ic.building/>}/>
     <div style={s.content}>
-      <div style={s.hlBox}><div style={s.hlTitle}>🎨 Affreschi anni '50</div><p style={{fontSize:14,lineHeight:1.7,opacity:0.92,margin:0}}>Ogni stanza ha un soffitto affrescato a mano da artigiani sardi. Un patrimonio artistico unico che rende Casa Uta davvero speciale.</p></div>
-      <Card>
-        <CT text="📐 Panoramica"/>
-        <Row l="Interno" v="~50 m²"/>
-        <Row l="Veranda coperta" v="~40 m²"/>
-        <Row l="Giardinetto privato" v="✓"/>
-        <Row l="Wi-Fi fibra" v="✓"/>
-        <Row l="Climatizzatori" v="2 × Wi-Fi" last/>
-      </Card>
+
+      {/* Banner affreschi — unico, evocativo */}
+      <div style={{background:c.dark, borderRadius:20, overflow:"hidden", marginBottom:14}}>
+        <div style={{background:"linear-gradient(135deg, #2a1a0e 0%, #3d2510 50%, #1e1810 100%)", padding:"24px 20px 20px"}}>
+          <div style={{display:"flex", alignItems:"flex-start", gap:16}}>
+            <div style={{fontSize:40, flexShrink:0, lineHeight:1}}>🎨</div>
+            <div>
+              <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:26, fontWeight:300, color:c.cream, lineHeight:1.1, marginBottom:8}}>
+                Affreschi originali<br/><em style={{fontStyle:"italic", color:c.sand}}>degli anni Cinquanta</em>
+              </div>
+              <p style={{fontSize:13, color:"rgba(245,240,232,0.75)", lineHeight:1.7, margin:0}}>
+                I soffitti di cucina e camera sono dipinti a mano da artigiani sardi. Motivi floreali nella cucina, geometrie dorate nella camera. Un patrimonio artistico raro, rimasto intatto per settant'anni.
+              </p>
+            </div>
+          </div>
+          <div style={{display:"flex", gap:8, marginTop:16}}>
+            {[["🌸","Cucina","Floreale rosa"],["✦","Camera","Geometrico oro"],["🕯️","Anni '50","Artigianato sardo"]].map(([em,label,desc])=>(
+              <div key={label} style={{flex:1, background:"rgba(255,255,255,0.06)", borderRadius:12, padding:"10px 8px", textAlign:"center"}}>
+                <div style={{fontSize:18, marginBottom:4}}>{em}</div>
+                <div style={{fontSize:11, color:c.sand, fontWeight:500}}>{label}</div>
+                <div style={{fontSize:9.5, color:"rgba(245,240,232,0.45)", marginTop:2, lineHeight:1.3}}>{desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Panoramica rapida */}
+      <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:8, marginBottom:14}}>
+        {[["~50 m²","Interno"],["~40 m²","Veranda"],["2×","Clima Wi-Fi"]].map(([val,label])=>(
+          <div key={label} style={{background:c.white, borderRadius:14, padding:"14px 8px", textAlign:"center", border:`1px solid ${c.terra}15`}}>
+            <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:22, color:c.terra, lineHeight:1}}>{val}</div>
+            <div style={{fontSize:10, color:c.muted, marginTop:4, letterSpacing:"0.5px"}}>{label}</div>
+          </div>
+        ))}
+      </div>
+
       {rooms.map(({icon,name,items})=>(
         <Card key={name}>
           <CT text={`${icon} ${name}`}/>
           {items.map((t,i)=><Rule key={i} t={t} last={i===items.length-1}/>)}
         </Card>
       ))}
+
       <Card>
         <CT text="🌿 Veranda e giardino"/>
-        <p style={{fontSize:14,lineHeight:1.75,color:c.muted,margin:0}}>Veranda coperta ~40 m² con accesso diretto dalla vetrata scorrevole della cucina. Giardinetto privato — ideale per colazioni all'aperto.</p>
+        <p style={{fontSize:14,lineHeight:1.75,color:c.muted,margin:0}}>Veranda coperta ~40 m² con accesso diretto dalla vetrata scorrevole della cucina. Giardinetto privato — ideale per colazioni all'aperto, aperitivi al tramonto o semplicemente stare fuori.</p>
       </Card>
-      <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
-        {["Wi-Fi fibra","2 Climatizzatori","Parcheggio libero","Giardino privato","Lavastoviglie","Forno"].map((t,i)=><span key={t} style={i===0?s.tagA:s.tag}>{t}</span>)}
+
+      <div style={{display:"flex",flexWrap:"wrap",gap:8, marginTop:4}}>
+        {["Wi-Fi fibra","2 Climatizzatori","Parcheggio libero","Giardino privato","Lavastoviglie","Forno"].map((t,i)=>(
+          <span key={t} style={i===0?s.tagA:s.tag}>{t}</span>
+        ))}
       </div>
     </div>
   </div>;
@@ -353,6 +376,10 @@ function Esplorare({go}) {
       color:"#2d4a2d", accent:"#6db86d",
       tagline:"Tutto raggiungibile a piedi o in 15 minuti",
       data:[
+        { title:"Cinema Vittoria — Uta", dist:"a piedi", emoji:"🎬",
+          mood:"Sala storica anni '50",
+          desc:"Una piccola sala cinematografica storica nel cuore di Uta. Programmazione mista tra film commerciali e proiezioni locali. Un'esperienza autentica e rara.",
+          link:"https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna"},
         { title:"Parco S'Ollivariu", dist:"5 min", emoji:"🌳",
           mood:"Mattinata tranquilla",
           desc:"Lecci, sentieri ombreggiati e silenzio. Il posto giusto per iniziare la giornata prima che il paese si svegli.",
@@ -612,6 +639,67 @@ function Ristoranti({go}) {
 }
 
 function Eventi({go}) {
+  const oggi = new Date();
+
+  // Calcola se un evento fisso cade nei prossimi 7 giorni
+  const eventiFissi = [
+    {mese:1, giorno:12, titolo:"Festa di Santa Greca", luogo:"Decimomannu", emoji:"🕯️"},
+    {mese:5, giorno:1,  titolo:"Festa di Sant'Efisio", luogo:"Cagliari", emoji:"🎖️", link:"https://www.festadisantefisio.com"},
+    {mese:5, giorno:14, titolo:"Santa Giusta — patrona di Uta", luogo:"Uta", emoji:"🌸"},
+    {mese:8, giorno:13, titolo:"Corteo Storico Medievale", luogo:"Iglesias", emoji:"⚔️"},
+    {mese:8, giorno:15, titolo:"Assunzione B.V. Maria", luogo:"Uta", emoji:"🕯️"},
+    {mese:9, giorno:5,  titolo:"Festa di Santa Maria (inizio)", luogo:"Uta", emoji:"🌟"},
+    {mese:9, giorno:9,  titolo:"Festa di Santa Maria (fine)", luogo:"Uta", emoji:"🎆"},
+    {mese:12, giorno:13, titolo:"Santa Lucia", luogo:"Uta", emoji:"🕯️"},
+  ];
+
+  const imminenti = eventiFissi.filter(e => {
+    const dataEv = new Date(oggi.getFullYear(), e.mese - 1, e.giorno);
+    if (dataEv < oggi) dataEv.setFullYear(oggi.getFullYear() + 1);
+    const diff = (dataEv - oggi) / (1000 * 60 * 60 * 24);
+    return diff >= 0 && diff <= 7;
+  });
+
+  // Sezione eventi live con Claude API
+  const [liveEvents, setLiveEvents] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const fetchLiveEvents = async () => {
+    setLoading(true);
+    try {
+      const oggi_str = oggi.toLocaleDateString("it-IT", {weekday:"long", day:"numeric", month:"long", year:"numeric"});
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+          model:"claude-sonnet-4-20250514",
+          max_tokens:1000,
+          tools:[{type:"web_search_20250305", name:"web_search"}],
+          messages:[{role:"user", content:`Oggi è ${oggi_str}. Cerca eventi in programma questa settimana in Sardegna (area Cagliari, Uta, Sulcis-Iglesiente): concerti, spettacoli teatrali, cinema, sagre, festival. Cerca anche il programma del Cinema Vittoria di Uta. Rispondi SOLO con un array JSON, senza backtick né markdown, come questo:
+[{"titolo":"Nome evento","data":"data","luogo":"luogo","tipo":"Concerto|Teatro|Cinema|Sagra|Festival","desc":"breve descrizione max 60 caratteri","link":"url o null"}]
+Massimo 8 eventi. Solo JSON puro.`}]
+        })
+      });
+      const data = await res.json();
+      const text = data.content.filter(b=>b.type==="text").map(b=>b.text).join("");
+      const clean = text.replace(/```json|```/g,"").trim();
+      const parsed = JSON.parse(clean);
+      setLiveEvents(parsed);
+    } catch(e) {
+      setLiveEvents([]);
+    }
+    setLoading(false);
+  };
+
+  const tipoColor = {
+    "Cinema":"#1e2d40", "Teatro":"#3a1f3a", "Concerto":"#1a2e1a",
+    "Sagra":"#3a2510", "Festival":"#0e2a35"
+  };
+  const tipoAccent = {
+    "Cinema":"#6aaee0", "Teatro":"#c87fc8", "Concerto":"#6db86d",
+    "Sagra":"#d4845f", "Festival":"#4ab8c8"
+  };
+
   const evs = [
     {m:"Gennaio",evs:[{d:"12 gennaio",t:"🕯️ Festa di Santa Greca (Decimomannu)"}]},
     {m:"Maggio",evs:[
@@ -635,10 +723,100 @@ function Eventi({go}) {
     ]},
     {m:"Dicembre",evs:[{d:"13 dicembre",t:"🕯️ Santa Lucia (Uta)"}]},
   ];
+
   return <div style={s.app}>
     <PageHead title="Feste ed eventi" back={()=>go("home")} icon={<Ic.cal/>}/>
     <div style={s.content}>
-      <div style={{...s.darkBox,display:"flex",gap:14,alignItems:"flex-start",marginBottom:12}}><span style={{fontSize:28}}>🎊</span><div><strong style={{display:"block",fontFamily:"Georgia,serif",fontSize:16,color:c.sand,fontWeight:400,marginBottom:4}}>Tradizioni del Sud Sardegna</strong><span style={{fontSize:13,color:"rgba(245,240,232,0.85)"}}>Feste religiose e manifestazioni culturali tra le più importanti dell'isola.</span></div></div>
+
+      {/* Banner eventi imminenti */}
+      {imminenti.length > 0 && (
+        <div style={{background:"linear-gradient(135deg, #b8673f, #d4845f)", borderRadius:18, padding:"18px 18px 14px", marginBottom:14}}>
+          <div style={{fontSize:9, letterSpacing:"3px", textTransform:"uppercase", color:"rgba(255,255,255,0.6)", marginBottom:10}}>🔔 Questa settimana</div>
+          {imminenti.map((e,i)=>(
+            <div key={i} style={{display:"flex", alignItems:"center", gap:12, padding:"8px 0",
+              borderBottom: i<imminenti.length-1 ? "1px solid rgba(255,255,255,0.2)" : "none"}}>
+              <span style={{fontSize:22}}>{e.emoji}</span>
+              <div>
+                <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17, color:"white", fontWeight:400}}>{e.titolo}</div>
+                <div style={{fontSize:11, color:"rgba(255,255,255,0.7)", marginTop:2}}>{e.luogo}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Cinema Vittoria card */}
+      <div style={{background:c.dark, borderRadius:18, padding:"18px", marginBottom:14, borderLeft:`3px solid #6aaee0`}}>
+        <div style={{display:"flex", alignItems:"flex-start", gap:12}}>
+          <span style={{fontSize:28}}>🎬</span>
+          <div style={{flex:1}}>
+            <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:19, color:c.cream, fontWeight:300, marginBottom:4}}>Cinema Vittoria — Uta</div>
+            <p style={{fontSize:12.5, color:"rgba(245,240,232,0.7)", lineHeight:1.65, margin:"0 0 12px"}}>Una sala storica nel cuore di Uta. Programmazione cinema d'essai e film commerciali. Un'esperienza locale autentica a pochi passi da casa.</p>
+            <a href="https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna" target="_blank" rel="noreferrer"
+              style={{display:"inline-flex", alignItems:"center", gap:8, background:"#6aaee0", color:"white", borderRadius:10, padding:"8px 14px", fontSize:12, textDecoration:"none"}}>
+              📍 Come arrivare
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Sezione eventi live */}
+      <div style={{background:c.white, borderRadius:18, padding:"18px", marginBottom:14, border:`1px solid ${c.terra}15`}}>
+        <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:19, fontWeight:400, marginBottom:4}}>🔍 Cosa c'è questa settimana</div>
+        <p style={{fontSize:12.5, color:c.muted, lineHeight:1.6, marginBottom:14}}>Concerti, teatro, cinema e sagre nell'area di Cagliari e Sulcis — aggiornati in tempo reale.</p>
+
+        {!liveEvents && !loading && (
+          <button onClick={fetchLiveEvents} style={{
+            width:"100%", background:c.terra, color:"white", border:"none",
+            borderRadius:12, padding:"13px", fontSize:13, fontFamily:"'Jost',sans-serif",
+            cursor:"pointer", fontWeight:400, letterSpacing:"0.3px"
+          }}>
+            ✨ Cerca eventi in programma
+          </button>
+        )}
+
+        {loading && (
+          <div style={{textAlign:"center", padding:"20px 0"}}>
+            <div style={{fontSize:28, marginBottom:8}}>🔍</div>
+            <div style={{fontSize:13, color:c.muted}}>Sto cercando eventi in corso…</div>
+          </div>
+        )}
+
+        {liveEvents && liveEvents.length === 0 && (
+          <div style={{textAlign:"center", padding:"16px 0", color:c.muted, fontSize:13}}>
+            Nessun evento trovato per questa settimana.<br/>
+            <button onClick={fetchLiveEvents} style={{marginTop:10, background:"none", border:`1px solid ${c.sand}`, borderRadius:10, padding:"8px 16px", fontSize:12, cursor:"pointer", color:c.muted}}>Riprova</button>
+          </div>
+        )}
+
+        {liveEvents && liveEvents.length > 0 && (
+          <div>
+            {liveEvents.map((e,i)=>{
+              const bg = tipoColor[e.tipo] || c.dark;
+              const ac = tipoAccent[e.tipo] || c.terra;
+              return (
+                <div key={i} style={{background:bg, borderRadius:14, padding:"12px 14px", marginBottom:8,
+                  borderLeft:`3px solid ${ac}`}}>
+                  <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:4}}>
+                    <span style={{fontSize:10, color:ac, textTransform:"uppercase", letterSpacing:"1px", fontWeight:500}}>{e.tipo}</span>
+                    <span style={{fontSize:11, color:"rgba(245,240,232,0.5)"}}>{e.data}</span>
+                  </div>
+                  <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:16, color:c.cream, fontWeight:400, marginBottom:4}}>{e.titolo}</div>
+                  <div style={{fontSize:12, color:"rgba(245,240,232,0.6)", marginBottom:e.desc?4:0}}>📍 {e.luogo}</div>
+                  {e.desc && <div style={{fontSize:12, color:"rgba(245,240,232,0.55)", lineHeight:1.5}}>{e.desc}</div>}
+                  {e.link && <a href={e.link} target="_blank" rel="noreferrer" style={{display:"inline-block", marginTop:8, fontSize:11, color:ac, textDecoration:"none"}}>Scopri di più →</a>}
+                </div>
+              );
+            })}
+            <button onClick={fetchLiveEvents} style={{width:"100%", marginTop:8, background:"none", border:`1px solid ${c.sand}`, borderRadius:10, padding:"9px", fontSize:11, cursor:"pointer", color:c.muted, fontFamily:"'Jost',sans-serif"}}>
+              🔄 Aggiorna
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Calendario fisso */}
+      <div style={{fontSize:9, letterSpacing:"4px", textTransform:"uppercase", color:c.muted, margin:"20px 0 14px", textAlign:"center"}}>Calendario tradizioni locali</div>
       {evs.map(({m,evs:ee})=>(
         <Card key={m}><CT text={m}/>
           {ee.map((e,i)=>(
