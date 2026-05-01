@@ -58,23 +58,33 @@ const s = {
 };
 
 const Ic = {
-  back: ()=><svg viewBox="0 0 24 24" style={{width:16,height:16,stroke:"currentColor",fill:"none",strokeWidth:1.5}}><polyline points="15 18 9 12 15 6"/></svg>,
-  home: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>,
-  lock: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>,
-  wifi: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1" fill={c.dark}/></svg>,
-  building: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>,
-  check: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>,
-  pin: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
-  grid: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>,
-  coffee: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>,
-  cal: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
-  star: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
-  bag: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>,
-  faq: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17" strokeWidth="2" strokeLinecap="round"/></svg>,
-  mapW: ()=><svg viewBox="0 0 24 24" style={{width:20,height:20,stroke:"white",fill:"none",strokeWidth:1.5}}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
-  docW: ()=><svg viewBox="0 0 24 24" style={{width:20,height:20,stroke:"white",fill:"none",strokeWidth:1.5}}><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>,
-  phone: ()=><svg viewBox="0 0 24 24" style={{width:18,height:18,stroke:c.terra,fill:"none",strokeWidth:1.5}}><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.22 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.07-1.07a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>,
-  trash: ()=><svg viewBox="0 0 24 24" style={{width:18,height:18,stroke:c.terra,fill:"none",strokeWidth:1.5}}><path d="M3 6h18"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>,
+  back:     ()=><svg viewBox="0 0 24 24" style={{width:16,height:16,stroke:"currentColor",fill:"none",strokeWidth:1.5}}><polyline points="15 18 9 12 15 6"/></svg>,
+  // 🏠 Casa con porta e tetto
+  home:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>,
+  // 🔑 Chiave
+  lock:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><circle cx="7" cy="17" r="4"/><path d="M11 17h9v-2a6 6 0 00-6-6 6 6 0 00-6 6"/><line x1="18" y1="11" x2="18" y2="17"/><line x1="21" y1="14" x2="18" y2="14"/></svg>,
+  wifi:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1" fill={c.dark}/></svg>,
+  // 🛋️ Divano/appartamento
+  building: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><rect x="2" y="13" width="20" height="8" rx="1"/><path d="M6 13V9a2 2 0 012-2h8a2 2 0 012 2v4"/><path d="M5 13v2"/><path d="M19 13v2"/><rect x="5" y="15" width="4" height="3" rx="1"/><rect x="15" y="15" width="4" height="3" rx="1"/></svg>,
+  // ✓ Lista regole
+  check:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><polyline points="3 6 4 7 6 5"/><polyline points="3 12 4 13 6 11"/><polyline points="3 18 4 19 6 17"/></svg>,
+  pin:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+  // 🧭 Bussola per "Da scoprire"
+  compass:  ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill={c.dark} fillOpacity="0.15"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>,
+  // 🍝 Piatto di pasta
+  pasta:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><ellipse cx="12" cy="15" rx="9" ry="4"/><path d="M3 15c0-4.97 4.03-9 9-9s9 4.03 9 9"/><path d="M8 9.5C8.5 7 10 5.5 12 5.5s3.5 1.5 4 4"/><path d="M10 7c.3-1.2 1-2 2-2"/></svg>,
+  cal:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
+  star:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+  // 🛒 Carrello della spesa
+  bag:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>,
+  // ⚙️ Ingranaggio per servizi
+  faq:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>,
+  // ❓ punto interrogativo per FAQ
+  help:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.dark,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17" strokeWidth="2" strokeLinecap="round"/></svg>,
+  mapW:     ()=><svg viewBox="0 0 24 24" style={{width:20,height:20,stroke:"white",fill:"none",strokeWidth:1.5}}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+  docW:     ()=><svg viewBox="0 0 24 24" style={{width:20,height:20,stroke:"white",fill:"none",strokeWidth:1.5}}><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>,
+  phone:    ()=><svg viewBox="0 0 24 24" style={{width:18,height:18,stroke:c.terra,fill:"none",strokeWidth:1.5}}><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.22 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.07-1.07a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>,
+  trash:    ()=><svg viewBox="0 0 24 24" style={{width:18,height:18,stroke:c.terra,fill:"none",strokeWidth:1.5}}><path d="M3 6h18"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>,
 };
 
 function Row({l,v,link,last}) {
@@ -105,18 +115,18 @@ function PH({go}) {
       <div style={s.sectionLabel}>Esplora la guida</div>
       <div style={s.grid}>
         {[
-          ["benvenuto",   <Ic.home/>,     "Benvenuto"],
-          ["checkin",     <Ic.lock/>,     "Check-in / out"],
-          ["appartamento",<Ic.building/>, "L'appartamento"],
-          ["wifi",        <Ic.wifi/>,     "Wi-Fi"],
-          ["regole",      <Ic.check/>,    "Regole casa"],
-          ["esplorare",   <Ic.grid/>,     "Esplorare"],
-          ["ristoranti",  <Ic.coffee/>,   "Ristoranti"],
-          ["eventi",      <Ic.cal/>,      "Eventi"],
-          ["recensioni",  <Ic.star/>,     "Recensioni"],
-          ["spesa",       <Ic.bag/>,      "Spesa"],
-          ["servizi",     <Ic.faq/>,      "Servizi utili"],
-          ["faq",         <Ic.pin/>,      "FAQ"],
+          ["benvenuto",    <Ic.home/>,    "Benvenuto"],
+          ["checkin",      <Ic.lock/>,    "Check-in / out"],
+          ["appartamento", <Ic.building/>,"L'appartamento"],
+          ["wifi",         <Ic.wifi/>,    "Wi-Fi"],
+          ["regole",       <Ic.check/>,   "Regole casa"],
+          ["esplorare",    <Ic.compass/>, "Da scoprire"],
+          ["ristoranti",   <Ic.pasta/>,   "Ristoranti"],
+          ["eventi",       <Ic.cal/>,     "Eventi"],
+          ["recensioni",   <Ic.star/>,    "Recensioni"],
+          ["spesa",        <Ic.bag/>,     "Spesa"],
+          ["servizi",      <Ic.faq/>,     "Servizi utili"],
+          ["faq",          <Ic.help/>,    "FAQ"],
         ].map(([id,icon,label])=>(
           <div key={id} style={s.card} onClick={()=>go(id)}>
             {icon}
@@ -487,14 +497,18 @@ function Esplorare({go}) {
   const fetchMeteo = async () => {
     setMeteoLoad(true);
     try {
-      // Open-Meteo API — Uta (CA): lat 39.29, lon 8.96 — gratuita, no key
-      const url = "https://api.open-meteo.com/v1/forecast?latitude=39.29&longitude=8.96&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=Europe%2FRome&forecast_days=3";
+      // Open-Meteo: dati orari attuali + forecast 3 giorni per Uta (CA)
+      const url = "https://api.open-meteo.com/v1/forecast?latitude=39.29&longitude=8.96" +
+        "&current=temperature_2m,apparent_temperature,weathercode,windspeed_10m,relativehumidity_2m" +
+        "&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum" +
+        "&timezone=Europe%2FRome&forecast_days=3";
       const res = await fetch(url);
       const d = await res.json();
+
       const wmoLabel = (code) => {
-        if (code === 0) return ["☀️","Sole"];
+        if (code === 0) return ["☀️","Soleggiato"];
         if (code <= 2) return ["⛅","Poco nuvoloso"];
-        if (code <= 3) return ["☁️","Nuvoloso"];
+        if (code <= 3) return ["☁️","Coperto"];
         if (code <= 49) return ["🌫️","Nebbia"];
         if (code <= 59) return ["🌦️","Pioviggine"];
         if (code <= 69) return ["🌧️","Pioggia"];
@@ -502,16 +516,26 @@ function Esplorare({go}) {
         if (code <= 84) return ["🌦️","Rovesci"];
         return ["⛈️","Temporale"];
       };
+
+      const [icoNow, labelNow] = wmoLabel(d.current.weathercode);
+      const current = {
+        temp: Math.round(d.current.temperature_2m),
+        feels: Math.round(d.current.apparent_temperature),
+        ico: icoNow, label: labelNow,
+        wind: Math.round(d.current.windspeed_10m),
+        hum: d.current.relativehumidity_2m,
+      };
+
       const days = ["Oggi","Domani","Dopodomani"];
-      const parsed = d.daily.time.slice(0,3).map((date,i)=>{
+      const forecast = d.daily.time.slice(0,3).map((date,i)=>{
         const [ico,label] = wmoLabel(d.daily.weathercode[i]);
         return { day:days[i], ico, label,
           max: Math.round(d.daily.temperature_2m_max[i]),
           min: Math.round(d.daily.temperature_2m_min[i]),
           rain: d.daily.precipitation_sum[i] };
       });
-      setMeteo(parsed);
-    } catch(e) { setMeteo([]); }
+      setMeteo({current, forecast});
+    } catch(e) { setMeteo(null); }
     setMeteoLoad(false);
   };
 
@@ -521,29 +545,44 @@ function Esplorare({go}) {
   const t = tabs[tab];
 
   return <div style={s.app}>
-    <PageHead title="Esplorare" back={()=>go("home")} icon={<Ic.pin/>}/>
+    <PageHead title="Da scoprire" back={()=>go("home")} icon={<Ic.compass/>}/>
     <div style={s.content}>
 
-      {/* Banner meteo 3 giorni */}
+      {/* Banner meteo: condizioni attuali + 3 giorni */}
       <div style={{background:c.dark, borderRadius:18, padding:"16px 18px", marginBottom:16, overflow:"hidden", position:"relative"}}>
         <div style={{position:"absolute",top:-30,right:-30,width:120,height:120,background:"radial-gradient(circle,#6aaee040,transparent 70%)",pointerEvents:"none"}}/>
-        <div style={{fontSize:9, letterSpacing:"3px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginBottom:12}}>📍 Uta · Previsioni</div>
-        {meteoLoad && <div style={{color:"rgba(245,240,232,0.5)",fontSize:13,textAlign:"center",padding:"12px 0"}}>Caricamento meteo…</div>}
-        {!meteoLoad && meteo && meteo.length > 0 && (
-          <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:8}}>
-            {meteo.map((g,i)=>(
-              <div key={i} style={{textAlign:"center", background:"rgba(255,255,255,0.05)", borderRadius:12, padding:"12px 6px"}}>
-                <div style={{fontSize:9, letterSpacing:"2px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginBottom:6}}>{g.day}</div>
-                <div style={{fontSize:28, lineHeight:1, marginBottom:6}}>{g.ico}</div>
-                <div style={{fontSize:11, color:"rgba(245,240,232,0.7)", marginBottom:6, lineHeight:1.3}}>{g.label}</div>
-                <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:18, color:"white"}}>{g.max}°</div>
-                <div style={{fontSize:10, color:"rgba(245,240,232,0.4)"}}>{g.min}° min</div>
-                {g.rain > 0 && <div style={{fontSize:10, color:"#6aaee0", marginTop:4}}>💧 {g.rain}mm</div>}
+        <div style={{fontSize:9, letterSpacing:"3px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginBottom:12}}>📍 Uta · Meteo in tempo reale</div>
+        {meteoLoad && <div style={{color:"rgba(245,240,232,0.5)",fontSize:13,textAlign:"center",padding:"16px 0"}}>⏳ Caricamento meteo…</div>}
+        {!meteoLoad && meteo && (
+          <>
+            {/* Condizioni ora */}
+            <div style={{display:"flex", alignItems:"center", gap:16, marginBottom:14, paddingBottom:14, borderBottom:"1px solid rgba(255,255,255,0.08)"}}>
+              <span style={{fontSize:44, lineHeight:1}}>{meteo.current.ico}</span>
+              <div>
+                <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:40, color:"white", lineHeight:1}}>{meteo.current.temp}°<span style={{fontSize:18, color:"rgba(245,240,232,0.5)", fontFamily:"'Jost',sans-serif", fontWeight:200, marginLeft:4}}>C</span></div>
+                <div style={{fontSize:13, color:"rgba(245,240,232,0.7)", marginTop:2}}>{meteo.current.label}</div>
+                <div style={{display:"flex", gap:12, marginTop:4}}>
+                  <span style={{fontSize:10, color:"rgba(245,240,232,0.4)"}}>💨 {meteo.current.wind} km/h</span>
+                  <span style={{fontSize:10, color:"rgba(245,240,232,0.4)"}}>💧 {meteo.current.hum}%</span>
+                  <span style={{fontSize:10, color:"rgba(245,240,232,0.4)"}}>Percepiti {meteo.current.feels}°</span>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+            {/* Previsioni 3 giorni */}
+            <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:8}}>
+              {meteo.forecast.map((g,i)=>(
+                <div key={i} style={{textAlign:"center", background:"rgba(255,255,255,0.05)", borderRadius:12, padding:"10px 6px"}}>
+                  <div style={{fontSize:9, letterSpacing:"2px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginBottom:4}}>{g.day}</div>
+                  <div style={{fontSize:24, lineHeight:1, marginBottom:4}}>{g.ico}</div>
+                  <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17, color:"white"}}>{g.max}°</div>
+                  <div style={{fontSize:10, color:"rgba(245,240,232,0.4)"}}>{g.min}° min</div>
+                  {g.rain > 0 && <div style={{fontSize:10, color:"#6aaee0", marginTop:3}}>💧{g.rain}mm</div>}
+                </div>
+              ))}
+            </div>
+          </>
         )}
-        {!meteoLoad && meteo && meteo.length === 0 && (
+        {!meteoLoad && !meteo && (
           <div style={{textAlign:"center",padding:"10px 0"}}>
             <span style={{fontSize:12,color:"rgba(245,240,232,0.4)"}}>Meteo non disponibile</span>
             <button onClick={fetchMeteo} style={{display:"block",margin:"8px auto 0",background:"none",border:"1px solid rgba(255,255,255,0.2)",borderRadius:8,padding:"5px 12px",fontSize:11,color:"rgba(245,240,232,0.5)",cursor:"pointer"}}>Riprova</button>
@@ -774,11 +813,38 @@ function Ristoranti({go}) {
           link="https://maps.google.com/?q=Mondo+e+Luca+Cagliari"/>
       </Card>
 
-      <div style={{...s.darkBox,textAlign:"center"}}>
-        <p style={{fontSize:12,color:"rgba(245,240,232,0.7)",lineHeight:1.8,margin:0}}>
-          💡 Nel weekend prenotate sempre.<br/>
-          Da non perdere: <strong style={{color:c.sand}}>fregola con arselle</strong>, <strong style={{color:c.sand}}>malloreddus al ragù</strong>, <strong style={{color:c.sand}}>porceddu arrosto</strong>.
-        </p>
+      {/* Banner cultura cucina sarda */}
+      <div style={{background:c.dark, borderRadius:18, overflow:"hidden", marginTop:4}}>
+        <div style={{background:"linear-gradient(135deg,#1a2e1a,#2d4a2d)", padding:"20px 18px"}}>
+          <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:22, color:c.cream, fontWeight:300, marginBottom:4}}>
+            La cucina sarda
+          </div>
+          <div style={{fontSize:10, color:"#6db86d", letterSpacing:"2px", textTransform:"uppercase", marginBottom:12}}>Blu Zone · Patrimonio UNESCO · Genuinità</div>
+          <p style={{fontSize:13, color:"rgba(245,240,232,0.8)", lineHeight:1.75, margin:"0 0 14px"}}>
+            La Sardegna è una delle cinque <strong style={{color:c.sand}}>Blu Zone</strong> del mondo — luoghi dove si vive più a lungo. Il segreto? Una dieta millenaria: legumi, pane di semola, formaggi pecorino, olio extravergine e vino Cannonau, ricco di antiossidanti.
+          </p>
+          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:14}}>
+            {[
+              ["🍝","Malloreddus","Gnocchetti sardi al ragù di salsiccia"],
+              ["🐚","Fregola","Pasta sferica con arselle o frutti di mare"],
+              ["🐏","Porceddu","Maialino da latte arrosto allo spiedo"],
+              ["🧀","Pecorino","Formaggio DOP stagionato, base della dieta"],
+              ["🫙","Bottarga","Uova di muggine essiccate — il «caviale sardo»"],
+              ["🍩","Seadas","Dolce fritto con formaggio e miele amaro"],
+            ].map(([em,nome,desc])=>(
+              <div key={nome} style={{background:"rgba(255,255,255,0.06)", borderRadius:12, padding:"10px 10px"}}>
+                <div style={{display:"flex", alignItems:"center", gap:6, marginBottom:4}}>
+                  <span style={{fontSize:18}}>{em}</span>
+                  <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:14, color:c.sand, fontWeight:400}}>{nome}</span>
+                </div>
+                <div style={{fontSize:10.5, color:"rgba(245,240,232,0.5)", lineHeight:1.4}}>{desc}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{fontSize:11, color:"rgba(245,240,232,0.4)", lineHeight:1.6, borderTop:"1px solid rgba(255,255,255,0.07)", paddingTop:12}}>
+            💡 Nel weekend <strong style={{color:"rgba(245,240,232,0.7)"}}>prenotate sempre</strong>. Chiedete sempre il <strong style={{color:"rgba(245,240,232,0.7)"}}>vino della casa</strong> — spesso è Cannonau o Vermentino locale.
+          </div>
+        </div>
       </div>
     </div>
   </div>;
@@ -849,11 +915,19 @@ function Eventi({go}) {
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({
-          model:"claude-sonnet-4-20250514", max_tokens:1000,
+          model:"claude-sonnet-4-20250514", max_tokens:1200,
           tools:[{type:"web_search_20250305",name:"web_search"}],
-          messages:[{role:"user",content:`Oggi è ${oggi_str}. Cerca eventi in programma questa settimana in Sardegna area Cagliari e Sulcis-Iglesiente: concerti, teatro, cinema, sagre, festival. Cerca anche il programma aggiornato del Cinema Vittoria di Uta Sardegna. Rispondi SOLO con array JSON puro senza backtick:
-[{"titolo":"Nome","data":"data","luogo":"luogo","tipo":"Concerto|Teatro|Cinema|Sagra|Festival","desc":"max 60 caratteri","link":"url o null"}]
-Max 8 eventi. Solo JSON.`}]
+          messages:[{role:"user",content:`Oggi è ${oggi_str}. Fai una ricerca web e trova eventi in programma QUESTA SETTIMANA (oggi e nei prossimi 7 giorni) in Sardegna, in particolare:
+1. Feste religiose e patronali (esempio: Sant'Efisio 1-4 maggio a Cagliari, feste locali di Uta, Decimomannu, Assemini, Iglesias)
+2. Concerti, spettacoli musicali, festival
+3. Teatro, cinema, eventi culturali
+4. Sagre, mercati, eventi gastronomici
+5. Sport, eventi all'aperto
+Cerca su siti come sardegnaturismo.it, cagliari.it, comune.uta.ca.it e siti di eventi locali sardi.
+Rispondi SOLO con array JSON puro senza backtick né markdown, esempio:
+[{"titolo":"Festa di Sant'Efisio","data":"1-4 maggio","luogo":"Cagliari","tipo":"Sagra","desc":"Processione storica ininterrotta dal 1657","link":"https://www.festadisantefisio.com"}]
+Tipi validi: Concerto, Teatro, Cinema, Sagra, Festival, Sport, Cultura
+Max 10 eventi. SOLO JSON.`}]
         })
       });
       const data = await res.json();
@@ -891,10 +965,10 @@ Max 8 eventi. Solo JSON.`}]
         </div>
       )}
 
-      {/* Sezione live */}
+      {/* Sezione live + feste del calendario come fallback */}
       <div style={{background:c.white,borderRadius:18,padding:"18px",marginBottom:14,border:`1px solid ${c.terra}15`}}>
         <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:19,fontWeight:400,marginBottom:4}}>🔍 Cosa c'è questa settimana</div>
-        <p style={{fontSize:12.5,color:c.muted,lineHeight:1.6,marginBottom:14}}>Concerti, teatro, cinema e sagre nell'area di Cagliari e Sulcis — aggiornati in tempo reale.</p>
+        <p style={{fontSize:12.5,color:c.muted,lineHeight:1.6,marginBottom:14}}>Concerti, teatro, cinema, sagre e feste nell'area di Cagliari e Sulcis.</p>
         {!liveEvents && !loading && (
           <button onClick={fetchLiveEvents} style={{width:"100%",background:c.terra,color:"white",border:"none",borderRadius:12,padding:"13px",fontSize:13,fontFamily:"'Jost',sans-serif",cursor:"pointer"}}>
             ✨ Cerca eventi in programma
@@ -903,7 +977,7 @@ Max 8 eventi. Solo JSON.`}]
         {loading && <div style={{textAlign:"center",padding:"20px 0",color:c.muted,fontSize:13}}>🔍 Sto cercando eventi in corso…</div>}
         {liveEvents && liveEvents.length === 0 && (
           <div style={{textAlign:"center",padding:"16px 0",color:c.muted,fontSize:13}}>
-            Nessun evento trovato.
+            Nessun evento trovato online questa settimana.
             <button onClick={fetchLiveEvents} style={{display:"block",margin:"10px auto 0",background:"none",border:`1px solid ${c.sand}`,borderRadius:10,padding:"8px 16px",fontSize:12,cursor:"pointer",color:c.muted}}>Riprova</button>
           </div>
         )}
@@ -944,21 +1018,6 @@ Max 8 eventi. Solo JSON.`}]
           ))}
         </Card>
       ))}
-
-      {/* Cinema Vittoria — in fondo */}
-      <div style={{background:c.dark,borderRadius:18,padding:"18px",marginTop:4,borderLeft:`3px solid #6aaee0`}}>
-        <div style={{display:"flex",alignItems:"flex-start",gap:12}}>
-          <span style={{fontSize:28}}>🎬</span>
-          <div>
-            <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:19,color:c.cream,fontWeight:300,marginBottom:4}}>Cinema Vittoria — Uta</div>
-            <p style={{fontSize:12.5,color:"rgba(245,240,232,0.7)",lineHeight:1.65,margin:"0 0 12px"}}>Sala storica nel cuore di Uta. Programmazione mista tra cinema d'essai e film commerciali. Un'esperienza autentica a pochi passi da casa.</p>
-            <a href="https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna" target="_blank" rel="noreferrer"
-              style={{display:"inline-flex",alignItems:"center",gap:8,background:"#6aaee0",color:"white",borderRadius:10,padding:"8px 14px",fontSize:12,textDecoration:"none"}}>
-              📍 Come arrivare
-            </a>
-          </div>
-        </div>
-      </div>
 
       <div style={{...s.darkBox,textAlign:"center",marginTop:12}}>
         <p style={{fontSize:12,color:"rgba(245,240,232,0.7)",lineHeight:1.7,margin:0}}>💡 Se il soggiorno coincide con la <strong style={{color:c.sand}}>Festa di Santa Maria</strong> (5–9 sett.) o con <strong style={{color:c.sand}}>Sant'Efisio</strong> siete fortunatissimi!</p>
