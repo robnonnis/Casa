@@ -105,18 +105,18 @@ function PH({go}) {
       <div style={s.sectionLabel}>Esplora la guida</div>
       <div style={s.grid}>
         {[
-          ["benvenuto",<Ic.home/>, "Benvenuto"],
-          ["checkin", <Ic.lock/>, "Check-in / out"],
-          ["wifi", <Ic.wifi/>, "Wi-Fi"],
+          ["benvenuto", <Ic.home/>, "Benvenuto"],
+          ["checkin",   <Ic.lock/>, "Check-in / out"],
+          ["wifi",      <Ic.wifi/>, "Wi-Fi"],
           ["appartamento", <Ic.building/>, "L'appartamento"],
-          ["regole", <Ic.check/>, "Regole casa"],
-          ["posizione", <Ic.pin/>, "Come arrivare"],
-          ["dintorni", <Ic.grid/>, "Dintorni"],
-          ["ristoranti", <Ic.coffee/>, "Ristoranti"],
-          ["eventi", <Ic.cal/>, "Eventi"],
-          ["recensioni", <Ic.star/>, "Recensioni"],
-          ["spesa", <Ic.bag/>, "Spesa"],
-          ["faq", <Ic.faq/>, "FAQ"],
+          ["regole",    <Ic.check/>, "Regole casa"],
+          ["posizione", <Ic.pin/>,  "Come arrivare"],
+          ["esplorare", <Ic.grid/>, "Esplorare"],
+          ["ristoranti",<Ic.coffee/>,"Ristoranti"],
+          ["eventi",    <Ic.cal/>,  "Eventi"],
+          ["recensioni",<Ic.star/>, "Recensioni"],
+          ["spesa",     <Ic.bag/>,  "Spesa"],
+          ["servizi",   <Ic.faq/>,  "Servizi utili"],
         ].map(([id,icon,label])=>(
           <div key={id} style={s.card} onClick={()=>go(id)}>
             {icon}
@@ -303,93 +303,196 @@ function Posizione({go}) {
   </div>;
 }
 
-function ExpCard({emoji, title, dist, desc, link}) {
+function ExpCard({emoji, title, dist, desc, link, tag}) {
   return (
-    <a href={link} target="_blank" rel="noreferrer" style={{display:"block", textDecoration:"none", background:c.white, borderRadius:18, padding:"16px 18px", marginBottom:10, border:`1px solid ${c.terra}15`, transition:"opacity .15s"}}
-      onMouseEnter={e=>e.currentTarget.style.opacity=".85"} onMouseLeave={e=>e.currentTarget.style.opacity="1"}>
+    <a href={link} target="_blank" rel="noreferrer"
+      style={{display:"block", textDecoration:"none", background:c.white, borderRadius:18,
+        padding:"16px 18px", marginBottom:10, border:`1px solid ${c.terra}15`}}
+      onMouseEnter={e=>e.currentTarget.style.background=c.sand}
+      onMouseLeave={e=>e.currentTarget.style.background=c.white}>
       <div style={{display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:6}}>
-        <div style={{display:"flex", alignItems:"center", gap:10}}>
-          <span style={{fontSize:24, flexShrink:0}}>{emoji}</span>
-          <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:18, fontWeight:400, color:c.dark, lineHeight:1.2}}>{title}</span>
+        <div style={{display:"flex", alignItems:"center", gap:10, flex:1, minWidth:0}}>
+          <span style={{fontSize:22, flexShrink:0}}>{emoji}</span>
+          <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17, fontWeight:400,
+            color:c.dark, lineHeight:1.25}}>{title}</span>
         </div>
-        <span style={{fontSize:11, color:c.terra, background:`${c.terra}15`, borderRadius:20, padding:"3px 10px", flexShrink:0, marginLeft:8, marginTop:2}}>{dist}</span>
+        <span style={{fontSize:10, color:c.terra, background:`${c.terra}15`, borderRadius:20,
+          padding:"3px 9px", flexShrink:0, marginLeft:8, marginTop:2, whiteSpace:"nowrap"}}>{dist}</span>
       </div>
-      <p style={{fontSize:13, color:c.muted, lineHeight:1.65, margin:0, paddingLeft:34}}>{desc}</p>
+      <p style={{fontSize:12.5, color:c.muted, lineHeight:1.65, margin:0, paddingLeft:32}}>{desc}</p>
+      {tag && <div style={{paddingLeft:32, marginTop:8}}>
+        <span style={{fontSize:10, background:`${c.green}20`, color:c.green, borderRadius:10, padding:"2px 8px"}}>{tag}</span>
+      </div>}
     </a>
   );
 }
 
-function Dintorni({go}) {
-  const vicino = [
-    {emoji:"🌳", title:"Parco S'Ollivariu", dist:"~5 min", desc:"Verde pubblico appena fuori dal paese, ideale per una passeggiata mattutina o una pausa all'ombra.", link:"https://maps.google.com/?q=Parco+S+Ollivariu+Uta"},
-    {emoji:"⛪", title:"Chiesa di Santa Maria", dist:"~5 min", desc:"Gioiello romanico del XII secolo, una delle chiese medievali meglio conservate del Campidano. Vale una sosta.", link:"https://maps.google.com/?q=Chiesa+Santa+Maria+Uta"},
-    {emoji:"🦩", title:"Fenicotteri & Oasi WWF Santa Gilla", dist:"~10 min", desc:"Uno degli avvistamenti di fenicotteri più spettacolari d'Europa. La laguna ospita colonie di migliaia di esemplari, visibili quasi tutto l'anno.", link:"https://maps.google.com/?q=Oasi+WWF+Santa+Gilla"},
-    {emoji:"🧂", title:"Saline di Conti Vecchi", dist:"~10 min", desc:"Ex saline industriali oggi museo a cielo aperto, con vasche rosa e bianche perfette per le foto. Un paesaggio surreale a pochi minuti.", link:"https://maps.google.com/?q=Saline+Conti+Vecchi+Assemini"},
-  ];
-  const cagliari = [
-    {emoji:"🏖️", title:"Spiaggia del Poetto", dist:"~15 min", desc:"Undici chilometri di sabbia fine a due passi dalla città. Attrezzata e vivace d'estate, silenziosa e romantica in primavera.", link:"https://maps.google.com/?q=Spiaggia+Poetto+Cagliari"},
-    {emoji:"🦢", title:"Molentargius — Parco Naturale", dist:"~15 min", desc:"Stagno metropolitano tra Cagliari e Quartu: aironi, fenicotteri, gallinelle d'acqua. Bello in bici lungo i canali.", link:"https://maps.google.com/?q=Parco+Molentargius+Cagliari"},
-    {emoji:"🏙️", title:"Cagliari — Marina, Castello, Via Roma", dist:"~20 min", desc:"Il cuore storico della città: il quartiere Marina per i tapas bar, Castello per i panorami mozzafiato, Via Roma per la passeggiata sul porto.", link:"https://maps.google.com/?q=Cagliari+centro+storico"},
-    {emoji:"🥾", title:"Sella del Diavolo", dist:"~20 min", desc:"Il promontorio che divide il Poetto da Calamosca. Il sentiero sale tra gariga profumata e offre viste su tutta la costa — tramonto imperdibile.", link:"https://maps.google.com/?q=Sella+del+Diavolo+Cagliari"},
-  ];
-  const cultura = [
-    {emoji:"🎨", title:"San Sperate — Murales di Pinuccio Sciola", dist:"~15 min", desc:"Il paese museo: ogni vicolo è una galleria a cielo aperto. Le sculture sonore di Sciola — pietre che suonano al vento — sono un'esperienza unica al mondo.", link:"https://maps.google.com/?q=Murales+San+Sperate+Sardegna"},
-    {emoji:"🚶", title:"Cammini storici — Sant'Efisio, Santa Barbara, 100 Torri", dist:"~vari", desc:"La Sardegna è solcata da antichi percorsi di pellegrinaggio. Il Cammino di Sant'Efisio (Cagliari–Nora), quello di Santa Barbara e il Cammino dei 100 Torri costiero sono tra i più suggestivi.", link:"https://maps.google.com/?q=Cammino+Sant+Efisio+Sardegna"},
-    {emoji:"🏊", title:"World Aquatics High Diving World Cup — Porto Flavia", dist:"~1h 10min", desc:"La scogliera di Porto Flavia ospita la Coppa del Mondo di tuffi dalle grandi altezze, organizzata da Marmeeting. Uno spettacolo mozzafiato tra mare e miniere.", link:"https://maps.google.com/?q=Porto+Flavia+Nebida+Sardegna"},
-  ];
-  const storia = [
-    {emoji:"🏛️", title:"Scavi di Nora", dist:"~25 min", desc:"La città fenicio-romana più completa della Sardegna, con teatro, terme e mosaici affacciati sul mare. Visita guidata consigliata.", link:"https://maps.google.com/?q=Nora+sito+romano+Pula"},
-    {emoji:"🏰", title:"Villa d'Orri", dist:"~25 min", desc:"Dimora storica ottocentesca immersa in un parco secolare. Architettura elegante in stile neoclassico, talvolta aperta per eventi culturali.", link:"https://maps.google.com/?q=Villa+d+Orri+Sarroch"},
-    {emoji:"⛏️", title:"Miniere di Iglesias e Geoparco", dist:"~50 min", desc:"Il Sulcis-Iglesiente custodisce un patrimonio minerario UNESCO: gallerie, laverie e paesaggi industriali trasformati in musei viventi. Un viaggio nella storia operaia sarda.", link:"https://maps.google.com/?q=Miniere+Iglesias+Sardegna"},
-    {emoji:"🗼", title:"Belvedere di Nebida", dist:"~1h 10min", desc:"L'affaccio sul Pan di Zucchero — lo scoglio più alto del Mediterraneo — è uno degli scorci più fotografati della Sardegna. La luce del tramonto è magica.", link:"https://maps.google.com/?q=Belvedere+Nebida+Sardegna"},
-  ];
-  const natura = [
-    {emoji:"🌊", title:"Chia — spiagge e dune", dist:"~45 min", desc:"Acque caraibiche, dune di sabbia bianca e un'antica torre spagnola. Tra le spiagge più belle d'Italia, da visitare presto la mattina.", link:"https://maps.google.com/?q=Spiaggia+Chia+Sardegna"},
-    {emoji:"🍷", title:"Cantine — Argiolas, Mesa, Audarya", dist:"~20/40 min", desc:"Il Campidano è terra di Vermentino, Cannonau e Carignano. Le cantine Argiolas (Serdiana), Mesa (Sant'Anna Arresi) e Audarya (Serdiana) offrono degustazioni in paesaggi da cartolina.", link:"https://maps.google.com/?q=Cantine+Argiolas+Serdiana"},
-    {emoji:"🥾", title:"Sentieri del Carignano — Sulcis", dist:"~50 min", desc:"Tra i vigneti a piede franco più antichi d'Europa, a strapiombo sul mare. Un'escursione tra viticoltura eroica e panorami sul Sulcis.", link:"https://maps.google.com/?q=Carignano+del+Sulcis+vigneti"},
-    {emoji:"⛵", title:"Carloforte — Isola di San Pietro", dist:"~1h 20min + traghetto", desc:"Raggiungibile in traghetto da Calasetta o Portovesme. Borgo tabarkino dai colori liguri, tonno rosso, vicoli colorati e mare cristallino.", link:"https://maps.google.com/?q=Carloforte+Isola+San+Pietro"},
-    {emoji:"🌊", title:"Villasimius e Costa Rei", dist:"~1h", desc:"L'estremità sud-orientale della Sardegna: acque tra le più trasparenti dell'isola, fondali per lo snorkeling e tramonti infuocati.", link:"https://maps.google.com/?q=Villasimius+Sardegna"},
-  ];
+// ── SERVIZI UTILI (ex Dintorni — solo pratico) ─────────
+function Servizi({go}) {
+  return <div style={s.app}>
+    <PageHead title="Servizi utili" back={()=>go("home")} icon={<Ic.grid/>}/>
+    <div style={s.content}>
 
+      <Card>
+        <CT text="🛒 Spesa — a piedi"/>
+        <Row l="COOP — Via Sa Mura 23 ⭐4.6" v="vicino ›" link="https://maps.google.com/?q=COOP+Via+Sa+Mura+Uta"/>
+        <p style={{fontSize:11,color:c.muted,padding:"2px 0 8px"}}>Lun–Sab 8:00–13:00 / 17:00–20:00 · Dom 8:30–12:30</p>
+        <Row l="ARD Discount — Vico I Decimo 21 ⭐4.5" v="vicino ›" link="https://maps.google.com/?q=ARD+Discount+Uta"/>
+        <Row l="MD — Via P. Mascagni 1 ⭐4.5" v="vicino ›" link="https://maps.google.com/?q=MD+Supermercato+Uta"/>
+        <p style={{fontSize:11,color:c.muted,padding:"2px 0 8px"}}>Orario continuato 8:30–20:00</p>
+        <Row l="Superpan — Assemini ⭐4.1" v="~15 min ›" link="https://maps.google.com/?q=Superpan+Assemini" last/>
+        <p style={{fontSize:11,color:c.muted,padding:"2px 0 0"}}>Lun–Sab 8:30–21:30 · Dom 8:30–14:00/16:30–21:00</p>
+      </Card>
+
+      <Card>
+        <CT text="💊 Salute"/>
+        <Row l="Farmacia Schlich — Via Stazione 5" v="~300m ›" link="https://maps.google.com/?q=Farmacia+Schlich+Uta"/>
+        <Row l="Parafarmacia Bensaid — Via Roma 27 ⭐5.0" v="vicino ›" link="https://maps.google.com/?q=Parafarmacia+Bensaid+Uta"/>
+        <Row l="La Parafarmacia — Via Torino 11A ⭐4.6" v="vicino ›" link="https://maps.google.com/?q=La+Parafarmacia+Uta"/>
+        <Row l="🩺 Guardia Medica — Via S. Giusta 85" v="070 609 2204 ›" link="tel:+390706092204" last/>
+        <p style={{fontSize:11,color:c.muted,padding:"2px 0 0"}}>Feriali 20:00–08:00 · Festivi h24</p>
+      </Card>
+
+      <Card>
+        <CT text="🏦 Banca & Servizi"/>
+        <Row l="ATM Banco di Sardegna" v="vicino ›" link="https://maps.google.com/?q=Banco+di+Sardegna+Uta"/>
+        <Row l="ATM Poste Italiane" v="vicino ›" link="https://maps.google.com/search?q=Poste+Italiane+Uta"/>
+        <Row l="Tabaccheria Coccinella ⭐4.9" v="vicino ›" link="https://maps.google.com/?q=Coccinella+Tabaccheria+Uta"/>
+        <Row l="Comune di Uta" v="vicino ›" link="https://maps.google.com/?q=Comune+di+Uta" last/>
+      </Card>
+
+      <Card>
+        <CT text="🚌 Trasporti"/>
+        <Row l="ARST Linea 125 (Uta–Cagliari)" v="orari ›" link="https://www.arst.sardegna.it/servizi-orari/"/>
+        <p style={{fontSize:11,color:c.muted,padding:"2px 0 8px"}}>Prima 05:40 · Ultima ~22:00</p>
+        <Row l="🚆 Treno Uta-Villaspeciosa" v="orari ›" link="https://www.trenitalia.com"/>
+        <p style={{fontSize:11,color:c.muted,padding:"2px 0 8px"}}>06:27–20:53 · ~22 min per Cagliari</p>
+        <Row l="✈️ Aeroporto Cagliari" v="~10 min ›" link="https://maps.google.com/?q=Aeroporto+Cagliari+Elmas" last/>
+      </Card>
+
+      <div style={s.darkBox}>
+        <p style={{fontSize:12,color:"rgba(245,240,232,0.7)",lineHeight:1.7,margin:0}}>
+          🚨 Emergenze: <strong style={{color:"white"}}>112</strong> &nbsp;·&nbsp;
+          Ambulanza: <strong style={{color:"white"}}>118</strong> &nbsp;·&nbsp;
+          Vigili del fuoco: <strong style={{color:"white"}}>115</strong>
+        </p>
+      </div>
+    </div>
+  </div>;
+}
+
+// ── ESPLORARE (solo tempo libero, esperienze, natura) ───
+function Esplorare({go}) {
   const [tab, setTab] = useState(0);
+
   const tabs = [
-    {label:"Vicino", data:vicino},
-    {label:"Cagliari", data:cagliari},
-    {label:"Cultura", data:cultura},
-    {label:"Storia", data:storia},
-    {label:"Natura", data:natura},
+    { label:"🌿 Vicino", data:[
+      {emoji:"🌳", title:"Parco S'Ollivariu", dist:"~5 min",
+        desc:"Verde pubblico appena fuori dal paese. Ideale per una passeggiata mattutina o una pausa all'ombra tra i lecci.",
+        link:"https://maps.google.com/?q=Parco+S+Ollivariu+Uta"},
+      {emoji:"⛪", title:"Chiesa di Santa Maria", dist:"~5 min",
+        desc:"Gioiello romanico del XII secolo, tra le meglio conservate del Campidano. Facciata in pietra calcarea, interno austero e suggestivo.",
+        link:"https://maps.google.com/?q=Chiesa+Santa+Maria+Uta"},
+      {emoji:"🦩", title:"Fenicotteri — Oasi WWF Santa Gilla", dist:"~10 min",
+        desc:"Una delle colonie di fenicotteri più grandi d'Europa. Visibili quasi tutto l'anno nelle vasche della laguna, spesso a centinaia.",
+        link:"https://maps.google.com/?q=Oasi+WWF+Santa+Gilla", tag:"Natura"},
+      {emoji:"🧂", title:"Saline di Conti Vecchi", dist:"~10 min",
+        desc:"Ex saline industriali trasformate in museo a cielo aperto. Le vasche virano dal bianco al rosa shocking: un paesaggio surreale e fotogenico.",
+        link:"https://maps.google.com/?q=Saline+Conti+Vecchi+Assemini", tag:"Foto imperdibili"},
+      {emoji:"🦢", title:"Parco di Molentargius", dist:"~15 min",
+        desc:"Stagno metropolitano tra Cagliari e Quartu. Aironi, fenicotteri e gallinelle d'acqua a due passi dalla città. Bellissimo in bici.",
+        link:"https://maps.google.com/?q=Parco+Molentargius+Cagliari", tag:"Natura"},
+    ]},
+    { label:"🏙️ Cagliari", data:[
+      {emoji:"🏙️", title:"Marina, Castello & Via Roma", dist:"~20 min",
+        desc:"Il cuore storico: il quartiere Marina per i tapas bar sardi, Castello per i panorami sul Golfo, Via Roma per la passeggiata sul porto.",
+        link:"https://maps.google.com/?q=Cagliari+centro+storico"},
+      {emoji:"🥾", title:"Sella del Diavolo", dist:"~20 min",
+        desc:"Il promontorio che separa il Poetto da Calamosca. Sentiero tra gariga profumata, vedute mozzafiato su tutta la costa. Tramonto imperdibile.",
+        link:"https://maps.google.com/?q=Sella+del+Diavolo+Cagliari", tag:"Trekking"},
+      {emoji:"🏖️", title:"Spiaggia del Poetto", dist:"~15 min",
+        desc:"Undici km di sabbia fine a due passi dalla città. Vivace d'estate con stabilimenti e chioschi, silenziosa e romantica in primavera.",
+        link:"https://maps.google.com/?q=Spiaggia+Poetto+Cagliari"},
+      {emoji:"⚽", title:"Unipol Domus — Cagliari Calcio", dist:"~25 min",
+        desc:"Lo stadio del Cagliari Calcio, recentemente ristrutturato sul lungomare. Se c'è una partita, un'esperienza molto sarda.",
+        link:"https://maps.google.com/?q=Unipol+Domus+Cagliari"},
+    ]},
+    { label:"🎨 Cultura", data:[
+      {emoji:"🎨", title:"San Sperate — Murales & Sciola", dist:"~15 min",
+        desc:"Il paese museo: ogni vicolo è una galleria a cielo aperto. Le sculture sonore di Pinuccio Sciola — pietre che suonano al vento — sono un'esperienza unica al mondo.",
+        link:"https://maps.google.com/?q=Murales+San+Sperate+Sardegna", tag:"Da non perdere"},
+      {emoji:"🚶", title:"Cammini — Sant'Efisio, Santa Barbara, 100 Torri", dist:"vari",
+        desc:"Antichi percorsi di pellegrinaggio. Il Cammino di Sant'Efisio (Cagliari–Nora), quello di Santa Barbara nel Sulcis e il Cammino dei 100 Torri costiero.",
+        link:"https://maps.google.com/?q=Cammino+Sant+Efisio+Sardegna", tag:"Trekking / Spirituale"},
+      {emoji:"🏛️", title:"Scavi di Nora", dist:"~25 min",
+        desc:"La città fenicio-romana più completa della Sardegna. Teatro, terme e mosaici affacciati direttamente sul mare. Visita guidata consigliata.",
+        link:"https://maps.google.com/?q=Nora+sito+romano+Pula", tag:"Archeologia"},
+      {emoji:"🏰", title:"Villa d'Orri", dist:"~25 min",
+        desc:"Dimora storica ottocentesca immersa in un parco secolare. Stile neoclassico, talvolta aperta per eventi culturali e matrimoni.",
+        link:"https://maps.google.com/?q=Villa+d+Orri+Sarroch"},
+    ]},
+    { label:"🍷 Esperienze", data:[
+      {emoji:"🍷", title:"Cantine — Argiolas, Mesa, Audarya", dist:"~20–40 min",
+        desc:"Il Campidano è terra di Vermentino, Cannonau e Monica. Argiolas a Serdiana e Audarya sono ottimi per degustazioni; Mesa a Sant'Anna Arresi per il Carignano.",
+        link:"https://maps.google.com/?q=Cantine+Argiolas+Serdiana", tag:"Degustazione"},
+      {emoji:"🏊", title:"World Aquatics High Diving — Porto Flavia", dist:"~1h 10min",
+        desc:"La scogliera di Porto Flavia ospita la Coppa del Mondo di tuffi in altura organizzata da Marmeeting. Uno spettacolo unico tra mare e miniere.",
+        link:"https://maps.google.com/?q=Porto+Flavia+Nebida+Sardegna", tag:"Evento sportivo"},
+      {emoji:"⛵", title:"Carloforte — Isola di San Pietro", dist:"~1h 20min + traghetto",
+        desc:"Borgo tabarkino raggiungibile da Portovesme o Calasetta. Vicoli colorati, tonno rosso di qualità eccezionale, mare cristallino. Una giornata intera.",
+        link:"https://maps.google.com/?q=Carloforte+Isola+San+Pietro", tag:"Gita in barca"},
+    ]},
+    { label:"🌊 Natura", data:[
+      {emoji:"🥾", title:"Sentieri del Carignano — Sulcis", dist:"~50 min",
+        desc:"Vigneti a piede franco tra i più antichi d'Europa, a strapiombo sul mare. Un'escursione tra viticoltura eroica e panorami sul Sulcis.",
+        link:"https://maps.google.com/?q=Carignano+del+Sulcis+vigneti", tag:"Trekking"},
+      {emoji:"⛏️", title:"Miniere & Geoparco di Iglesias", dist:"~50 min",
+        desc:"Patrimonio UNESCO: gallerie, laverie e paesaggi industriali trasformati in musei. Il Museo del Carbone di Serbariu è un punto di partenza ottimo.",
+        link:"https://maps.google.com/?q=Miniere+Iglesias+Sardegna"},
+      {emoji:"🗼", title:"Belvedere di Nebida & Pan di Zucchero", dist:"~1h 10min",
+        desc:"Il Pan di Zucchero è lo scoglio più alto del Mediterraneo. Il belvedere di Nebida è uno degli scorci più fotografati della Sardegna — tramonto magico.",
+        link:"https://maps.google.com/?q=Belvedere+Nebida+Sardegna", tag:"Foto imperdibili"},
+      {emoji:"🏖️", title:"Chia — spiagge e dune", dist:"~45 min",
+        desc:"Acque caraibiche, dune di sabbia bianca e torre spagnola medievale. Tra le spiagge più belle d'Italia. Meglio arrivare presto la mattina.",
+        link:"https://maps.google.com/?q=Spiaggia+Chia+Sardegna"},
+      {emoji:"🌊", title:"Villasimius & Costa Rei", dist:"~1h",
+        desc:"La costa sud-est della Sardegna: acque tra le più trasparenti dell'isola, fondali per snorkeling e immersioni, e borghi quasi desertici in primavera.",
+        link:"https://maps.google.com/?q=Villasimius+Sardegna"},
+    ]},
   ];
 
   return <div style={s.app}>
-    <PageHead title="Da vedere & vivere" back={()=>go("home")} icon={<Ic.grid/>}/>
+    <PageHead title="Esplorare" back={()=>go("home")} icon={<Ic.pin/>}/>
     <div style={s.content}>
       <div style={s.hlBox}>
         <div style={s.hlTitle}>La Sardegna a portata di mano</div>
-        <p style={{fontSize:14,lineHeight:1.7,opacity:0.92,margin:0}}>Da Uta raggiungi in poco tempo spiagge, siti UNESCO, cantine, sentieri e borghi unici. Scorri le categorie qui sotto.</p>
+        <p style={{fontSize:14, lineHeight:1.7, opacity:0.92, margin:0}}>
+          Da Uta raggiungi in poco tempo spiagge, siti UNESCO, cantine, sentieri e borghi unici.
+        </p>
       </div>
 
-      {/* Tab bar */}
-      <div style={{display:"flex", gap:8, overflowX:"auto", scrollbarWidth:"none", marginBottom:16, paddingBottom:2}}>
-        {tabs.map(({label},i)=>(
-          <button key={label} onClick={()=>setTab(i)} style={{flexShrink:0, background: i===tab ? c.terra : c.white, color: i===tab ? "white" : c.muted, border: `1px solid ${i===tab ? c.terra : c.sand}`, borderRadius:20, padding:"7px 16px", fontSize:12, fontFamily:"'Jost',sans-serif", cursor:"pointer", fontWeight: i===tab ? 500 : 300}}>
+      {/* Tab bar scrollabile */}
+      <div style={{display:"flex", gap:8, overflowX:"auto", scrollbarWidth:"none",
+        marginBottom:18, paddingBottom:4, WebkitOverflowScrolling:"touch"}}>
+        {tabs.map(({label}, i) => (
+          <button key={i} onClick={()=>setTab(i)} style={{
+            flexShrink:0, background: i===tab ? c.terra : c.white,
+            color: i===tab ? "white" : c.muted,
+            border: `1px solid ${i===tab ? c.terra : c.sand}`,
+            borderRadius:20, padding:"8px 16px", fontSize:12,
+            fontFamily:"'Jost',sans-serif", cursor:"pointer",
+            fontWeight: i===tab ? 500 : 300, whiteSpace:"nowrap",
+          }}>
             {label}
           </button>
         ))}
       </div>
 
-      {tabs[tab].data.map((p,i)=><ExpCard key={i} {...p}/>)}
+      <div style={{fontSize:11, color:c.muted, marginBottom:14, letterSpacing:"0.5px"}}>
+        {tabs[tab].data.length} posti · tocca per aprire in Maps
+      </div>
 
-      <Card style={{marginTop:4}}><CT text="💊 Salute"/>
-        <Row l="Farmacia Schlich — Via Stazione 5" v="~300m ›" link="https://maps.google.com/?q=Farmacia+Schlich+Uta"/>
-        <Row l="Parafarmacia Bensaid — Via Roma 27 ⭐5.0" v="vicino ›" link="https://maps.google.com/?q=Parafarmacia+Bensaid+Uta"/>
-        <Row l="La Parafarmacia — Via Torino 11A ⭐4.6" v="vicino ›" link="https://maps.google.com/?q=La+Parafarmacia+Uta" last/>
-      </Card>
-      <Card><CT text="🏛️ Servizi a Uta"/>
-        <Row l="🚬 Tabaccheria Coccinella ⭐4.9" v="vicino ›" link="https://maps.google.com/?q=Coccinella+Tabaccheria+Uta"/>
-        <Row l="🏦 ATM Banco di Sardegna" v="vicino ›" link="https://maps.google.com/?q=Banco+di+Sardegna+Uta"/>
-        <Row l="📮 ATM Poste Italiane" v="vicino ›" link="https://maps.google.com/search?q=Poste+Italiane+Uta"/>
-        <Row l="🏛️ Comune di Uta" v="vicino ›" link="https://maps.google.com/?q=Comune+di+Uta" last/>
-      </Card>
+      {tabs[tab].data.map((p,i) => <ExpCard key={i} {...p}/>)}
     </div>
   </div>;
 }
@@ -559,8 +662,9 @@ export default function CasaUta() {
   const screens = {
     home: <PH go={go}/>, benvenuto:<Benvenuto go={go}/>, checkin:<Checkin go={go}/>,
     wifi:<Wifi go={go}/>, appartamento:<Appartamento go={go}/>, regole:<Regole go={go}/>,
-    posizione:<Posizione go={go}/>, dintorni:<Dintorni go={go}/>, ristoranti:<Ristoranti go={go}/>,
-    eventi:<Eventi go={go}/>, recensioni:<Recensioni go={go}/>, spesa:<Spesa go={go}/>, faq:<FAQ go={go}/>,
+    posizione:<Posizione go={go}/>, esplorare:<Esplorare go={go}/>, ristoranti:<Ristoranti go={go}/>,
+    eventi:<Eventi go={go}/>, recensioni:<Recensioni go={go}/>, spesa:<Spesa go={go}/>,
+    servizi:<Servizi go={go}/>, faq:<FAQ go={go}/>,
   };
   return screens[screen] || <PH go={go}/>;
 }
