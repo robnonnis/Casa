@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Google Fonts: Cormorant Garamond + Jost
 const FontLink = () => (
@@ -481,11 +481,75 @@ function Esplorare({go}) {
     },
   ];
 
+  const [meteo, setMeteo] = useState(null);
+  const [meteoLoad, setMeteoLoad] = useState(false);
+
+  const fetchMeteo = async () => {
+    setMeteoLoad(true);
+    try {
+      // Open-Meteo API — Uta (CA): lat 39.29, lon 8.96 — gratuita, no key
+      const url = "https://api.open-meteo.com/v1/forecast?latitude=39.29&longitude=8.96&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=Europe%2FRome&forecast_days=3";
+      const res = await fetch(url);
+      const d = await res.json();
+      const wmoLabel = (code) => {
+        if (code === 0) return ["☀️","Sole"];
+        if (code <= 2) return ["⛅","Poco nuvoloso"];
+        if (code <= 3) return ["☁️","Nuvoloso"];
+        if (code <= 49) return ["🌫️","Nebbia"];
+        if (code <= 59) return ["🌦️","Pioviggine"];
+        if (code <= 69) return ["🌧️","Pioggia"];
+        if (code <= 79) return ["🌨️","Neve"];
+        if (code <= 84) return ["🌦️","Rovesci"];
+        return ["⛈️","Temporale"];
+      };
+      const days = ["Oggi","Domani","Dopodomani"];
+      const parsed = d.daily.time.slice(0,3).map((date,i)=>{
+        const [ico,label] = wmoLabel(d.daily.weathercode[i]);
+        return { day:days[i], ico, label,
+          max: Math.round(d.daily.temperature_2m_max[i]),
+          min: Math.round(d.daily.temperature_2m_min[i]),
+          rain: d.daily.precipitation_sum[i] };
+      });
+      setMeteo(parsed);
+    } catch(e) { setMeteo([]); }
+    setMeteoLoad(false);
+  };
+
+  // Carica meteo automaticamente al mount
+  useEffect(()=>{ fetchMeteo(); }, []);
+
   const t = tabs[tab];
 
   return <div style={s.app}>
     <PageHead title="Esplorare" back={()=>go("home")} icon={<Ic.pin/>}/>
     <div style={s.content}>
+
+      {/* Banner meteo 3 giorni */}
+      <div style={{background:c.dark, borderRadius:18, padding:"16px 18px", marginBottom:16, overflow:"hidden", position:"relative"}}>
+        <div style={{position:"absolute",top:-30,right:-30,width:120,height:120,background:"radial-gradient(circle,#6aaee040,transparent 70%)",pointerEvents:"none"}}/>
+        <div style={{fontSize:9, letterSpacing:"3px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginBottom:12}}>📍 Uta · Previsioni</div>
+        {meteoLoad && <div style={{color:"rgba(245,240,232,0.5)",fontSize:13,textAlign:"center",padding:"12px 0"}}>Caricamento meteo…</div>}
+        {!meteoLoad && meteo && meteo.length > 0 && (
+          <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:8}}>
+            {meteo.map((g,i)=>(
+              <div key={i} style={{textAlign:"center", background:"rgba(255,255,255,0.05)", borderRadius:12, padding:"12px 6px"}}>
+                <div style={{fontSize:9, letterSpacing:"2px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginBottom:6}}>{g.day}</div>
+                <div style={{fontSize:28, lineHeight:1, marginBottom:6}}>{g.ico}</div>
+                <div style={{fontSize:11, color:"rgba(245,240,232,0.7)", marginBottom:6, lineHeight:1.3}}>{g.label}</div>
+                <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:18, color:"white"}}>{g.max}°</div>
+                <div style={{fontSize:10, color:"rgba(245,240,232,0.4)"}}>{g.min}° min</div>
+                {g.rain > 0 && <div style={{fontSize:10, color:"#6aaee0", marginTop:4}}>💧 {g.rain}mm</div>}
+              </div>
+            ))}
+          </div>
+        )}
+        {!meteoLoad && meteo && meteo.length === 0 && (
+          <div style={{textAlign:"center",padding:"10px 0"}}>
+            <span style={{fontSize:12,color:"rgba(245,240,232,0.4)"}}>Meteo non disponibile</span>
+            <button onClick={fetchMeteo} style={{display:"block",margin:"8px auto 0",background:"none",border:"1px solid rgba(255,255,255,0.2)",borderRadius:8,padding:"5px 12px",fontSize:11,color:"rgba(245,240,232,0.5)",cursor:"pointer"}}>Riprova</button>
+          </div>
+        )}
+      </div>
 
       {/* Tab visivi a blocchi colorati */}
       <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, marginBottom:20}}>
@@ -602,57 +666,170 @@ function Servizi({go}) {
   </div>;
 }
 
+function RCard({emoji, nome, stelle, dist, tipo, piatti, link}) {
+  return (
+    <a href={link} target="_blank" rel="noreferrer" style={{
+      display:"block", textDecoration:"none", background:c.white,
+      borderRadius:16, padding:"14px 16px", marginBottom:10,
+      border:`1px solid ${c.terra}15`, overflow:"hidden"
+    }}
+      onMouseEnter={e=>e.currentTarget.style.borderColor=c.terra}
+      onMouseLeave={e=>e.currentTarget.style.borderColor=`${c.terra}15`}>
+      <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:6}}>
+        <div style={{display:"flex", alignItems:"center", gap:8}}>
+          <span style={{fontSize:20}}>{emoji}</span>
+          <div>
+            <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:16, fontWeight:400, color:c.dark, lineHeight:1.2}}>{nome}</div>
+            <div style={{fontSize:10, color:c.muted, marginTop:2}}>{tipo}</div>
+          </div>
+        </div>
+        <div style={{display:"flex", flexDirection:"column", alignItems:"flex-end", gap:3, flexShrink:0, marginLeft:8}}>
+          {stelle && <span style={{fontSize:11, color:"#b8860b", fontWeight:600}}>⭐ {stelle}</span>}
+          <span style={{fontSize:10, color:c.terra, background:`${c.terra}12`, borderRadius:10, padding:"2px 8px", whiteSpace:"nowrap"}}>{dist}</span>
+        </div>
+      </div>
+      {piatti && <div style={{fontSize:12, color:c.muted, lineHeight:1.6, paddingLeft:28, fontStyle:"italic"}}>{piatti}</div>}
+    </a>
+  );
+}
+
 function Ristoranti({go}) {
   return <div style={s.app}>
     <PageHead title="Dove mangiare" back={()=>go("home")} icon={<Ic.coffee/>}/>
     <div style={s.content}>
-      <Card><CT text="🏠 A Uta — a piedi"/>
-        <Row l="🍔 Slim Pickins American Fusion ⭐4.9" v="vicino ›" link="https://maps.google.com/?q=Slim+Pickins+Uta"/>
-        <Row l="🍺 U3 Birreria & Steakhouse ⭐4.8" v="vicino ›" link="https://maps.google.com/?q=U3+Birreria+Uta"/>
-        <Row l="🥩 El Miura ⭐4.6" v="vicino ›" link="https://maps.google.com/?q=El+Miura+Uta"/>
-        <Row l="🍽️ Ristorante Da Caterina ⭐4.4" v="vicino ›" link="https://maps.google.com/?q=Ristorante+Da+Caterina+Uta"/>
-        <Row l="🍕 Sa Locanda di Gaia ⭐4.4" v="vicino ›" link="https://maps.google.com/?q=Pizzeria+Sa+Locanda+Di+Gaia+Uta" last/>
+
+      <Card>
+        <CT text="🏠 A Uta — a piedi"/>
+        <RCard emoji="🍔" nome="Slim Pickins" stelle="4.9" dist="vicino" tipo="American Fusion"
+          piatti="Burger gourmet, pulled pork, ali di pollo croccanti. Ingredienti locali in chiave americana."
+          link="https://maps.google.com/?q=Slim+Pickins+Uta"/>
+        <RCard emoji="🍺" nome="U3 Birreria & Steakhouse" stelle="4.8" dist="vicino" tipo="Birra artigianale · Carne"
+          piatti="Birre artigianali sarde, tagliata di manzo, hamburger di Angus. Atmosfera rustica e conviviale."
+          link="https://maps.google.com/?q=U3+Birreria+Uta"/>
+        <RCard emoji="🥩" nome="El Miura" stelle="4.6" dist="vicino" tipo="Steakhouse · Cucina sarda"
+          piatti="Grigliate di carne, porceddu, secondi di terra. Ambiente familiare e porzioni generose."
+          link="https://maps.google.com/?q=El+Miura+Uta"/>
+        <RCard emoji="🍽️" nome="Ristorante Da Caterina" stelle="4.4" dist="vicino" tipo="Cucina sarda tradizionale"
+          piatti="Malloreddus al ragù, fregola, agnello al forno. Piatti della nonna, autentici e abbondanti."
+          link="https://maps.google.com/?q=Ristorante+Da+Caterina+Uta"/>
+        <RCard emoji="🍕" nome="Sa Locanda di Gaia" stelle="4.4" dist="vicino" tipo="Pizza · Cucina sarda"
+          piatti="Pizze al forno a legna, pane carasau con guarnizioni, antipasti misti sardi."
+          link="https://maps.google.com/?q=Pizzeria+Sa+Locanda+Di+Gaia+Uta"/>
       </Card>
-      <Card><CT text="☕ Bar"/>
-        <Row l="Check Mate Bar — Via Stazione 52 ⭐4.7" v="vicino ›" link="https://maps.google.com/?q=Checkmate+Bar+Uta"/>
-        <Row l="Caffè Roma — Uta" v="vicino ›" link="https://maps.google.com/search?q=Caffe+Roma+Uta"/>
-        <Row l="New Bar Mexico — Assemini ⭐4.7" v="~15 min ›" link="https://maps.google.com/?q=New+Bar+Mexico+Assemini" last/>
+
+      <Card>
+        <CT text="☕ Bar"/>
+        <RCard emoji="☕" nome="Check Mate Bar" stelle="4.7" dist="vicino" tipo="Bar · Aperitivi"
+          piatti="Colazioni sarde, caffè, aperitivi con stuzzichini locali. Meta dei giocatori di scacchi del paese."
+          link="https://maps.google.com/?q=Checkmate+Bar+Uta"/>
+        <RCard emoji="☕" nome="Caffè Roma" dist="vicino" tipo="Bar storico"
+          piatti="Cornetti, paste fresche, caffè. Il ritrovo mattutino dei residenti di Uta."
+          link="https://maps.google.com/search?q=Caffe+Roma+Uta"/>
+        <RCard emoji="☕" nome="New Bar Mexico" stelle="4.7" dist="~15 min" tipo="Bar · Pasticceria"
+          piatti="Dolci sardi, seadas, paste di mandorle, ottima colazione. Tappa golosa ad Assemini."
+          link="https://maps.google.com/?q=New+Bar+Mexico+Assemini"/>
       </Card>
-      <Card><CT text="🚗 Circondario — 10/20 min"/>
-        <Row l="⭐ Le Pizzi'ine di Niky ⭐4.9" v="~10 min ›" link="https://maps.google.com/?q=Le+Pizziine+di+Niky+Decimomannu"/>
-        <Row l="🐟 Ci Pensa Marco ⭐4.8" v="~10 min ›" link="https://maps.google.com/?q=Ci+Pensa+Marco+Decimomannu"/>
-        <Row l="🍽️ Thalìa — Elmas" v="~10 min ›" link="https://maps.google.com/?q=Ristorante+Thalia+Elmas"/>
-        <Row l="🍺 Gasthaus — Assemini ⭐4.6" v="~15 min ›" link="https://maps.google.com/?q=Gasthaus+Assemini"/>
-        <Row l="🍕 Malloci Pizza e Cucina ⭐4.4" v="~15 min ›" link="https://maps.google.com/?q=Malloci+Assemini"/>
-        <Row l="🍱 Makito Poke & Sushi ⭐4.7" v="~15 min ›" link="https://maps.google.com/?q=Makito+Assemini"/>
-        <Row l="⭐ Lughènte Fine Dining ⭐4.9" v="~20 min ›" link="https://maps.google.com/?q=Lughente+Capoterra"/>
-        <Row l="🌊 Arcadia Restaurant ⭐4.5" v="~20 min ›" link="https://maps.google.com/?q=Arcadia+Restaurant+Capoterra" last/>
+
+      <Card>
+        <CT text="🚗 Circondario — 10/20 min"/>
+        <RCard emoji="🍕" nome="Le Pizzi'ine di Niky" stelle="4.9" dist="~10 min" tipo="Pizzeria napoletana"
+          piatti="Pizza napoletana verace, impasto a lunga lievitazione, farciture creative. Tra le migliori nell'area."
+          link="https://maps.google.com/?q=Le+Pizziine+di+Niky+Decimomannu"/>
+        <RCard emoji="🐟" nome="Ci Pensa Marco" stelle="4.8" dist="~10 min" tipo="Pesce · Cucina sarda"
+          piatti="Fregola con arselle, spaghetti all'astice, fritto misto di paranza. Freschissimo ogni giorno."
+          link="https://maps.google.com/?q=Ci+Pensa+Marco+Decimomannu"/>
+        <RCard emoji="🍽️" nome="Thalìa" dist="~10 min" tipo="Cucina mediterranea · Elmas"
+          piatti="Cucina di territorio con influenze mediterranee, carni e pesce. Ambiente curato."
+          link="https://maps.google.com/?q=Ristorante+Thalia+Elmas"/>
+        <RCard emoji="🌿" nome="Ada Restaurant" stelle="4.7" dist="~15 min" tipo="Cucina sarda creativa · San Sperate"
+          piatti="Cucina sarda reinterpretata con creatività: malloreddus al mirto, agnello con erbe aromatiche, dolci tipici rivisitati. Accanto ai murales di Sciola."
+          link="https://maps.google.com/?q=Ada+Restaurant+San+Sperate"/>
+        <RCard emoji="🍺" nome="Gasthaus" stelle="4.6" dist="~15 min" tipo="Birreria tedesca · Assemini"
+          piatti="Würstel, crauti, stinco di maiale, birre tedesche alla spina. Un'anomalia felice in Sardegna."
+          link="https://maps.google.com/?q=Gasthaus+Assemini"/>
+        <RCard emoji="🍕" nome="Malloci Pizza e Cucina" stelle="4.4" dist="~15 min" tipo="Pizza · Cucina sarda"
+          piatti="Pizze gourmet e piatti sardi. Impasto croccante, ottimi ingredienti locali."
+          link="https://maps.google.com/?q=Malloci+Assemini"/>
+        <RCard emoji="🍱" nome="Makito Poke & Sushi" stelle="4.7" dist="~15 min" tipo="Giapponese · Fusion"
+          piatti="Poke bowl personalizzate, sushi rolls, tartare di tonno. Ideale per una pausa fresca e leggera."
+          link="https://maps.google.com/?q=Makito+Assemini"/>
+        <RCard emoji="⭐" nome="Lughènte Fine Dining" stelle="4.9" dist="~20 min" tipo="Alta cucina · Capoterra"
+          piatti="Menù degustazione con prodotti sardi d'eccellenza: bottarga, agnello, formaggi pecorino DOP. Prenotazione obbligatoria."
+          link="https://maps.google.com/?q=Lughente+Capoterra"/>
+        <RCard emoji="🌊" nome="Arcadia Restaurant" stelle="4.5" dist="~20 min" tipo="Cucina di mare · Capoterra"
+          piatti="Pesce freschissimo, linguine all'aragosta, antipasti di mare. Vista suggestiva sul litorale."
+          link="https://maps.google.com/?q=Arcadia+Restaurant+Capoterra"/>
       </Card>
-      <Card><CT text="🐟 Cagliari — pesce fresco ~20 min"/>
-        <Row l="🐠 Stella Marina di Montecristo ⭐4.6" v="›" link="https://maps.google.com/?q=Stella+Marina+di+Montecristo+Cagliari"/>
-        <Row l="🦐 Mari Mannu ⭐4.6" v="›" link="https://maps.google.com/?q=Mari+Mannu+Cagliari"/>
-        <Row l="🐟 Mondo & Luca ⭐4.6" v="›" link="https://maps.google.com/?q=Mondo+e+Luca+Cagliari" last/>
+
+      <Card>
+        <CT text="🐟 Cagliari — pesce fresco ~20 min"/>
+        <RCard emoji="🐠" nome="Stella Marina di Montecristo" stelle="4.6" dist="~20 min" tipo="Ristorante di pesce"
+          piatti="Crudi di mare, zuppa di pesce, spaghetti con bottarga di muggine. Freschezza assoluta."
+          link="https://maps.google.com/?q=Stella+Marina+di+Montecristo+Cagliari"/>
+        <RCard emoji="🦐" nome="Mari Mannu" stelle="4.6" dist="~20 min" tipo="Cucina di mare"
+          piatti="Antipasto di mare ricchissimo, grigliata mista, fregola con frutti di mare. Vista porto."
+          link="https://maps.google.com/?q=Mari+Mannu+Cagliari"/>
+        <RCard emoji="🐟" nome="Mondo & Luca" stelle="4.6" dist="~20 min" tipo="Trattoria di pesce"
+          piatti="Ambiente informale, qualità altissima. Crudi, pasta al sugo di scorfano, dolci fatti in casa."
+          link="https://maps.google.com/?q=Mondo+e+Luca+Cagliari"/>
       </Card>
-      <div style={{...s.darkBox,textAlign:"center"}}><p style={{fontSize:12,color:"rgba(245,240,232,0.7)",lineHeight:1.7,margin:0}}>💡 Consiglio: prenotate sempre nel weekend.<br/>Da provare: <strong style={{color:c.sand}}>fregola</strong>, <strong style={{color:c.sand}}>malloreddus</strong>, <strong style={{color:c.sand}}>porceddu</strong>.</p></div>
+
+      <div style={{...s.darkBox,textAlign:"center"}}>
+        <p style={{fontSize:12,color:"rgba(245,240,232,0.7)",lineHeight:1.8,margin:0}}>
+          💡 Nel weekend prenotate sempre.<br/>
+          Da non perdere: <strong style={{color:c.sand}}>fregola con arselle</strong>, <strong style={{color:c.sand}}>malloreddus al ragù</strong>, <strong style={{color:c.sand}}>porceddu arrosto</strong>.
+        </p>
+      </div>
     </div>
   </div>;
 }
 
 function Eventi({go}) {
   const oggi = new Date();
+  const meseCorrente = oggi.getMonth() + 1; // 1-12
 
-  // Calcola se un evento fisso cade nei prossimi 7 giorni
-  const eventiFissi = [
-    {mese:1, giorno:12, titolo:"Festa di Santa Greca", luogo:"Decimomannu", emoji:"🕯️"},
-    {mese:5, giorno:1,  titolo:"Festa di Sant'Efisio", luogo:"Cagliari", emoji:"🎖️", link:"https://www.festadisantefisio.com"},
-    {mese:5, giorno:14, titolo:"Santa Giusta — patrona di Uta", luogo:"Uta", emoji:"🌸"},
-    {mese:8, giorno:13, titolo:"Corteo Storico Medievale", luogo:"Iglesias", emoji:"⚔️"},
-    {mese:8, giorno:15, titolo:"Assunzione B.V. Maria", luogo:"Uta", emoji:"🕯️"},
-    {mese:9, giorno:5,  titolo:"Festa di Santa Maria (inizio)", luogo:"Uta", emoji:"🌟"},
-    {mese:9, giorno:9,  titolo:"Festa di Santa Maria (fine)", luogo:"Uta", emoji:"🎆"},
-    {mese:12, giorno:13, titolo:"Santa Lucia", luogo:"Uta", emoji:"🕯️"},
+  const tuttiEvs = [
+    {mese:1, m:"Gennaio", evs:[{d:"12 gennaio",t:"🕯️ Festa di Santa Greca (Decimomannu)"}]},
+    {mese:5, m:"Maggio", evs:[
+      {d:"1–4 maggio",t:"🎖️ Festa di Sant'Efisio (Cagliari) — processione ininterrotta dal 1657",link:"https://www.festadisantefisio.com"},
+      {d:"14 maggio",t:"🌸 Santa Giusta, patrona di Uta"},
+      {d:"Primo sabato dopo il 14",t:"🌾 Sant'Isidoro (Uta) — festa agricola"},
+    ]},
+    {mese:8, m:"Agosto", evs:[
+      {d:"13 agosto",t:"⚔️ Corteo Storico Medievale (Iglesias) — 700 figuranti"},
+      {d:"15 agosto",t:"🕯️ Assunzione B.V. Maria + processione solenne (Uta)"},
+    ]},
+    {mese:7, m:"Estate (luglio/agosto)", evs:[
+      {d:"Luglio / Agosto",t:"🏊 World Aquatics High Diving World Cup — Porto Flavia (Nebida). Coppa del Mondo di tuffi organizzata da Marmeeting. Spettacolo unico tra mare e miniere.",link:"https://maps.google.com/?q=Porto+Flavia+Nebida+Sardegna"},
+    ]},
+    {mese:9, m:"Settembre", evs:[
+      {d:"5–9 settembre",t:"🌟 Festa di Santa Maria (Uta) — la più attesa! Concerti, fuochi d'artificio"},
+      {d:"Fine settembre",t:"🎊 Festa di Santa Greca (Decimomannu)"},
+    ]},
+    {mese:11, m:"Novembre", evs:[
+      {d:"Terza domenica",t:"🏃 Maratonina Città di Uta — 21 km, 10,5 km, family run 4 km · ore 10:00 da Via Stazione",link:"https://maratoninadiuta.it"},
+    ]},
+    {mese:12, m:"Dicembre", evs:[{d:"13 dicembre",t:"🕯️ Santa Lucia (Uta)"}]},
   ];
 
+  // Ordina: dal mese corrente in poi, poi quelli già passati
+  const evs = [
+    ...tuttiEvs.filter(e => e.mese >= meseCorrente).sort((a,b) => a.mese - b.mese),
+    ...tuttiEvs.filter(e => e.mese < meseCorrente).sort((a,b) => a.mese - b.mese),
+  ];
+
+  // Calcola imminenti (entro 7 giorni)
+  const eventiFissi = [
+    {mese:1,giorno:12,titolo:"Festa di Santa Greca",luogo:"Decimomannu",emoji:"🕯️"},
+    {mese:5,giorno:1,titolo:"Festa di Sant'Efisio",luogo:"Cagliari",emoji:"🎖️"},
+    {mese:5,giorno:14,titolo:"Santa Giusta — patrona di Uta",luogo:"Uta",emoji:"🌸"},
+    {mese:8,giorno:13,titolo:"Corteo Medievale",luogo:"Iglesias",emoji:"⚔️"},
+    {mese:8,giorno:15,titolo:"Assunzione B.V. Maria",luogo:"Uta",emoji:"🕯️"},
+    {mese:9,giorno:5,titolo:"Festa di Santa Maria (inizio)",luogo:"Uta",emoji:"🌟"},
+    {mese:9,giorno:9,titolo:"Festa di Santa Maria (fine)",luogo:"Uta",emoji:"🎆"},
+    {mese:11,giorno:21,titolo:"Maratonina di Uta",luogo:"Uta",emoji:"🏃"},
+    {mese:12,giorno:13,titolo:"Santa Lucia",luogo:"Uta",emoji:"🕯️"},
+  ];
   const imminenti = eventiFissi.filter(e => {
     const dataEv = new Date(oggi.getFullYear(), e.mese - 1, e.giorno);
     if (dataEv < oggi) dataEv.setFullYear(oggi.getFullYear() + 1);
@@ -660,165 +837,106 @@ function Eventi({go}) {
     return diff >= 0 && diff <= 7;
   });
 
-  // Sezione eventi live con Claude API
+  // Sezione eventi live
   const [liveEvents, setLiveEvents] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const fetchLiveEvents = async () => {
     setLoading(true);
     try {
-      const oggi_str = oggi.toLocaleDateString("it-IT", {weekday:"long", day:"numeric", month:"long", year:"numeric"});
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const oggi_str = oggi.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+      const res = await fetch("https://api.anthropic.com/v1/messages",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-          model:"claude-sonnet-4-20250514",
-          max_tokens:1000,
-          tools:[{type:"web_search_20250305", name:"web_search"}],
-          messages:[{role:"user", content:`Oggi è ${oggi_str}. Cerca eventi in programma questa settimana in Sardegna (area Cagliari, Uta, Sulcis-Iglesiente): concerti, spettacoli teatrali, cinema, sagre, festival. Cerca anche il programma del Cinema Vittoria di Uta. Rispondi SOLO con un array JSON, senza backtick né markdown, come questo:
-[{"titolo":"Nome evento","data":"data","luogo":"luogo","tipo":"Concerto|Teatro|Cinema|Sagra|Festival","desc":"breve descrizione max 60 caratteri","link":"url o null"}]
-Massimo 8 eventi. Solo JSON puro.`}]
+        body:JSON.stringify({
+          model:"claude-sonnet-4-20250514", max_tokens:1000,
+          tools:[{type:"web_search_20250305",name:"web_search"}],
+          messages:[{role:"user",content:`Oggi è ${oggi_str}. Cerca eventi in programma questa settimana in Sardegna area Cagliari e Sulcis-Iglesiente: concerti, teatro, cinema, sagre, festival. Cerca anche il programma aggiornato del Cinema Vittoria di Uta Sardegna. Rispondi SOLO con array JSON puro senza backtick:
+[{"titolo":"Nome","data":"data","luogo":"luogo","tipo":"Concerto|Teatro|Cinema|Sagra|Festival","desc":"max 60 caratteri","link":"url o null"}]
+Max 8 eventi. Solo JSON.`}]
         })
       });
       const data = await res.json();
       const text = data.content.filter(b=>b.type==="text").map(b=>b.text).join("");
-      const clean = text.replace(/```json|```/g,"").trim();
-      const parsed = JSON.parse(clean);
-      setLiveEvents(parsed);
-    } catch(e) {
-      setLiveEvents([]);
-    }
+      setLiveEvents(JSON.parse(text.replace(/```json|```/g,"").trim()));
+    } catch(e) { setLiveEvents([]); }
     setLoading(false);
   };
 
-  const tipoColor = {
-    "Cinema":"#1e2d40", "Teatro":"#3a1f3a", "Concerto":"#1a2e1a",
-    "Sagra":"#3a2510", "Festival":"#0e2a35"
+  const tipoStyle = {
+    "Cinema":{bg:"#1e2d40",ac:"#6aaee0"},
+    "Teatro":{bg:"#3a1f3a",ac:"#c87fc8"},
+    "Concerto":{bg:"#1a2e1a",ac:"#6db86d"},
+    "Sagra":{bg:"#3a2510",ac:"#d4845f"},
+    "Festival":{bg:"#0e2a35",ac:"#4ab8c8"},
   };
-  const tipoAccent = {
-    "Cinema":"#6aaee0", "Teatro":"#c87fc8", "Concerto":"#6db86d",
-    "Sagra":"#d4845f", "Festival":"#4ab8c8"
-  };
-
-  const evs = [
-    {m:"Gennaio",evs:[{d:"12 gennaio",t:"🕯️ Festa di Santa Greca (Decimomannu)"}]},
-    {m:"Maggio",evs:[
-      {d:"1–4 maggio",t:"🎖️ Festa di Sant'Efisio (Cagliari) — processione ininterrotta dal 1657",link:"https://www.festadisantefisio.com"},
-      {d:"14 maggio",t:"🌸 Santa Giusta, patrona di Uta"},
-      {d:"Primo sabato dopo il 14",t:"🌾 Sant'Isidoro (Uta) — festa agricola"},
-    ]},
-    {m:"Agosto",evs:[
-      {d:"13 agosto",t:"⚔️ Corteo Storico Medievale (Iglesias) — 700 figuranti"},
-      {d:"15 agosto",t:"🕯️ Assunzione B.V. Maria + processione solenne (Uta)"},
-    ]},
-    {m:"Estate (data variabile)",evs:[
-      {d:"Luglio / Agosto",t:"🏊 World Aquatics High Diving World Cup — Porto Flavia (Nebida). Coppa del Mondo di tuffi dalle grandi altezze organizzata da Marmeeting. Spettacolo unico tra mare e miniere.",link:"https://maps.google.com/?q=Porto+Flavia+Nebida+Sardegna"},
-    ]},
-    {m:"Settembre",evs:[
-      {d:"5–9 settembre",t:"🌟 Festa di Santa Maria (Uta) — la più attesa! Concerti, fuochi d'artificio"},
-      {d:"Fine settembre",t:"🎊 Festa di Santa Greca (Decimomannu)"},
-    ]},
-    {m:"Novembre",evs:[
-      {d:"Terza domenica",t:"🏃 Maratonina Città di Uta — 21 km, 10,5 km, family run 4 km · ore 10:00 da Via Stazione",link:"https://maratoninadiuta.it"},
-    ]},
-    {m:"Dicembre",evs:[{d:"13 dicembre",t:"🕯️ Santa Lucia (Uta)"}]},
-  ];
 
   return <div style={s.app}>
     <PageHead title="Feste ed eventi" back={()=>go("home")} icon={<Ic.cal/>}/>
     <div style={s.content}>
 
-      {/* Banner eventi imminenti */}
+      {/* Banner imminenti */}
       {imminenti.length > 0 && (
-        <div style={{background:"linear-gradient(135deg, #b8673f, #d4845f)", borderRadius:18, padding:"18px 18px 14px", marginBottom:14}}>
-          <div style={{fontSize:9, letterSpacing:"3px", textTransform:"uppercase", color:"rgba(255,255,255,0.6)", marginBottom:10}}>🔔 Questa settimana</div>
+        <div style={{background:"linear-gradient(135deg,#b8673f,#d4845f)",borderRadius:18,padding:"18px 18px 14px",marginBottom:14}}>
+          <div style={{fontSize:9,letterSpacing:"3px",textTransform:"uppercase",color:"rgba(255,255,255,0.6)",marginBottom:10}}>🔔 Questa settimana</div>
           {imminenti.map((e,i)=>(
-            <div key={i} style={{display:"flex", alignItems:"center", gap:12, padding:"8px 0",
-              borderBottom: i<imminenti.length-1 ? "1px solid rgba(255,255,255,0.2)" : "none"}}>
+            <div key={i} style={{display:"flex",alignItems:"center",gap:12,padding:"8px 0",borderBottom:i<imminenti.length-1?"1px solid rgba(255,255,255,0.2)":"none"}}>
               <span style={{fontSize:22}}>{e.emoji}</span>
               <div>
-                <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17, color:"white", fontWeight:400}}>{e.titolo}</div>
-                <div style={{fontSize:11, color:"rgba(255,255,255,0.7)", marginTop:2}}>{e.luogo}</div>
+                <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:17,color:"white",fontWeight:400}}>{e.titolo}</div>
+                <div style={{fontSize:11,color:"rgba(255,255,255,0.7)",marginTop:2}}>{e.luogo}</div>
               </div>
             </div>
           ))}
         </div>
       )}
 
-      {/* Cinema Vittoria card */}
-      <div style={{background:c.dark, borderRadius:18, padding:"18px", marginBottom:14, borderLeft:`3px solid #6aaee0`}}>
-        <div style={{display:"flex", alignItems:"flex-start", gap:12}}>
-          <span style={{fontSize:28}}>🎬</span>
-          <div style={{flex:1}}>
-            <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:19, color:c.cream, fontWeight:300, marginBottom:4}}>Cinema Vittoria — Uta</div>
-            <p style={{fontSize:12.5, color:"rgba(245,240,232,0.7)", lineHeight:1.65, margin:"0 0 12px"}}>Una sala storica nel cuore di Uta. Programmazione cinema d'essai e film commerciali. Un'esperienza locale autentica a pochi passi da casa.</p>
-            <a href="https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna" target="_blank" rel="noreferrer"
-              style={{display:"inline-flex", alignItems:"center", gap:8, background:"#6aaee0", color:"white", borderRadius:10, padding:"8px 14px", fontSize:12, textDecoration:"none"}}>
-              📍 Come arrivare
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Sezione eventi live */}
-      <div style={{background:c.white, borderRadius:18, padding:"18px", marginBottom:14, border:`1px solid ${c.terra}15`}}>
-        <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:19, fontWeight:400, marginBottom:4}}>🔍 Cosa c'è questa settimana</div>
-        <p style={{fontSize:12.5, color:c.muted, lineHeight:1.6, marginBottom:14}}>Concerti, teatro, cinema e sagre nell'area di Cagliari e Sulcis — aggiornati in tempo reale.</p>
-
+      {/* Sezione live */}
+      <div style={{background:c.white,borderRadius:18,padding:"18px",marginBottom:14,border:`1px solid ${c.terra}15`}}>
+        <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:19,fontWeight:400,marginBottom:4}}>🔍 Cosa c'è questa settimana</div>
+        <p style={{fontSize:12.5,color:c.muted,lineHeight:1.6,marginBottom:14}}>Concerti, teatro, cinema e sagre nell'area di Cagliari e Sulcis — aggiornati in tempo reale.</p>
         {!liveEvents && !loading && (
-          <button onClick={fetchLiveEvents} style={{
-            width:"100%", background:c.terra, color:"white", border:"none",
-            borderRadius:12, padding:"13px", fontSize:13, fontFamily:"'Jost',sans-serif",
-            cursor:"pointer", fontWeight:400, letterSpacing:"0.3px"
-          }}>
+          <button onClick={fetchLiveEvents} style={{width:"100%",background:c.terra,color:"white",border:"none",borderRadius:12,padding:"13px",fontSize:13,fontFamily:"'Jost',sans-serif",cursor:"pointer"}}>
             ✨ Cerca eventi in programma
           </button>
         )}
-
-        {loading && (
-          <div style={{textAlign:"center", padding:"20px 0"}}>
-            <div style={{fontSize:28, marginBottom:8}}>🔍</div>
-            <div style={{fontSize:13, color:c.muted}}>Sto cercando eventi in corso…</div>
-          </div>
-        )}
-
+        {loading && <div style={{textAlign:"center",padding:"20px 0",color:c.muted,fontSize:13}}>🔍 Sto cercando eventi in corso…</div>}
         {liveEvents && liveEvents.length === 0 && (
-          <div style={{textAlign:"center", padding:"16px 0", color:c.muted, fontSize:13}}>
-            Nessun evento trovato per questa settimana.<br/>
-            <button onClick={fetchLiveEvents} style={{marginTop:10, background:"none", border:`1px solid ${c.sand}`, borderRadius:10, padding:"8px 16px", fontSize:12, cursor:"pointer", color:c.muted}}>Riprova</button>
+          <div style={{textAlign:"center",padding:"16px 0",color:c.muted,fontSize:13}}>
+            Nessun evento trovato.
+            <button onClick={fetchLiveEvents} style={{display:"block",margin:"10px auto 0",background:"none",border:`1px solid ${c.sand}`,borderRadius:10,padding:"8px 16px",fontSize:12,cursor:"pointer",color:c.muted}}>Riprova</button>
           </div>
         )}
-
         {liveEvents && liveEvents.length > 0 && (
           <div>
             {liveEvents.map((e,i)=>{
-              const bg = tipoColor[e.tipo] || c.dark;
-              const ac = tipoAccent[e.tipo] || c.terra;
+              const st = tipoStyle[e.tipo] || {bg:c.dark,ac:c.terra};
               return (
-                <div key={i} style={{background:bg, borderRadius:14, padding:"12px 14px", marginBottom:8,
-                  borderLeft:`3px solid ${ac}`}}>
-                  <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:4}}>
-                    <span style={{fontSize:10, color:ac, textTransform:"uppercase", letterSpacing:"1px", fontWeight:500}}>{e.tipo}</span>
-                    <span style={{fontSize:11, color:"rgba(245,240,232,0.5)"}}>{e.data}</span>
+                <div key={i} style={{background:st.bg,borderRadius:14,padding:"12px 14px",marginBottom:8,borderLeft:`3px solid ${st.ac}`}}>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:4}}>
+                    <span style={{fontSize:10,color:st.ac,textTransform:"uppercase",letterSpacing:"1px",fontWeight:500}}>{e.tipo}</span>
+                    <span style={{fontSize:11,color:"rgba(245,240,232,0.5)"}}>{e.data}</span>
                   </div>
-                  <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:16, color:c.cream, fontWeight:400, marginBottom:4}}>{e.titolo}</div>
-                  <div style={{fontSize:12, color:"rgba(245,240,232,0.6)", marginBottom:e.desc?4:0}}>📍 {e.luogo}</div>
-                  {e.desc && <div style={{fontSize:12, color:"rgba(245,240,232,0.55)", lineHeight:1.5}}>{e.desc}</div>}
-                  {e.link && <a href={e.link} target="_blank" rel="noreferrer" style={{display:"inline-block", marginTop:8, fontSize:11, color:ac, textDecoration:"none"}}>Scopri di più →</a>}
+                  <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:16,color:c.cream,fontWeight:400,marginBottom:4}}>{e.titolo}</div>
+                  <div style={{fontSize:12,color:"rgba(245,240,232,0.6)",marginBottom:e.desc?4:0}}>📍 {e.luogo}</div>
+                  {e.desc && <div style={{fontSize:12,color:"rgba(245,240,232,0.55)",lineHeight:1.5}}>{e.desc}</div>}
+                  {e.link && <a href={e.link} target="_blank" rel="noreferrer" style={{display:"inline-block",marginTop:8,fontSize:11,color:st.ac,textDecoration:"none"}}>Scopri di più →</a>}
                 </div>
               );
             })}
-            <button onClick={fetchLiveEvents} style={{width:"100%", marginTop:8, background:"none", border:`1px solid ${c.sand}`, borderRadius:10, padding:"9px", fontSize:11, cursor:"pointer", color:c.muted, fontFamily:"'Jost',sans-serif"}}>
-              🔄 Aggiorna
-            </button>
+            <button onClick={fetchLiveEvents} style={{width:"100%",marginTop:8,background:"none",border:`1px solid ${c.sand}`,borderRadius:10,padding:"9px",fontSize:11,cursor:"pointer",color:c.muted,fontFamily:"'Jost',sans-serif"}}>🔄 Aggiorna</button>
           </div>
         )}
       </div>
 
-      {/* Calendario fisso */}
-      <div style={{fontSize:9, letterSpacing:"4px", textTransform:"uppercase", color:c.muted, margin:"20px 0 14px", textAlign:"center"}}>Calendario tradizioni locali</div>
-      {evs.map(({m,evs:ee})=>(
-        <Card key={m}><CT text={m}/>
+      {/* Calendario cronologico dal mese corrente */}
+      <div style={{fontSize:9,letterSpacing:"4px",textTransform:"uppercase",color:c.muted,margin:"4px 0 14px",textAlign:"center"}}>Calendario tradizioni locali</div>
+      {evs.map(({m,evs:ee},idx)=>(
+        <Card key={m} style={idx===0 ? {border:`1px solid ${c.terra}50`} : {}}>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}}>
+            <div style={s.cardTitle}>{m}</div>
+            {idx===0 && <span style={{fontSize:10,background:c.terra,color:"white",borderRadius:10,padding:"2px 8px"}}>In corso</span>}
+          </div>
           {ee.map((e,i)=>(
             <div key={i} style={i===ee.length-1?s.ruleLast:s.rule}><div style={s.dot}/>
               <span><strong>{e.d}</strong> — {e.link?<a href={e.link} target="_blank" rel="noreferrer" style={{color:c.terra}}>{e.t}</a>:e.t}</span>
@@ -826,7 +944,25 @@ Massimo 8 eventi. Solo JSON puro.`}]
           ))}
         </Card>
       ))}
-      <div style={{...s.darkBox,textAlign:"center"}}><p style={{fontSize:12,color:"rgba(245,240,232,0.7)",lineHeight:1.7,margin:0}}>💡 Se il soggiorno coincide con la <strong style={{color:c.sand}}>Festa di Santa Maria</strong> (5–9 sett.) o con <strong style={{color:c.sand}}>Sant'Efisio</strong> siete fortunatissimi!</p></div>
+
+      {/* Cinema Vittoria — in fondo */}
+      <div style={{background:c.dark,borderRadius:18,padding:"18px",marginTop:4,borderLeft:`3px solid #6aaee0`}}>
+        <div style={{display:"flex",alignItems:"flex-start",gap:12}}>
+          <span style={{fontSize:28}}>🎬</span>
+          <div>
+            <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:19,color:c.cream,fontWeight:300,marginBottom:4}}>Cinema Vittoria — Uta</div>
+            <p style={{fontSize:12.5,color:"rgba(245,240,232,0.7)",lineHeight:1.65,margin:"0 0 12px"}}>Sala storica nel cuore di Uta. Programmazione mista tra cinema d'essai e film commerciali. Un'esperienza autentica a pochi passi da casa.</p>
+            <a href="https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna" target="_blank" rel="noreferrer"
+              style={{display:"inline-flex",alignItems:"center",gap:8,background:"#6aaee0",color:"white",borderRadius:10,padding:"8px 14px",fontSize:12,textDecoration:"none"}}>
+              📍 Come arrivare
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div style={{...s.darkBox,textAlign:"center",marginTop:12}}>
+        <p style={{fontSize:12,color:"rgba(245,240,232,0.7)",lineHeight:1.7,margin:0}}>💡 Se il soggiorno coincide con la <strong style={{color:c.sand}}>Festa di Santa Maria</strong> (5–9 sett.) o con <strong style={{color:c.sand}}>Sant'Efisio</strong> siete fortunatissimi!</p>
+      </div>
     </div>
   </div>;
 }
