@@ -105,18 +105,18 @@ function PH({go}) {
       <div style={s.sectionLabel}>Esplora la guida</div>
       <div style={s.grid}>
         {[
-          ["benvenuto", <Ic.home/>, "Benvenuto"],
-          ["checkin",   <Ic.lock/>, "Check-in / out"],
-          ["wifi",      <Ic.wifi/>, "Wi-Fi"],
-          ["appartamento", <Ic.building/>, "L'appartamento"],
-          ["regole",    <Ic.check/>, "Regole casa"],
-          ["posizione", <Ic.pin/>,  "Come arrivare"],
-          ["esplorare", <Ic.grid/>, "Esplorare"],
-          ["ristoranti",<Ic.coffee/>,"Ristoranti"],
-          ["eventi",    <Ic.cal/>,  "Eventi"],
-          ["recensioni",<Ic.star/>, "Recensioni"],
-          ["spesa",     <Ic.bag/>,  "Spesa"],
-          ["servizi",   <Ic.faq/>,  "Servizi utili"],
+          ["benvenuto",   <Ic.home/>,     "Benvenuto"],
+          ["checkin",     <Ic.lock/>,     "Check-in / out"],
+          ["appartamento",<Ic.building/>, "L'appartamento"],
+          ["wifi",        <Ic.wifi/>,     "Wi-Fi"],
+          ["regole",      <Ic.check/>,    "Regole casa"],
+          ["esplorare",   <Ic.grid/>,     "Esplorare"],
+          ["ristoranti",  <Ic.coffee/>,   "Ristoranti"],
+          ["eventi",      <Ic.cal/>,      "Eventi"],
+          ["recensioni",  <Ic.star/>,     "Recensioni"],
+          ["spesa",       <Ic.bag/>,      "Spesa"],
+          ["servizi",     <Ic.faq/>,      "Servizi utili"],
+          ["faq",         <Ic.pin/>,      "FAQ"],
         ].map(([id,icon,label])=>(
           <div key={id} style={s.card} onClick={()=>go(id)}>
             {icon}
@@ -159,20 +159,42 @@ function Benvenuto({go}) {
         <div style={s.hlTitle}>Siamo felici di ospitarvi</div>
         <p style={{fontSize:14,lineHeight:1.7,opacity:0.92,margin:0}}>Questa guida vi aiuterà a vivere al meglio il soggiorno. Per qualsiasi necessità non esitate a contattarci.</p>
       </div>
-      <div style={{...s.darkBox,display:"flex",gap:14,alignItems:"flex-start"}}>
-        <span style={{fontSize:28}}>🎨</span>
-        <div><strong style={{display:"block",fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:17,color:c.sand,fontWeight:400,marginBottom:4}}>Affreschi originali anni '50</strong><span style={{fontSize:13,color:"rgba(245,240,232,0.85)"}}>I soffitti sono affrescati a mano da artigiani sardi. Un patrimonio unico in ogni stanza.</span></div>
-      </div>
+
+      {/* Dove siamo */}
       <Card>
         <CT icon={<Ic.pin/>} text="Dove siamo"/>
         <p style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:20,margin:"4px 0 12px",color:c.dark}}>Via Cimitero 38<br/>Uta (CA) — Sardegna</p>
         <a href="https://maps.google.com/?q=Via+Cimitero+38+Uta+Cagliari" target="_blank" rel="noreferrer" style={s.mapBtn}><Ic.mapW/> Apri in Google Maps</a>
       </Card>
+
+      {/* Come arrivare — integrato */}
+      <Card>
+        <CT icon={<Ic.pin/>} text="Come arrivare"/>
+        <Row l="✈️ Aeroporto di Cagliari" v="~10 min" link="https://maps.google.com/?q=Aeroporto+Cagliari+Elmas"/>
+        <Row l="🏖️ Poetto (mare)" v="~15 min" link="https://maps.google.com/?q=Spiaggia+Poetto+Cagliari"/>
+        <Row l="🏙️ Cagliari centro" v="~20 min" link="https://maps.google.com/?q=Cagliari+centro+storico"/>
+        <Row l="⛴️ Porto di Cagliari" v="~20 min" link="https://maps.google.com/?q=Porto+di+Cagliari"/>
+        <Row l="🚌 ARST Linea 125" v="orari ›" link="https://www.arst.sardegna.it/servizi-orari/"/>
+        <p style={{fontSize:11,color:c.muted,padding:"2px 0 8px"}}>Fermata vicina · Prima 05:40 · Ultima ~22:00</p>
+        <Row l="🚆 Treno Uta-Villaspeciosa" v="orari ›" link="https://www.trenitalia.com" last/>
+        <p style={{fontSize:11,color:c.muted,padding:"2px 0 0"}}>06:27–20:53 · ~22 min per Cagliari</p>
+      </Card>
+
+      {/* Contatti */}
       <Card>
         <CT icon={<Ic.phone/>} text="Contatti"/>
         <a href="tel:+393284699520" style={s.tel}><span style={{fontSize:13.5,color:c.dark}}>📱 Alessandro</span><span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:16,color:c.terra}}>328 469 9520</span></a>
         <a href="tel:+393473208852" style={s.telLast}><span style={{fontSize:13.5,color:c.dark}}>📱 Roberta</span><span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:16,color:c.terra}}>347 320 8852</span></a>
       </Card>
+
+      {/* Footer affreschi */}
+      <div style={{...s.darkBox, display:"flex", gap:14, alignItems:"flex-start", marginTop:4}}>
+        <span style={{fontSize:26}}>🎨</span>
+        <div>
+          <strong style={{display:"block",fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:17,color:c.sand,fontWeight:400,marginBottom:4}}>Affreschi originali anni '50</strong>
+          <span style={{fontSize:13,color:"rgba(245,240,232,0.8)"}}>I soffitti sono dipinti a mano da artigiani sardi. Un patrimonio artistico unico che attraversa ogni stanza.</span>
+        </div>
+      </div>
     </div>
   </div>;
 }
@@ -181,21 +203,40 @@ function Checkin({go}) {
   return <div style={s.app}>
     <PageHead title="Check-in / out" back={()=>go("home")} icon={<Ic.lock/>}/>
     <div style={s.content}>
-      <Card><CT text="🕒 Arrivo"/>
-        <Rule t={<span>Check-in disponibile <strong>dalle ore 15:00</strong></span>}/>
-        <Rule t="Vi accoglieremo personalmente o con self check-in"/>
-        <Rule t="Parcheggio libero in strada, facile disponibilità" last/>
+
+      {/* Orari in evidenza */}
+      <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, marginBottom:12}}>
+        <div style={{background:c.dark, borderRadius:18, padding:"20px 16px", textAlign:"center"}}>
+          <div style={{fontSize:9, letterSpacing:"3px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginBottom:8}}>Arrivo</div>
+          <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:36, color:c.cream, lineHeight:1}}>15:00</div>
+          <div style={{fontSize:11, color:c.terra, marginTop:6}}>dalle ore</div>
+        </div>
+        <div style={{background:c.dark, borderRadius:18, padding:"20px 16px", textAlign:"center"}}>
+          <div style={{fontSize:9, letterSpacing:"3px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginBottom:8}}>Partenza</div>
+          <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:36, color:c.cream, lineHeight:1}}>10:30</div>
+          <div style={{fontSize:11, color:c.terra, marginTop:6}}>entro le ore</div>
+        </div>
+      </div>
+
+      <Card>
+        <CT text="🧳 All'arrivo"/>
+        <Rule t="Vi accoglieremo personalmente — o vi lasciamo le istruzioni per il self check-in"/>
+        <Rule t="Parcheggio libero in strada davanti all'ingresso"/>
+        <Rule t="Trovate lenzuola, asciugamani e kit di benvenuto già pronti" last/>
       </Card>
-      <Card><CT text="🚪 Partenza"/>
-        <Rule t={<span>Check-out <strong>entro le ore 10:30</strong></span>}/>
+
+      <Card>
+        <CT text="👋 Alla partenza"/>
         <Rule t="Lasciate le chiavi sul tavolo in cucina"/>
-        <Rule t="Seguire le istruzioni raccolta differenziata (vedi FAQ)" last/>
+        <Rule t="Buttate i rifiuti seguendo la raccolta differenziata (vedi FAQ)"/>
+        <Rule t="Se avete bisogno di conservare i bagagli qualche ora, chiedeteci!" last/>
       </Card>
-      <Card><CT text="🚌 Mezzi pubblici"/>
-        <Row l="ARST Linea 125 (Uta–Cagliari)" v="vicina ›" link="https://www.arst.sardegna.it/servizi-orari/"/>
-        <p style={{fontSize:11,color:c.muted,padding:"4px 0 10px"}}>Prima 05:40 · Ultima ~22:00</p>
-        <Row l="🚆 Treno Uta-Villaspeciosa" v="~5 min ›" link="https://www.trenitalia.com" last/>
-        <p style={{fontSize:11,color:c.muted,padding:"4px 0 0"}}>06:27–20:53 · ~22 min per Cagliari</p>
+
+      <Card>
+        <CT text="🚗 Parcheggio & accesso"/>
+        <Rule t="Parcheggio libero e gratuito in Via Cimitero"/>
+        <Rule t="Il cancello si apre con il telecomando che trovate all'interno"/>
+        <Rule t="Citofono disponibile se necessario" last/>
       </Card>
     </div>
   </div>;
@@ -374,10 +415,6 @@ function Esplorare({go}) {
           mood:"Patrimonio UNESCO",
           desc:"Gallerie, laverie e paesaggi industriali restituiti alla memoria collettiva. Il Museo del Carbone di Serbariu è il punto di partenza ideale.",
           link:"https://maps.google.com/?q=Miniere+Iglesias+Sardegna"},
-        { title:"World Aquatics High Diving — Porto Flavia", dist:"1h 10min", emoji:"🏊",
-          mood:"Evento unico al mondo",
-          desc:"Tuffatori dalla scogliera di Porto Flavia per la Coppa del Mondo organizzata da Marmeeting. Mare, miniere e adrenalina.",
-          link:"https://maps.google.com/?q=Porto+Flavia+Nebida+Sardegna"},
       ]
     },
     {
@@ -586,6 +623,9 @@ function Eventi({go}) {
       {d:"13 agosto",t:"⚔️ Corteo Storico Medievale (Iglesias) — 700 figuranti"},
       {d:"15 agosto",t:"🕯️ Assunzione B.V. Maria + processione solenne (Uta)"},
     ]},
+    {m:"Estate (data variabile)",evs:[
+      {d:"Luglio / Agosto",t:"🏊 World Aquatics High Diving World Cup — Porto Flavia (Nebida). Coppa del Mondo di tuffi dalle grandi altezze organizzata da Marmeeting. Spettacolo unico tra mare e miniere.",link:"https://maps.google.com/?q=Porto+Flavia+Nebida+Sardegna"},
+    ]},
     {m:"Settembre",evs:[
       {d:"5–9 settembre",t:"🌟 Festa di Santa Maria (Uta) — la più attesa! Concerti, fuochi d'artificio"},
       {d:"Fine settembre",t:"🎊 Festa di Santa Greca (Decimomannu)"},
@@ -647,6 +687,7 @@ function Spesa({go}) {
         <p style={{fontSize:11,color:c.muted,padding:"2px 0 0"}}>Lun–Dom 8:30–20:00 orario continuato</p>
       </Card>
       <Card><CT text="🚗 Circondario — ~15 min"/>
+        <Row l="🛒 Iperpan — Decimomannu" v="~15 min ›" link="https://maps.google.com/?q=Iperpan+Decimomannu"/>
         <Row l="🛒 Superpan — Assemini ⭐4.1" v="~15 min ›" link="https://maps.google.com/?q=Superpan+Assemini" last/>
         <p style={{fontSize:11,color:c.muted,padding:"2px 0 0"}}>Lun–Sab 8:30–21:30 · Dom 8:30–14:00/16:30–21:00</p>
       </Card>
