@@ -155,20 +155,23 @@ function Benvenuto({go}) {
   return <div style={s.app}>
     <PageHead title="Benvenuti a Casa Uta" back={()=>go("home")} icon={<Ic.home/>}/>
     <div style={s.content}>
-      <div style={{...s.darkBox,display:"flex",gap:14,alignItems:"flex-start"}}>
-        <span style={{fontSize:32}}>🎨</span>
-        <div><strong style={{display:"block",fontFamily:"Georgia,serif",fontSize:17,color:c.sand,fontWeight:400,marginBottom:4}}>Affreschi originali anni '50</strong><span style={{fontSize:13,color:"rgba(245,240,232,0.85)"}}>I soffitti sono affrescati a mano da artigiani sardi. Un patrimonio unico in ogni stanza.</span></div>
+      <div style={s.hlBox}>
+        <div style={s.hlTitle}>Siamo felici di ospitarvi</div>
+        <p style={{fontSize:14,lineHeight:1.7,opacity:0.92,margin:0}}>Questa guida vi aiuterà a vivere al meglio il soggiorno. Per qualsiasi necessità non esitate a contattarci.</p>
       </div>
-      <div style={s.hlBox}><div style={s.hlTitle}>Siamo felici di ospitarvi</div><p style={{fontSize:14,lineHeight:1.7,opacity:0.92,margin:0}}>Questa guida vi aiuterà a vivere al meglio il soggiorno. Per qualsiasi necessità non esitate a contattarci.</p></div>
+      <div style={{...s.darkBox,display:"flex",gap:14,alignItems:"flex-start"}}>
+        <span style={{fontSize:28}}>🎨</span>
+        <div><strong style={{display:"block",fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:17,color:c.sand,fontWeight:400,marginBottom:4}}>Affreschi originali anni '50</strong><span style={{fontSize:13,color:"rgba(245,240,232,0.85)"}}>I soffitti sono affrescati a mano da artigiani sardi. Un patrimonio unico in ogni stanza.</span></div>
+      </div>
       <Card>
-        <CT icon={<Ic.lock/>} text="Orari"/>
-        <Row l="Check-in" v="dalle 15:00"/>
-        <Row l="Check-out" v="entro 10:30" last/>
+        <CT icon={<Ic.pin/>} text="Dove siamo"/>
+        <p style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:20,margin:"4px 0 12px",color:c.dark}}>Via Cimitero 38<br/>Uta (CA) — Sardegna</p>
+        <a href="https://maps.google.com/?q=Via+Cimitero+38+Uta+Cagliari" target="_blank" rel="noreferrer" style={s.mapBtn}><Ic.mapW/> Apri in Google Maps</a>
       </Card>
       <Card>
         <CT icon={<Ic.phone/>} text="Contatti"/>
-        <a href="tel:+393284699520" style={s.tel}><span style={{fontSize:13.5,color:c.dark}}>📱 Alessandro</span><span style={{fontFamily:"Georgia,serif",fontSize:16,color:c.terra}}>328 469 9520</span></a>
-        <a href="tel:+393473208852" style={s.telLast}><span style={{fontSize:13.5,color:c.dark}}>📱 Roberta</span><span style={{fontFamily:"Georgia,serif",fontSize:16,color:c.terra}}>347 320 8852</span></a>
+        <a href="tel:+393284699520" style={s.tel}><span style={{fontSize:13.5,color:c.dark}}>📱 Alessandro</span><span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:16,color:c.terra}}>328 469 9520</span></a>
+        <a href="tel:+393473208852" style={s.telLast}><span style={{fontSize:13.5,color:c.dark}}>📱 Roberta</span><span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:16,color:c.terra}}>347 320 8852</span></a>
       </Card>
     </div>
   </div>;
@@ -187,10 +190,6 @@ function Checkin({go}) {
         <Rule t={<span>Check-out <strong>entro le ore 10:30</strong></span>}/>
         <Rule t="Lasciate le chiavi sul tavolo in cucina"/>
         <Rule t="Seguire le istruzioni raccolta differenziata (vedi FAQ)" last/>
-      </Card>
-      <Card><CT icon={<Ic.pin/>} text="Indirizzo"/>
-        <p style={{fontFamily:"Georgia,serif",fontSize:19,marginBottom:12}}>Via Cimitero 38<br/>Uta (CA) — Sardegna</p>
-        <a href="https://maps.google.com/?q=Via+Cimitero+38+Uta+Cagliari" target="_blank" rel="noreferrer" style={s.mapBtn}><Ic.mapW/> Apri in Google Maps</a>
       </Card>
       <Card><CT text="🚌 Mezzi pubblici"/>
         <Row l="ARST Linea 125 (Uta–Cagliari)" v="vicina ›" link="https://www.arst.sardegna.it/servizi-orari/"/>
@@ -303,31 +302,189 @@ function Posizione({go}) {
   </div>;
 }
 
-function ExpCard({emoji, title, dist, desc, link, tag}) {
-  return (
-    <a href={link} target="_blank" rel="noreferrer"
-      style={{display:"block", textDecoration:"none", background:c.white, borderRadius:18,
-        padding:"16px 18px", marginBottom:10, border:`1px solid ${c.terra}15`}}
-      onMouseEnter={e=>e.currentTarget.style.background=c.sand}
-      onMouseLeave={e=>e.currentTarget.style.background=c.white}>
-      <div style={{display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:6}}>
-        <div style={{display:"flex", alignItems:"center", gap:10, flex:1, minWidth:0}}>
-          <span style={{fontSize:22, flexShrink:0}}>{emoji}</span>
-          <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17, fontWeight:400,
-            color:c.dark, lineHeight:1.25}}>{title}</span>
-        </div>
-        <span style={{fontSize:10, color:c.terra, background:`${c.terra}15`, borderRadius:20,
-          padding:"3px 9px", flexShrink:0, marginLeft:8, marginTop:2, whiteSpace:"nowrap"}}>{dist}</span>
-      </div>
-      <p style={{fontSize:12.5, color:c.muted, lineHeight:1.65, margin:0, paddingLeft:32}}>{desc}</p>
-      {tag && <div style={{paddingLeft:32, marginTop:8}}>
-        <span style={{fontSize:10, background:`${c.green}20`, color:c.green, borderRadius:10, padding:"2px 8px"}}>{tag}</span>
-      </div>}
-    </a>
-  );
-}
+// ── ESPLORARE ─────────────────────────────────────────────
+function Esplorare({go}) {
+  const [tab, setTab] = useState(0);
 
-// ── SERVIZI UTILI (ex Dintorni — solo pratico) ─────────
+  const tabs = [
+    {
+      id:"vicino", label:"A due passi", emoji:"🌿",
+      color:"#2d4a2d", accent:"#6db86d",
+      tagline:"Tutto raggiungibile a piedi o in 15 minuti",
+      data:[
+        { title:"Parco S'Ollivariu", dist:"5 min", emoji:"🌳",
+          mood:"Mattinata tranquilla",
+          desc:"Lecci, sentieri ombreggiati e silenzio. Il posto giusto per iniziare la giornata prima che il paese si svegli.",
+          link:"https://maps.google.com/?q=Parco+S+Ollivariu+Uta"},
+        { title:"Chiesa romanica di Santa Maria", dist:"5 min", emoji:"⛪",
+          mood:"Patrimonio del XII sec.",
+          desc:"Pietra calcarea, volte basse e luce filtrata. Una delle chiese medievali più integre del Campidano — vale dieci minuti di sosta.",
+          link:"https://maps.google.com/?q=Chiesa+Santa+Maria+Uta"},
+        { title:"Fenicotteri — Oasi WWF Santa Gilla", dist:"10 min", emoji:"🦩",
+          mood:"Spettacolo della natura",
+          desc:"Migliaia di fenicotteri rosa sullo sfondo della laguna. Visibili quasi tutto l'anno — una scena che non ci si aspetta così vicino a casa.",
+          link:"https://maps.google.com/?q=Oasi+WWF+Santa+Gilla"},
+        { title:"Saline di Conti Vecchi", dist:"10 min", emoji:"🧂",
+          mood:"Foto imperdibili",
+          desc:"Le vasche cambiano colore dal bianco candido al rosa acceso a seconda della stagione. Un paesaggio industriale-naturale unico.",
+          link:"https://maps.google.com/?q=Saline+Conti+Vecchi+Assemini"},
+      ]
+    },
+    {
+      id:"cagliari", label:"Cagliari", emoji:"🏙️",
+      color:"#1e2d40", accent:"#6aaee0",
+      tagline:"Il capoluogo in 20 minuti — mare, storia, vita",
+      data:[
+        { title:"Poetto — 11 km di sabbia fine", dist:"15 min", emoji:"🏖️",
+          mood:"Mare & relax",
+          desc:"La spiaggia urbana più lunga della Sardegna. D'estate chioschi e movida, in primavera solo vento e orizzonte. Entrami validi.",
+          link:"https://maps.google.com/?q=Spiaggia+Poetto+Cagliari"},
+        { title:"Sella del Diavolo", dist:"20 min", emoji:"🥾",
+          mood:"Tramonto da ricordare",
+          desc:"Il promontorio tra Poetto e Calamosca. Il sentiero sale tra mirto e lentisco: in cima, il Golfo di Cagliari si apre tutto insieme.",
+          link:"https://maps.google.com/?q=Sella+del+Diavolo+Cagliari"},
+        { title:"Molentargius — il parco degli aironi", dist:"15 min", emoji:"🦢",
+          mood:"Natura metropolitana",
+          desc:"Stagno naturale nel mezzo della città. Aironi cenerini, fenicotteri e folaghe a pochi metri dalla pista ciclabile.",
+          link:"https://maps.google.com/?q=Parco+Molentargius+Cagliari"},
+        { title:"Marina, Castello & Su Siccu", dist:"20 min", emoji:"🏙️",
+          mood:"Aperitivo & storia",
+          desc:"Il quartiere Marina per i tapas sardi e i vicoli animati; Castello per i panorami sul golfo; Su Siccu per una serata sul lungomare.",
+          link:"https://maps.google.com/?q=Cagliari+centro+storico"},
+      ]
+    },
+    {
+      id:"cultura", label:"Cultura & Storia", emoji:"🏛️",
+      color:"#3a2510", accent:"#d4845f",
+      tagline:"Romani, aragonesi, artigiani e minatori",
+      data:[
+        { title:"San Sperate — Pinuccio Sciola", dist:"15 min", emoji:"🎨",
+          mood:"Da non perdere",
+          desc:"Il paese-museo: ogni muro è un'opera, ogni vicolo una sorpresa. Le pietre sonore di Sciola vibrano al tocco — un'esperienza che non si dimentica.",
+          link:"https://maps.google.com/?q=Murales+San+Sperate+Sardegna"},
+        { title:"Scavi di Nora", dist:"25 min", emoji:"🏛️",
+          mood:"2.800 anni di storia",
+          desc:"Teatro romano, terme puniche, mosaici e colonne — tutto affacciato sul mare. Una delle città antiche più scenografiche d'Italia.",
+          link:"https://maps.google.com/?q=Nora+sito+romano+Pula"},
+        { title:"Villa d'Orri", dist:"25 min", emoji:"🏰",
+          mood:"Eleganza ottocentesca",
+          desc:"Dimora nobiliare immersa in un parco di lecci centenari. Architettura neoclassica e atmosfera sospesa nel tempo.",
+          link:"https://maps.google.com/?q=Villa+d+Orri+Sarroch"},
+        { title:"Miniere & Geoparco di Iglesias", dist:"50 min", emoji:"⛏️",
+          mood:"Patrimonio UNESCO",
+          desc:"Gallerie, laverie e paesaggi industriali restituiti alla memoria collettiva. Il Museo del Carbone di Serbariu è il punto di partenza ideale.",
+          link:"https://maps.google.com/?q=Miniere+Iglesias+Sardegna"},
+        { title:"World Aquatics High Diving — Porto Flavia", dist:"1h 10min", emoji:"🏊",
+          mood:"Evento unico al mondo",
+          desc:"Tuffatori dalla scogliera di Porto Flavia per la Coppa del Mondo organizzata da Marmeeting. Mare, miniere e adrenalina.",
+          link:"https://maps.google.com/?q=Porto+Flavia+Nebida+Sardegna"},
+      ]
+    },
+    {
+      id:"natura", label:"Natura & Sapori", emoji:"🌊",
+      color:"#0e2a35", accent:"#4ab8c8",
+      tagline:"Spiagge, cammini, vini e isole",
+      data:[
+        { title:"Cantine Argiolas, Mesa, Audarya", dist:"20–40 min", emoji:"🍷",
+          mood:"Degustazione",
+          desc:"Vermentino, Cannonau, Carignano. Le cantine del Campidano aprono le porte per visite e degustazioni in paesaggi da cartolina.",
+          link:"https://maps.google.com/?q=Cantine+Argiolas+Serdiana"},
+        { title:"Cammini — Sant'Efisio, 100 Torri, Santa Barbara", dist:"vari", emoji:"🚶",
+          mood:"Pellegrinaggio & trekking",
+          desc:"Antichi percorsi a piedi attraverso la Sardegna del sud. Il Cammino dei 100 Torri costiero è tra i più scenografici; Sant'Efisio il più spirituale.",
+          link:"https://maps.google.com/?q=Cammino+Sant+Efisio+Sardegna"},
+        { title:"Sentieri del Carignano — Sulcis", dist:"50 min", emoji:"🥾",
+          mood:"Viticoltura eroica",
+          desc:"Vigneti a piede franco tra i più antichi d'Europa, aggrappati alle scogliere a strapiombo sul mare. Un trekking fuori dal comune.",
+          link:"https://maps.google.com/?q=Carignano+del+Sulcis+vigneti"},
+        { title:"Chia — dune e torri", dist:"45 min", emoji:"🏖️",
+          mood:"Spiaggia da sogno",
+          desc:"Acqua caraibica, dune di sabbia bianca e una torre aragonese sul promontorio. Tra le spiagge più belle d'Europa. Arrivate presto.",
+          link:"https://maps.google.com/?q=Spiaggia+Chia+Sardegna"},
+        { title:"Belvedere Nebida & Pan di Zucchero", dist:"1h 10min", emoji:"🗼",
+          mood:"Panorama mozzafiato",
+          desc:"Lo scoglio più alto del Mediterraneo visto dall'alto. Al tramonto la luce arancione sulla roccia bianca è inarrivabile.",
+          link:"https://maps.google.com/?q=Belvedere+Nebida+Sardegna"},
+        { title:"Carloforte — Isola di San Pietro", dist:"1h 20min + traghetto", emoji:"⛵",
+          mood:"Isola nell'isola",
+          desc:"Borgo tabarkino con accento ligure, strade strette e tonno rosso del Mediterraneo. Una giornata intera non basta.",
+          link:"https://maps.google.com/?q=Carloforte+Isola+San+Pietro"},
+        { title:"Villasimius & Costa Rei", dist:"1h", emoji:"🌊",
+          mood:"Fondali cristallini",
+          desc:"Il sud-est della Sardegna è quasi caraibico. Acque trasparenti, barriera corallina, dune di quarzo rosa. Perfetto per snorkeling.",
+          link:"https://maps.google.com/?q=Villasimius+Sardegna"},
+      ]
+    },
+  ];
+
+  const t = tabs[tab];
+
+  return <div style={s.app}>
+    <PageHead title="Esplorare" back={()=>go("home")} icon={<Ic.pin/>}/>
+    <div style={s.content}>
+
+      {/* Tab visivi a blocchi colorati */}
+      <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, marginBottom:20}}>
+        {tabs.map(({id,label,emoji,color,accent,tagline},i)=>(
+          <button key={id} onClick={()=>setTab(i)} style={{
+            background: i===tab ? color : c.white,
+            border: i===tab ? `2px solid ${accent}` : `1px solid ${c.sand}`,
+            borderRadius:16, padding:"14px 12px", cursor:"pointer",
+            textAlign:"left", transition:"all .2s",
+          }}>
+            <div style={{fontSize:22, marginBottom:4}}>{emoji}</div>
+            <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:15,
+              color: i===tab ? "white" : c.dark, fontWeight:400, lineHeight:1.2, marginBottom:4}}>{label}</div>
+            <div style={{fontSize:10, color: i===tab ? `${accent}` : c.muted,
+              lineHeight:1.4, letterSpacing:"0.2px"}}>{tagline}</div>
+          </button>
+        ))}
+      </div>
+
+      {/* Header categoria attiva */}
+      <div style={{background:t.color, borderRadius:16, padding:"16px 18px", marginBottom:14,
+        borderLeft:`4px solid ${t.accent}`}}>
+        <span style={{fontSize:28}}>{t.emoji}</span>
+        <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:22,
+          color:"white", fontWeight:300, marginTop:4}}>{t.label}</div>
+        <div style={{fontSize:12, color:t.accent, marginTop:4, letterSpacing:"0.5px"}}>{t.tagline}</div>
+        <div style={{fontSize:11, color:"rgba(255,255,255,0.4)", marginTop:6}}>
+          {t.data.length} esperienze · tocca per aprire in Maps
+        </div>
+      </div>
+
+      {/* Card esperienze */}
+      {t.data.map((p,i)=>(
+        <a key={i} href={p.link} target="_blank" rel="noreferrer" style={{
+          display:"block", textDecoration:"none",
+          background:c.white, borderRadius:18, marginBottom:10,
+          border:`1px solid ${c.terra}15`, overflow:"hidden",
+        }}
+          onMouseEnter={e=>e.currentTarget.style.borderColor=t.accent}
+          onMouseLeave={e=>e.currentTarget.style.borderColor=`${c.terra}15`}>
+          {/* Striscia colorata top */}
+          <div style={{height:3, background:`linear-gradient(90deg, ${t.color}, ${t.accent})`}}/>
+          <div style={{padding:"14px 16px"}}>
+            <div style={{display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:6}}>
+              <div style={{display:"flex", alignItems:"center", gap:10}}>
+                <span style={{fontSize:22}}>{p.emoji}</span>
+                <div>
+                  <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17,
+                    fontWeight:400, color:c.dark, lineHeight:1.2}}>{p.title}</div>
+                  <div style={{fontSize:10, color:t.accent, marginTop:2, fontWeight:500,
+                    letterSpacing:"0.5px", textTransform:"uppercase"}}>{p.mood}</div>
+                </div>
+              </div>
+              <span style={{fontSize:11, color:c.terra, background:`${c.terra}12`,
+                borderRadius:20, padding:"3px 9px", flexShrink:0, marginLeft:8, whiteSpace:"nowrap"}}>{p.dist}</span>
+            </div>
+            <p style={{fontSize:13, color:c.muted, lineHeight:1.7, margin:0, paddingLeft:32}}>{p.desc}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>;
+}
 function Servizi({go}) {
   return <div style={s.app}>
     <PageHead title="Servizi utili" back={()=>go("home")} icon={<Ic.grid/>}/>
