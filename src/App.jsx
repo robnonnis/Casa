@@ -68,8 +68,8 @@ const s = {
 
 const Ic = {
   back:     ()=><svg viewBox="0 0 24 24" style={{width:16,height:16,stroke:"currentColor",fill:"none",strokeWidth:1.5}}><polyline points="15 18 9 12 15 6"/></svg>,
-  // 🏠 Casa con porta e tetto
-  home:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>,
+  // 👋 Benvenuto — mano che saluta
+  home:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M18 11V6a2 2 0 00-4 0v5"/><path d="M14 10V4a2 2 0 00-4 0v6"/><path d="M10 10.5V6a2 2 0 00-4 0v8"/><path d="M6 14a4 4 0 004 4h4a4 4 0 004-4v-2.5a2 2 0 00-4 0V14"/></svg>,
   // 🧳 Valigia check-in
   lock:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="12" strokeWidth="3" strokeLinecap="round"/><path d="M8 12h8"/></svg>,
   wifi:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1" fill={c.warm}/></svg>,
@@ -80,8 +80,8 @@ const Ic = {
   pin:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
   // 🧭 Bussola per "Da scoprire"
   compass:  ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill={c.warm} fillOpacity="0.15"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>,
-  // 🍽️ Forchetta e coltello
-  pasta:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M3 2v7c0 1.1.9 2 2 2h2a2 2 0 002-2V2"/><line x1="7" y1="11" x2="7" y2="22"/><line x1="20" y1="2" x2="20" y2="22"/></svg>,
+  // 🍽️ Piatto con posate
+  pasta:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><line x1="5" y1="3" x2="5" y2="21"/><line x1="19" y1="3" x2="19" y2="21"/><line x1="3" y1="5" x2="7" y2="5"/><line x1="3" y1="9" x2="7" y2="9"/></svg>,
   cal:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
   star:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
   // 🛒 Carrello della spesa
@@ -537,21 +537,21 @@ function Esplorare({go}) {
           mood:"Sala storica anni '50",
           desc:"Una piccola sala cinematografica storica nel cuore di Uta. Programmazione mista, atmosfera d'altri tempi. Un'esperienza autentica e rara.",
           link:"https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna"},
-        { title:"Oasi WWF Santa Gilla & La Locanda", dist:"10 min", emoji:"🌿",
-          mood:"Natura + cucina sarda",
-          desc:"Riserva naturale WWF con laguna, birdwatching e percorsi naturalistici. All'interno dell'oasi si trova La Locanda dei Buoni e Cattivi: cucina sarda genuina in un contesto unico — vale la visita per entrambe le cose.",
-          link:"https://maps.google.com/?q=Oasi+WWF+Santa+Gilla"},
+        { title:"Laguna di Santa Gilla — uccelli migratori", dist:"10 min", emoji:"🦩",
+          mood:"Spettacolo naturale gratuito",
+          desc:"Laguna costiera dove svernano fenicotteri rosa, aironi, cormorani e migliaia di uccelli migratori. Non serve una riserva — basta affacciarsi dalla strada panoramica per uno spettacolo unico.",
+          link:"https://maps.google.com/?q=Laguna+Santa+Gilla+Cagliari"},
         { title:"Saline di Conti Vecchi", dist:"10 min", emoji:"🧂",
           mood:"Foto imperdibili",
-          desc:"Le vasche cambiano colore dal bianco candido al rosa acceso a seconda della stagione. Un paesaggio industriale-naturale surreale.",
+          desc:"Ex saline industriali con vasche che cambiano colore dal bianco candido al rosa acceso. Un paesaggio surreale e fotogenico a due passi.",
           link:"https://maps.google.com/?q=Saline+Conti+Vecchi+Assemini"},
-        { title:"Oasi WWF Foresta di Monte Arcosu", dist:"20 min", emoji:"🦌",
-          mood:"Cervo sardo & luna",
-          desc:"La più grande foresta mediterranea privata d'Europa. Sede del Cervo sardo, specie endemica a rischio. Trekking immersi in una natura primordiale.",
-          link:"https://maps.google.com/?q=Oasi+WWF+Monte+Arcosu+Sardegna"},
+        { title:"Oasi del Cervo e della Luna — Monte Arcosu", dist:"20 min", emoji:"🦌",
+          mood:"Foresta primordiale · WWF",
+          desc:"La più grande foresta mediterranea privata d'Europa, gestita dal WWF. Sede del rarissimo Cervo sardo. Trekking tra lecci e sughere. All'interno dell'oasi si trova La Locanda dei Buoni e Cattivi: cucina sarda autentica nel bosco — da non perdere.",
+          link:"https://maps.google.com/?q=Oasi+WWF+Monte+Arcosu+Uta+Sardegna"},
         { title:"Parco Naturale di Gutturu Mannu", dist:"25 min", emoji:"🏞️",
-          mood:"Foresta primordiale",
-          desc:"Boschi di lecci, sughere e roverelle attraversati da torrenti. Uno dei parchi più estesi della Sardegna, quasi sconosciuto ai turisti. Sentieri per tutti i livelli.",
+          mood:"Wilderness del Sulcis",
+          desc:"Uno dei parchi più estesi e meno frequentati della Sardegna. Boschi di lecci, torrenti, fauna selvatica. Sentieri per tutti i livelli — quasi sconosciuto ai turisti.",
           link:"https://maps.google.com/?q=Gutturu+Mannu+Sardegna"},
       ]
     },
@@ -568,9 +568,9 @@ function Esplorare({go}) {
           mood:"Tramonto da ricordare",
           desc:"Il promontorio tra Poetto e Calamosca. Il sentiero sale tra mirto e lentisco: in cima, il Golfo di Cagliari si apre tutto insieme.",
           link:"https://maps.google.com/?q=Sella+del+Diavolo+Cagliari"},
-        { title:"Molentargius — il parco dei fenicotteri", dist:"15 min", emoji:"🦩",
-          mood:"Fenomeno naturale unico",
-          desc:"Uno stagno naturale nel cuore della città dove vivono colonie di fenicotteri rosa tutto l'anno. Un fenomeno naturale raro: fenicotteri selvatici a 15 minuti da casa, raggiungibili in bici.",
+        { title:"Molentargius — fenicotteri & bici fino al Poetto", dist:"15 min", emoji:"🦩",
+          mood:"Esperienza unica da non perdere",
+          desc:"Parco naturale con colonie di fenicotteri rosa che nidificano tutto l'anno — fenomeno rarissimo in Europa. Il percorso in bici attraverso le saline e lo stagno fino alla spiaggia del Poetto è un'esperienza indimenticabile: natura selvatica e mare nello stesso giro. Noleggio bici disponibile all'ingresso del parco.",
           link:"https://maps.google.com/?q=Parco+Molentargius+Cagliari"},
         { title:"Parco di Monte Claro", dist:"20 min", emoji:"🌳",
           mood:"Verde nel cuore di Cagliari",
