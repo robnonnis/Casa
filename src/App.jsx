@@ -80,8 +80,8 @@ const Ic = {
   pin:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
   // 🧭 Bussola per "Da scoprire"
   compass:  ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill={c.warm} fillOpacity="0.15"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>,
-  // 🍽️ Forchetta e coltello per ristoranti
-  pasta:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><line x1="18" y1="2" x2="18" y2="22"/><path d="M22 2l-4 6h4"/><path d="M6 2v6a4 4 0 004 4v8"/></svg>,
+  // 🍽️ Forchetta e coltello
+  pasta:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M3 2v7c0 1.1.9 2 2 2h2a2 2 0 002-2V2"/><line x1="7" y1="11" x2="7" y2="22"/><line x1="20" y1="2" x2="20" y2="22"/></svg>,
   cal:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
   star:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
   // 🛒 Carrello della spesa
@@ -525,34 +525,34 @@ function Esplorare({go}) {
       color:"#2d4a2d", accent:"#6db86d",
       tagline:"Tutto raggiungibile a piedi o in 15 minuti",
       data:[
-        { title:"Cinema Vittoria — Uta", dist:"a piedi", emoji:"🎬",
-          mood:"Sala storica anni '50",
-          desc:"Una piccola sala cinematografica storica nel cuore di Uta. Programmazione mista tra film commerciali e proiezioni locali. Un'esperienza autentica e rara.",
-          link:"https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna"},
-        { title:"Parco S'Ollivariu", dist:"5 min", emoji:"🌳",
-          mood:"Mattinata tranquilla",
-          desc:"Lecci, sentieri ombreggiati e silenzio. Il posto giusto per iniziare la giornata prima che il paese si svegli.",
-          link:"https://maps.google.com/?q=Parco+S+Ollivariu+Uta"},
         { title:"Chiesa romanica di Santa Maria", dist:"5 min", emoji:"⛪",
           mood:"Patrimonio del XII sec.",
           desc:"Pietra calcarea, volte basse e luce filtrata. Una delle chiese medievali più integre del Campidano — vale dieci minuti di sosta.",
           link:"https://maps.google.com/?q=Chiesa+Santa+Maria+Uta"},
-        { title:"Fenicotteri di Santa Gilla", dist:"10 min", emoji:"🦩",
-          mood:"Spettacolo della natura",
-          desc:"Migliaia di fenicotteri rosa nella laguna di Santa Gilla. Visibili quasi tutto l'anno — una scena che non ci si aspetta così vicino a casa.",
-          link:"https://maps.google.com/?q=Laguna+Santa+Gilla+Cagliari"},
-        { title:"Oasi WWF di Santa Gilla", dist:"10 min", emoji:"🌿",
-          mood:"Riserva naturale",
-          desc:"La riserva naturale che protegge la laguna. Birdwatching, passeggiate e percorsi naturalistici. Ingresso libero.",
+        { title:"Parco S'Ollivariu", dist:"5 min", emoji:"🌳",
+          mood:"Mattinata tranquilla",
+          desc:"Lecci, sentieri ombreggiati e silenzio. Il posto giusto per iniziare la giornata prima che il paese si svegli.",
+          link:"https://maps.google.com/?q=Parco+S+Ollivariu+Uta"},
+        { title:"Cinema Vittoria", dist:"a piedi", emoji:"🎬",
+          mood:"Sala storica anni '50",
+          desc:"Una piccola sala cinematografica storica nel cuore di Uta. Programmazione mista, atmosfera d'altri tempi. Un'esperienza autentica e rara.",
+          link:"https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna"},
+        { title:"Oasi WWF Santa Gilla & La Locanda", dist:"10 min", emoji:"🌿",
+          mood:"Natura + cucina sarda",
+          desc:"Riserva naturale WWF con laguna, birdwatching e percorsi naturalistici. All'interno dell'oasi si trova La Locanda dei Buoni e Cattivi: cucina sarda genuina in un contesto unico — vale la visita per entrambe le cose.",
           link:"https://maps.google.com/?q=Oasi+WWF+Santa+Gilla"},
-        { title:"🍽️ La Locanda dei Buoni e Cattivi", dist:"10 min", emoji:"🏡",
-          mood:"Chicca locale — ristoro all'oasi",
-          desc:"Un posto speciale dentro l'oasi di Santa Gilla: cucina sarda genuina in un contesto naturalistico unico. Ambiente informale e autentico.",
-          link:"https://maps.google.com/?q=La+Locanda+dei+Buoni+e+Cattivi+Santa+Gilla"},
         { title:"Saline di Conti Vecchi", dist:"10 min", emoji:"🧂",
           mood:"Foto imperdibili",
-          desc:"Le vasche cambiano colore dal bianco candido al rosa acceso a seconda della stagione. Un paesaggio industriale-naturale unico.",
+          desc:"Le vasche cambiano colore dal bianco candido al rosa acceso a seconda della stagione. Un paesaggio industriale-naturale surreale.",
           link:"https://maps.google.com/?q=Saline+Conti+Vecchi+Assemini"},
+        { title:"Oasi WWF Foresta di Monte Arcosu", dist:"20 min", emoji:"🦌",
+          mood:"Cervo sardo & luna",
+          desc:"La più grande foresta mediterranea privata d'Europa. Sede del Cervo sardo, specie endemica a rischio. Trekking immersi in una natura primordiale.",
+          link:"https://maps.google.com/?q=Oasi+WWF+Monte+Arcosu+Sardegna"},
+        { title:"Parco Naturale di Gutturu Mannu", dist:"25 min", emoji:"🏞️",
+          mood:"Foresta primordiale",
+          desc:"Boschi di lecci, sughere e roverelle attraversati da torrenti. Uno dei parchi più estesi della Sardegna, quasi sconosciuto ai turisti. Sentieri per tutti i livelli.",
+          link:"https://maps.google.com/?q=Gutturu+Mannu+Sardegna"},
       ]
     },
     {
@@ -568,10 +568,14 @@ function Esplorare({go}) {
           mood:"Tramonto da ricordare",
           desc:"Il promontorio tra Poetto e Calamosca. Il sentiero sale tra mirto e lentisco: in cima, il Golfo di Cagliari si apre tutto insieme.",
           link:"https://maps.google.com/?q=Sella+del+Diavolo+Cagliari"},
-        { title:"Molentargius — il parco degli aironi", dist:"15 min", emoji:"🦢",
-          mood:"Natura metropolitana",
-          desc:"Stagno naturale nel mezzo della città. Aironi cenerini, fenicotteri e folaghe a pochi metri dalla pista ciclabile.",
+        { title:"Molentargius — il parco dei fenicotteri", dist:"15 min", emoji:"🦩",
+          mood:"Fenomeno naturale unico",
+          desc:"Uno stagno naturale nel cuore della città dove vivono colonie di fenicotteri rosa tutto l'anno. Un fenomeno naturale raro: fenicotteri selvatici a 15 minuti da casa, raggiungibili in bici.",
           link:"https://maps.google.com/?q=Parco+Molentargius+Cagliari"},
+        { title:"Parco di Monte Claro", dist:"20 min", emoji:"🌳",
+          mood:"Verde nel cuore di Cagliari",
+          desc:"Il grande parco storico di Cagliari con villa ottocentesca, laghetto, alberi centenari e percorsi pedonali. Perfetto per una mattinata rilassante in città.",
+          link:"https://maps.google.com/?q=Parco+Monte+Claro+Cagliari"},
         { title:"Marina, Castello & Su Siccu", dist:"20 min", emoji:"🏙️",
           mood:"Aperitivo & storia",
           desc:"Il quartiere Marina per i tapas sardi e i vicoli animati; Castello per i panorami sul golfo; Su Siccu per una serata sul lungomare.",
@@ -857,30 +861,49 @@ function Servizi({go}) {
   </div>;
 }
 
-function RCard({emoji, nome, stelle, dist, tipo, piatti, link}) {
+function RCard({emoji, nome, stelle, dist, tipo, piatti, link, highlight}) {
   return (
     <a href={link} target="_blank" rel="noreferrer" style={{
-      display:"block", textDecoration:"none", background:c.white,
-      borderRadius:16, padding:"14px 16px", marginBottom:10,
-      border:`1px solid ${c.hazel}15`, overflow:"hidden"
+      display:"block", textDecoration:"none",
+      background: highlight ? `linear-gradient(135deg,${c.hazel}18,${c.hazelL}25)` : c.white,
+      borderRadius:16, marginBottom:8, overflow:"hidden",
+      border: highlight ? `1px solid ${c.hazel}50` : `1px solid ${c.sand}`,
+      boxShadow: highlight ? `0 2px 8px ${c.hazel}20` : "none",
     }}
-      onMouseEnter={e=>e.currentTarget.style.borderColor=c.hazel}
-      onMouseLeave={e=>e.currentTarget.style.borderColor=`${c.hazel}15`}>
-      <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:6}}>
-        <div style={{display:"flex", alignItems:"center", gap:8}}>
-          <span style={{fontSize:20}}>{emoji}</span>
-          <div>
-            <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:16, fontWeight:400, color:c.warm, lineHeight:1.2}}>{nome}</div>
-            <div style={{fontSize:10, color:c.mastic, marginTop:2}}>{tipo}</div>
+      onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-1px)";e.currentTarget.style.boxShadow=`0 4px 12px ${c.hazel}25`;}}
+      onMouseLeave={e=>{e.currentTarget.style.transform="";e.currentTarget.style.boxShadow=highlight?`0 2px 8px ${c.hazel}20`:"none";}}>
+      <div style={{padding:"12px 14px"}}>
+        <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start"}}>
+          <div style={{display:"flex", alignItems:"center", gap:10, flex:1, minWidth:0}}>
+            <span style={{fontSize:22, flexShrink:0}}>{emoji}</span>
+            <div style={{minWidth:0}}>
+              <div style={{display:"flex", alignItems:"center", gap:6, flexWrap:"wrap"}}>
+                <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17, fontWeight:400, color:c.warm, lineHeight:1.2}}>{nome}</span>
+                {stelle && <span style={{fontSize:11, color:"#a07820", fontWeight:700, flexShrink:0}}>⭐{stelle}</span>}
+                {highlight && <span style={{fontSize:9, background:c.hazel, color:"white", borderRadius:8, padding:"2px 7px", letterSpacing:"0.5px", flexShrink:0}}>CONSIGLIATO</span>}
+              </div>
+              <div style={{fontSize:10.5, color:c.mastic, marginTop:2}}>{tipo} · <span style={{color:c.hazel}}>{dist}</span></div>
+            </div>
           </div>
+          <span style={{fontSize:16, color:c.hazel, flexShrink:0, marginLeft:8}}>›</span>
         </div>
-        <div style={{display:"flex", flexDirection:"column", alignItems:"flex-end", gap:3, flexShrink:0, marginLeft:8}}>
-          {stelle && <span style={{fontSize:11, color:"#b8860b", fontWeight:600}}>⭐ {stelle}</span>}
-          <span style={{fontSize:10, color:c.hazel, background:`${c.hazel}12`, borderRadius:10, padding:"2px 8px", whiteSpace:"nowrap"}}>{dist}</span>
-        </div>
+        {piatti && <p style={{fontSize:12.5, color:c.mastic, lineHeight:1.65, margin:"8px 0 0", paddingLeft:32, fontStyle:"italic"}}>{piatti}</p>}
       </div>
-      {piatti && <div style={{fontSize:12, color:c.mastic, lineHeight:1.6, paddingLeft:28, fontStyle:"italic"}}>{piatti}</div>}
     </a>
+  );
+}
+
+// Separatore di sezione ristoranti
+function RSection({title, children}) {
+  return (
+    <div style={{marginBottom:20}}>
+      <div style={{display:"flex", alignItems:"center", gap:10, margin:"0 0 10px"}}>
+        <div style={{flex:1, height:1, background:c.sand}}/>
+        <span style={{fontSize:10, letterSpacing:"2.5px", textTransform:"uppercase", color:c.mastic, flexShrink:0, fontWeight:500}}>{title}</span>
+        <div style={{flex:1, height:1, background:c.sand}}/>
+      </div>
+      {children}
+    </div>
   );
 }
 
@@ -889,81 +912,95 @@ function Ristoranti({go}) {
     <PageHead title="Dove mangiare" back={()=>go("home")} icon={<Ic.pasta/>}/>
     <div style={s.content}>
 
-      <Card>
-        <CT text="🏠 A Uta — a piedi"/>
-        <RCard emoji="🍔" nome="Slim Pickins" stelle="4.9" dist="vicino" tipo="American Fusion"
-          piatti="Burger gourmet, pulled pork, ali di pollo croccanti. Ingredienti locali in chiave americana."
+      {/* Highlight card consigliato */}
+      <div style={{background:`linear-gradient(135deg,#2d1a0e,#4a2e18)`, borderRadius:18, padding:"16px 18px", marginBottom:20}}>
+        <div style={{fontSize:9,letterSpacing:"3px",textTransform:"uppercase",color:"rgba(245,240,232,0.45)",marginBottom:8}}>⭐ da non perdere</div>
+        <div style={{display:"flex",flexDirection:"column",gap:6}}>
+          {[
+            {e:"🍔",n:"Slim Pickins",s:"4.9",d:"Uta",t:"Tocca con mano"},
+            {e:"⭐",n:"Lughènte Fine Dining",s:"4.9",d:"~20 min",t:"Alta cucina sarda"},
+            {e:"🌿",n:"Ada Restaurant",s:"4.7",d:"~15 min",t:"Cucina creativa"},
+          ].map(({e,n,s,d,t})=>(
+            <div key={n} style={{display:"flex",alignItems:"center",gap:10}}>
+              <span style={{fontSize:18}}>{e}</span>
+              <div style={{flex:1}}>
+                <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:15,color:"white"}}>{n}</span>
+                <span style={{fontSize:10,color:"rgba(245,240,232,0.5)",marginLeft:8}}>{d}</span>
+              </div>
+              <span style={{fontSize:11,color:"#d4aa85",fontWeight:700}}>⭐{s}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <RSection title="A Uta — a piedi">
+        <RCard emoji="🍔" nome="Slim Pickins" stelle="4.9" dist="vicino" tipo="American Fusion" highlight
+          piatti="Burger gourmet, pulled pork, ali di pollo croccanti con ingredienti locali in chiave americana."
           link="https://maps.google.com/?q=Slim+Pickins+Uta"/>
         <RCard emoji="🍺" nome="U3 Birreria & Steakhouse" stelle="4.8" dist="vicino" tipo="Birra artigianale · Carne"
-          piatti="Birre artigianali sarde, tagliata di manzo, hamburger di Angus. Atmosfera rustica e conviviale."
+          piatti="Birre artigianali sarde, tagliata di manzo, hamburger di Angus. Rustico e conviviale."
           link="https://maps.google.com/?q=U3+Birreria+Uta"/>
         <RCard emoji="🥩" nome="El Miura" stelle="4.6" dist="vicino" tipo="Steakhouse · Cucina sarda"
-          piatti="Grigliate di carne, porceddu, secondi di terra. Ambiente familiare e porzioni generose."
+          piatti="Grigliate, porceddu, secondi di terra. Ambiente familiare e porzioni generose."
           link="https://maps.google.com/?q=El+Miura+Uta"/>
-        <RCard emoji="🍽️" nome="Ristorante Da Caterina" stelle="4.4" dist="vicino" tipo="Cucina sarda tradizionale"
-          piatti="Malloreddus al ragù, fregola, agnello al forno. Piatti della nonna, autentici e abbondanti."
+        <RCard emoji="🍽️" nome="Da Caterina" stelle="4.4" dist="vicino" tipo="Cucina sarda tradizionale"
+          piatti="Malloreddus, fregola, agnello al forno. Piatti della nonna, autentici e abbondanti."
           link="https://maps.google.com/?q=Ristorante+Da+Caterina+Uta"/>
         <RCard emoji="🍕" nome="Sa Locanda di Gaia" stelle="4.4" dist="vicino" tipo="Pizza · Cucina sarda"
-          piatti="Pizze al forno a legna, pane carasau con guarnizioni, antipasti misti sardi."
+          piatti="Pizze al forno a legna, pane carasau con guarnizioni, antipasti sardi."
           link="https://maps.google.com/?q=Pizzeria+Sa+Locanda+Di+Gaia+Uta"/>
-      </Card>
+      </RSection>
 
-      <Card>
-        <CT text="☕ Bar"/>
+      <RSection title="Bar">
         <RCard emoji="☕" nome="Check Mate Bar" stelle="4.7" dist="vicino" tipo="Bar · Aperitivi"
-          piatti="Colazioni sarde, caffè, aperitivi con stuzzichini locali. Meta dei giocatori di scacchi del paese."
+          piatti="Colazioni sarde, aperitivi con stuzzichini. Il ritrovo dei giocatori di scacchi del paese."
           link="https://maps.google.com/?q=Checkmate+Bar+Uta"/>
         <RCard emoji="☕" nome="Caffè Roma" dist="vicino" tipo="Bar storico"
           piatti="Cornetti, paste fresche, caffè. Il ritrovo mattutino dei residenti di Uta."
           link="https://maps.google.com/search?q=Caffe+Roma+Uta"/>
-        <RCard emoji="☕" nome="New Bar Mexico" stelle="4.7" dist="~15 min" tipo="Bar · Pasticceria"
-          piatti="Dolci sardi, seadas, paste di mandorle, ottima colazione. Tappa golosa ad Assemini."
+        <RCard emoji="☕" nome="New Bar Mexico" stelle="4.7" dist="~15 min" tipo="Bar · Pasticceria · Assemini"
+          piatti="Dolci sardi, seadas, paste di mandorle. Tappa golosa obbligata."
           link="https://maps.google.com/?q=New+Bar+Mexico+Assemini"/>
-      </Card>
+      </RSection>
 
-      <Card>
-        <CT text="🚗 Circondario — 10/20 min"/>
-        <RCard emoji="🍕" nome="Le Pizzi'ine di Niky" stelle="4.9" dist="~10 min" tipo="Pizzeria napoletana"
-          piatti="Pizza napoletana verace, impasto a lunga lievitazione, farciture creative. Tra le migliori nell'area."
+      <RSection title="Circondario — 10/20 min">
+        <RCard emoji="🍕" nome="Le Pizzi'ine di Niky" stelle="4.9" dist="~10 min" tipo="Pizzeria napoletana · Decimomannu"
+          piatti="Pizza napoletana a lunga lievitazione. Tra le migliori nell'area."
           link="https://maps.google.com/?q=Le+Pizziine+di+Niky+Decimomannu"/>
-        <RCard emoji="🐟" nome="Ci Pensa Marco" stelle="4.8" dist="~10 min" tipo="Pesce · Cucina sarda"
-          piatti="Fregola con arselle, spaghetti all'astice, fritto misto di paranza. Freschissimo ogni giorno."
+        <RCard emoji="🐟" nome="Ci Pensa Marco" stelle="4.8" dist="~10 min" tipo="Pesce · Cucina sarda · Decimomannu"
+          piatti="Fregola con arselle, spaghetti all'astice, fritto di paranza. Freschissimo ogni giorno."
           link="https://maps.google.com/?q=Ci+Pensa+Marco+Decimomannu"/>
         <RCard emoji="🍽️" nome="Thalìa" dist="~10 min" tipo="Cucina mediterranea · Elmas"
           piatti="Cucina di territorio con influenze mediterranee, carni e pesce. Ambiente curato."
           link="https://maps.google.com/?q=Ristorante+Thalia+Elmas"/>
-        <RCard emoji="🌿" nome="Ada Restaurant" stelle="4.7" dist="~15 min" tipo="Cucina sarda creativa · San Sperate"
-          piatti="Cucina sarda reinterpretata con creatività: malloreddus al mirto, agnello con erbe aromatiche, dolci tipici rivisitati. Accanto ai murales di Sciola."
+        <RCard emoji="🌿" nome="Ada Restaurant" stelle="4.7" dist="~15 min" tipo="Cucina sarda creativa · San Sperate" highlight
+          piatti="Malloreddus al mirto, agnello con erbe aromatiche, dolci rivisitati. Accanto ai murales di Sciola."
           link="https://maps.google.com/?q=Ada+Restaurant+San+Sperate"/>
         <RCard emoji="🍺" nome="Gasthaus" stelle="4.6" dist="~15 min" tipo="Birreria tedesca · Assemini"
-          piatti="Würstel, crauti, stinco di maiale, birre tedesche alla spina. Un'anomalia felice in Sardegna."
+          piatti="Würstel, crauti, stinco, birre tedesche alla spina. Un'anomalia felice."
           link="https://maps.google.com/?q=Gasthaus+Assemini"/>
-        <RCard emoji="🍕" nome="Malloci Pizza e Cucina" stelle="4.4" dist="~15 min" tipo="Pizza · Cucina sarda"
-          piatti="Pizze gourmet e piatti sardi. Impasto croccante, ottimi ingredienti locali."
-          link="https://maps.google.com/?q=Malloci+Assemini"/>
-        <RCard emoji="🍱" nome="Makito Poke & Sushi" stelle="4.7" dist="~15 min" tipo="Giapponese · Fusion"
-          piatti="Poke bowl personalizzate, sushi rolls, tartare di tonno. Ideale per una pausa fresca e leggera."
+        <RCard emoji="🍱" nome="Makito Poke & Sushi" stelle="4.7" dist="~15 min" tipo="Fusion · Assemini"
+          piatti="Poke bowl, sushi rolls, tartare di tonno. Leggero e fresco."
           link="https://maps.google.com/?q=Makito+Assemini"/>
-        <RCard emoji="⭐" nome="Lughènte Fine Dining" stelle="4.9" dist="~20 min" tipo="Alta cucina · Capoterra"
-          piatti="Menù degustazione con prodotti sardi d'eccellenza: bottarga, agnello, formaggi pecorino DOP. Prenotazione obbligatoria."
+        <RCard emoji="⭐" nome="Lughènte Fine Dining" stelle="4.9" dist="~20 min" tipo="Alta cucina sarda · Capoterra" highlight
+          piatti="Menù degustazione con bottarga, agnello, pecorino DOP. Prenotazione obbligatoria."
           link="https://maps.google.com/?q=Lughente+Capoterra"/>
-        <RCard emoji="🌊" nome="Arcadia Restaurant" stelle="4.5" dist="~20 min" tipo="Cucina di mare · Capoterra"
-          piatti="Pesce freschissimo, linguine all'aragosta, antipasti di mare. Vista suggestiva sul litorale."
+        <RCard emoji="🌊" nome="Arcadia Restaurant" stelle="4.5" dist="~20 min" tipo="Pesce · Capoterra"
+          piatti="Linguine all'aragosta, antipasti di mare, vista sul litorale."
           link="https://maps.google.com/?q=Arcadia+Restaurant+Capoterra"/>
-      </Card>
+      </RSection>
 
-      <Card>
-        <CT text="🐟 Cagliari — pesce fresco ~20 min"/>
+      <RSection title="Cagliari — pesce fresco ~20 min">
         <RCard emoji="🐠" nome="Stella Marina di Montecristo" stelle="4.6" dist="~20 min" tipo="Ristorante di pesce"
-          piatti="Crudi di mare, zuppa di pesce, spaghetti con bottarga di muggine. Freschezza assoluta."
+          piatti="Crudi di mare, zuppa di pesce, spaghetti con bottarga di muggine."
           link="https://maps.google.com/?q=Stella+Marina+di+Montecristo+Cagliari"/>
         <RCard emoji="🦐" nome="Mari Mannu" stelle="4.6" dist="~20 min" tipo="Cucina di mare"
-          piatti="Antipasto di mare ricchissimo, grigliata mista, fregola con frutti di mare. Vista porto."
+          piatti="Antipasto di mare ricchissimo, fregola con frutti di mare, vista porto."
           link="https://maps.google.com/?q=Mari+Mannu+Cagliari"/>
         <RCard emoji="🐟" nome="Mondo & Luca" stelle="4.6" dist="~20 min" tipo="Trattoria di pesce"
-          piatti="Ambiente informale, qualità altissima. Crudi, pasta al sugo di scorfano, dolci fatti in casa."
+          piatti="Ambiente informale, qualità altissima. Crudi, pasta al sugo di scorfano."
           link="https://maps.google.com/?q=Mondo+e+Luca+Cagliari"/>
-      </Card>
+      </RSection>
 
       {/* Banner cultura cucina sarda */}
       <div style={{background:`linear-gradient(160deg, #7a5840, #96704e)`, borderRadius:18, overflow:"hidden", marginTop:4}}>
