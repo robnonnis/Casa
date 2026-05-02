@@ -557,37 +557,37 @@ function Esplorare({go}) {
         { title:"Chiesa romanica di Santa Maria", dist:"5 min", emoji:"⛪",
           mood:"Patrimonio del XII sec.",
           desc:"Pietra calcarea, volte basse e luce filtrata. Una delle chiese medievali più integre del Campidano — vale dieci minuti di sosta.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Uta%2C_chiesa_di_santa_maria%2C_esterno%2C_facciata%2C_decorazione_di_maestranze_francesi_%28sx%29_e_pisane_%28dx%29%2C_1150_ca._01.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Uta_-_Chiesa_di_Santa_Maria_%281%29.jpg/640px-Uta_-_Chiesa_di_Santa_Maria_%281%29.jpg",
           link:"https://maps.google.com/?q=Chiesa+Santa+Maria+Uta"},
         { title:"Parco S'Ollivariu", dist:"5 min", emoji:"🌳",
           mood:"Mattinata tranquilla",
           desc:"Lecci, sentieri ombreggiati e silenzio. Il posto giusto per iniziare la giornata prima che il paese si svegli.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Bosco_di_lecci_Sardegna.jpg/800px-Bosco_di_lecci_Sardegna.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Foresta_di_Pixinamanna_Sardinia_2.jpg/640px-Foresta_di_Pixinamanna_Sardinia_2.jpg",
           link:"https://maps.google.com/?q=Parco+S+Ollivariu+Uta"},
         { title:"Cinema Vittoria", dist:"a piedi", emoji:"🎬",
           mood:"Sala storica anni '50",
           desc:"Una piccola sala cinematografica storica nel cuore di Uta. Programmazione mista, atmosfera d'altri tempi. Un'esperienza autentica e rara.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Cinema_projector_reel.jpg/800px-Cinema_projector_reel.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Cinema_in_Italy.jpg/640px-Cinema_in_Italy.jpg",
           link:"https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna"},
         { title:"Laguna di Santa Gilla — uccelli migratori", dist:"10 min", emoji:"🦩",
           mood:"Spettacolo naturale gratuito",
           desc:"Laguna costiera dove svernano fenicotteri rosa, aironi, cormorani e migliaia di uccelli migratori. Non serve una riserva — basta affacciarsi dalla strada panoramica per uno spettacolo unico.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Greater_Flamingos_%28Fenicottero_Rosa%29_%28Phoenicopterus_roseus%29_-_Cagliari%2C_Italy_2024-03-28.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Greater_Flamingos_%28Fenicottero_Rosa%29_%28Phoenicopterus_roseus%29_-_Cagliari%2C_Italy_2024-03-28.jpg/640px-Greater_Flamingos_%28Fenicottero_Rosa%29_%28Phoenicopterus_roseus%29_-_Cagliari%2C_Italy_2024-03-28.jpg",
           link:"https://maps.google.com/?q=Laguna+Santa+Gilla+Cagliari"},
         { title:"Saline di Conti Vecchi", dist:"10 min", emoji:"🧂",
           mood:"Foto imperdibili",
           desc:"Ex saline industriali con vasche che cambiano colore dal bianco candido al rosa acceso. Un paesaggio surreale e fotogenico a due passi.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Saline_Conti_Vecchi%2C_Assemini.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Saline_di_Conti_Vecchi.jpg/640px-Saline_di_Conti_Vecchi.jpg",
           link:"https://maps.google.com/?q=Saline+Conti+Vecchi+Assemini"},
         { title:"Oasi del Cervo e della Luna — Monte Arcosu", dist:"20 min", emoji:"🦌",
           mood:"Foresta primordiale · WWF",
           desc:"La più grande foresta mediterranea privata d'Europa, gestita dal WWF. Sede del rarissimo Cervo sardo. Trekking tra lecci e sughere. All'interno dell'oasi si trova La Locanda dei Buoni e Cattivi: cucina sarda autentica nel bosco — da non perdere.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Cervus_elaphus_corsicanus_Sardinia.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Cervus_elaphus_corsicanus.jpg/640px-Cervus_elaphus_corsicanus.jpg",
           link:"https://maps.google.com/?q=Oasi+WWF+Monte+Arcosu+Uta+Sardegna"},
         { title:"Parco Naturale di Gutturu Mannu", dist:"25 min", emoji:"🏞️",
           mood:"Wilderness del Sulcis",
           desc:"Uno dei parchi più estesi e meno frequentati della Sardegna. Boschi di lecci, torrenti, fauna selvatica. Sentieri per tutti i livelli — quasi sconosciuto ai turisti.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Foresta_di_Pixinamanna_Sardinia.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Foresta_di_Gutturu_Mannu.jpg/640px-Foresta_di_Gutturu_Mannu.jpg",
           link:"https://maps.google.com/?q=Gutturu+Mannu+Sardegna"},
       ]
     },
@@ -599,27 +599,27 @@ function Esplorare({go}) {
         { title:"Poetto — 11 km di sabbia fine", dist:"15 min", emoji:"🏖️",
           mood:"Mare & relax",
           desc:"La spiaggia urbana più lunga della Sardegna. D'estate chioschi e movida, in primavera solo vento e orizzonte. Entrami validi.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Spiaggia_del_Poetto_-_Cagliari.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Poetto_beach_Cagliari.jpg/640px-Poetto_beach_Cagliari.jpg",
           link:"https://maps.google.com/?q=Spiaggia+Poetto+Cagliari"},
         { title:"Sella del Diavolo", dist:"20 min", emoji:"🥾",
           mood:"Tramonto da ricordare",
           desc:"Il promontorio tra Poetto e Calamosca. Il sentiero sale tra mirto e lentisco: in cima, il Golfo di Cagliari si apre tutto insieme.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sella_del_diavolo%2C_cagliari_01.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sella_del_diavolo%2C_cagliari_01.jpg/640px-Sella_del_diavolo%2C_cagliari_01.jpg",
           link:"https://maps.google.com/?q=Sella+del+Diavolo+Cagliari"},
         { title:"Molentargius — fenicotteri & bici fino al Poetto", dist:"15 min", emoji:"🦩",
           mood:"Esperienza unica da non perdere",
           desc:"Parco naturale con colonie di fenicotteri rosa che nidificano tutto l'anno — fenomeno rarissimo in Europa. Il percorso in bici attraverso le saline e lo stagno fino alla spiaggia del Poetto è un'esperienza indimenticabile: natura selvatica e mare nello stesso giro. Noleggio bici disponibile all'ingresso del parco.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Molentargius_-_Saline_Regional_Park_%28Parco_naturale_regionale_Molentargius_-_Saline%29_-_Cagliari%2C_Italy_2024-03-27_%2804%29.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Molentargius_-_Saline_Regional_Park_%28Parco_naturale_regionale_Molentargius_-_Saline%29_-_Cagliari%2C_Italy_2024-03-27_%2804%29.jpg/640px-Molentargius_-_Saline_Regional_Park_%28Parco_naturale_regionale_Molentargius_-_Saline%29_-_Cagliari%2C_Italy_2024-03-27_%2804%29.jpg",
           link:"https://maps.google.com/?q=Parco+Molentargius+Cagliari"},
         { title:"Parco di Monte Claro", dist:"20 min", emoji:"🌳",
           mood:"Verde nel cuore di Cagliari",
           desc:"Il grande parco storico di Cagliari con villa ottocentesca, laghetto, alberi centenari e percorsi pedonali. Perfetto per una mattinata rilassante in città.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Monte_Claro_Park_Cagliari.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Parco_Monte_Claro_Cagliari.jpg/640px-Parco_Monte_Claro_Cagliari.jpg",
           link:"https://maps.google.com/?q=Parco+Monte+Claro+Cagliari"},
         { title:"Marina, Castello & Su Siccu", dist:"20 min", emoji:"🏙️",
           mood:"Aperitivo & storia",
           desc:"Il quartiere Marina per i tapas sardi e i vicoli animati; Castello per i panorami sul golfo; Su Siccu per una serata sul lungomare.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cagliari_panorama_dal_bastione_di_saint_remy.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cagliari_panorama_dal_bastione_di_saint_remy.jpg/640px-Cagliari_panorama_dal_bastione_di_saint_remy.jpg",
           link:"https://maps.google.com/?q=Cagliari+centro+storico"},
       ]
     },
@@ -631,22 +631,22 @@ function Esplorare({go}) {
         { title:"San Sperate — Pinuccio Sciola", dist:"15 min", emoji:"🎨",
           mood:"Da non perdere",
           desc:"Il paese-museo: ogni muro è un'opera, ogni vicolo una sorpresa. Le pietre sonore di Sciola vibrano al tocco — un'esperienza che non si dimentica.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/San_Sperate_murales_Pinuccio_Sciola.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/San_Sperate_-_Murales_%281%29.jpg/640px-San_Sperate_-_Murales_%281%29.jpg",
           link:"https://maps.google.com/?q=Murales+San+Sperate+Sardegna"},
         { title:"Scavi di Nora", dist:"25 min", emoji:"🏛️",
           mood:"2.800 anni di storia",
           desc:"Teatro romano, terme puniche, mosaici e colonne — tutto affacciato sul mare. Una delle città antiche più scenografiche d'Italia.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nora_teatro_romano.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Nora_teatro_romano_Sardinia.jpg/640px-Nora_teatro_romano_Sardinia.jpg",
           link:"https://maps.google.com/?q=Nora+sito+romano+Pula"},
         { title:"Villa d'Orri", dist:"25 min", emoji:"🏰",
           mood:"Eleganza ottocentesca",
           desc:"Dimora nobiliare immersa in un parco di lecci centenari. Architettura neoclassica e atmosfera sospesa nel tempo.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Villa_d%27Orri_Sarroch.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Villa_d%27Orri_Sarroch_Sardinia.jpg/640px-Villa_d%27Orri_Sarroch_Sardinia.jpg",
           link:"https://maps.google.com/?q=Villa+d+Orri+Sarroch"},
         { title:"Miniere & Geoparco di Iglesias", dist:"50 min", emoji:"⛏️",
           mood:"Patrimonio UNESCO",
           desc:"Gallerie, laverie e paesaggi industriali restituiti alla memoria collettiva. Il Museo del Carbone di Serbariu è il punto di partenza ideale.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Miniera_di_Monteponi_Iglesias.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Miniera_di_San_Giovanni_Iglesias.jpg/640px-Miniera_di_San_Giovanni_Iglesias.jpg",
           link:"https://maps.google.com/?q=Miniere+Iglesias+Sardegna"},
       ]
     },
@@ -658,57 +658,57 @@ function Esplorare({go}) {
         { title:"Cantine Argiolas, Mesa, Audarya", dist:"20–40 min", emoji:"🍷",
           mood:"Degustazione",
           desc:"Vermentino, Cannonau, Carignano. Le cantine del Campidano aprono le porte per visite e degustazioni in paesaggi da cartolina.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Vigna_Cannonau_Sardegna.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cannonau_vines_Sardinia.jpg/640px-Cannonau_vines_Sardinia.jpg",
           link:"https://maps.google.com/?q=Cantine+Argiolas+Serdiana"},
         { title:"Cammini — Sant'Efisio, 100 Torri, Santa Barbara", dist:"vari", emoji:"🚶",
           mood:"Pellegrinaggio & trekking",
           desc:"Antichi percorsi a piedi attraverso la Sardegna del sud. Il Cammino dei 100 Torri costiero è tra i più scenografici; Sant'Efisio il più spirituale.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Cammino_Sant_Efisio_Sardegna.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Festa_di_Sant%27Efisio_Cagliari.jpg/640px-Festa_di_Sant%27Efisio_Cagliari.jpg",
           link:"https://maps.google.com/?q=Cammino+Sant+Efisio+Sardegna"},
         { title:"Sentieri del Carignano — Sulcis", dist:"50 min", emoji:"🥾",
           mood:"Viticoltura eroica",
           desc:"Vigneti a piede franco tra i più antichi d'Europa, aggrappati alle scogliere a strapiombo sul mare. Un trekking fuori dal comune.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Carignano_del_Sulcis_vigneto.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Carignano_del_Sulcis_vineyard.jpg/640px-Carignano_del_Sulcis_vineyard.jpg",
           link:"https://maps.google.com/?q=Carignano+del+Sulcis+vigneti"},
         { title:"Chia — dune e torri", dist:"45 min", emoji:"🏖️",
           mood:"Spiaggia da sogno",
           desc:"Acqua caraibica, dune di sabbia bianca e una torre aragonese sul promontorio. Tra le spiagge più belle d'Europa. Arrivate presto.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Spiaggia_di_Chia_Sardegna.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Chia_beach_Sardinia.jpg/640px-Chia_beach_Sardinia.jpg",
           link:"https://maps.google.com/?q=Spiaggia+Chia+Sardegna"},
         { title:"Belvedere Nebida & Pan di Zucchero", dist:"1h 10min", emoji:"🗼",
           mood:"Panorama mozzafiato",
           desc:"Lo scoglio più alto del Mediterraneo visto dall'alto. Al tramonto la luce arancione sulla roccia bianca è inarrivabile.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Pan_di_Zucchero_Nebida_Sardegna.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Pan_di_Zucchero_Nebida.jpg/640px-Pan_di_Zucchero_Nebida.jpg",
           link:"https://maps.google.com/?q=Belvedere+Nebida+Sardegna"},
         { title:"Carloforte — Isola di San Pietro", dist:"1h 20min + traghetto", emoji:"⛵",
           mood:"Isola nell'isola",
           desc:"Borgo tabarkino con accento ligure, strade strette e tonno rosso del Mediterraneo. Una giornata intera non basta.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Carloforte_panorama.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Carloforte_panorama_Sardinia.jpg/640px-Carloforte_panorama_Sardinia.jpg",
           link:"https://maps.google.com/?q=Carloforte+Isola+San+Pietro"},
         { title:"Villasimius & Costa Rei", dist:"1h", emoji:"🌊",
           mood:"Fondali cristallini",
           desc:"Il sud-est della Sardegna è quasi caraibico. Acque trasparenti, barriera corallina, dune di quarzo rosa. Perfetto per snorkeling.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Villasimius_Capo_Carbonara.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Villasimius_Capo_Carbonara_beach.jpg/640px-Villasimius_Capo_Carbonara_beach.jpg",
           link:"https://maps.google.com/?q=Villasimius+Sardegna"},
         { title:"Spiaggia di Scivu & Torre dei Corsari", dist:"1h 10min", emoji:"🏖️",
           mood:"Selvaggia e incontaminata",
           desc:"Due spiagge rimaste intatte, senza strade asfaltate. Sabbia finissima e mare verde smeraldo tra le dune del Sulcis.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Spiaggia_di_Scivu_Sardegna.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Spiaggia_di_Scivu.jpg/640px-Spiaggia_di_Scivu.jpg",
           link:"https://maps.google.com/?q=Spiaggia+Scivu+Sardegna"},
         { title:"Dune di Piscinas", dist:"1h 20min", emoji:"🏜️",
           mood:"Il deserto d'Europa",
           desc:"Le dune più alte d'Europa — fino a 60 metri — si affacciano su un mare spettacolare. Un paesaggio da Sahara nel cuore della Sardegna.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Piscinas_dunes_Sardinia.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Dune_di_Piscinas_Sardegna.jpg/640px-Dune_di_Piscinas_Sardegna.jpg",
           link:"https://maps.google.com/?q=Dune+di+Piscinas+Sardegna"},
         { title:"Golfo di Orosei & Cala Goloritzé", dist:"~3h", emoji:"🌊",
           mood:"Top 10 spiagge al mondo",
           desc:"Cala Goloritzé, Cala Luna, Cala Mariolu — le calette del golfo compaiono ogni anno tra le spiagge più belle del mondo. Vale il viaggio.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cala_Goloritz%C3%A8_Sardegna.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cala_Goloritz%C3%A8.jpg/640px-Cala_Goloritz%C3%A8.jpg",
           link:"https://maps.google.com/?q=Golfo+di+Orosei+Sardegna"},
         { title:"Arcipelago della Maddalena", dist:"~3h", emoji:"⛵",
           mood:"Parco Nazionale marino",
           desc:"Sette isole, acque trasparenti e graniti rosa. Traghetto da Palau. Una delle aree marine protette più belle del Mediterraneo.",
-          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/La_Maddalena_Arcipelago_Sardegna.jpg/800px-thumbnail.jpg",
+          photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/La_Maddalena_panorama.jpg/640px-La_Maddalena_panorama.jpg",
           link:"https://maps.google.com/?q=Arcipelago+della+Maddalena+Sardegna"},
       ]
     },
@@ -848,54 +848,44 @@ function Esplorare({go}) {
         <a key={i} href={p.link} target="_blank" rel="noreferrer" style={{
           display:"block", textDecoration:"none",
           background:c.white, borderRadius:18, marginBottom:12,
-          border:`1px solid ${c.hazel}15`, overflow:"hidden",
-          boxShadow:"0 2px 8px rgba(74,55,40,0.08)",
+          border:`1px solid ${c.hazel}20`, overflow:"hidden",
+          boxShadow:"0 2px 8px rgba(74,55,40,0.07)",
+          transition:"transform .15s, box-shadow .15s",
         }}
-          onMouseEnter={e=>{e.currentTarget.style.borderColor=t.accent;e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow=`0 6px 16px rgba(74,55,40,0.14)`;}}
-          onMouseLeave={e=>{e.currentTarget.style.borderColor=`${c.hazel}15`;e.currentTarget.style.transform="";e.currentTarget.style.boxShadow="0 2px 8px rgba(74,55,40,0.08)";}}>
-          {/* Foto di sfondo con gradient overlay */}
+          onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow=`0 6px 16px rgba(74,55,40,0.14)`;}}
+          onMouseLeave={e=>{e.currentTarget.style.transform="";e.currentTarget.style.boxShadow="0 2px 8px rgba(74,55,40,0.07)";}}>
+
+          {/* Foto — solo decorativa, se fallisce non rompe nulla */}
           {p.photo && (
-            <div style={{position:"relative", height:140, overflow:"hidden"}}>
-              <img src={p.photo} alt={p.title}
+            <div style={{height:140, overflow:"hidden", background:c.sand}}>
+              <img src={p.photo} alt=""
                 style={{width:"100%", height:"100%", objectFit:"cover", display:"block"}}
-                onError={e=>e.target.parentElement.style.display="none"}
+                onError={e=>{e.target.style.display="none";}}
               />
-              <div style={{position:"absolute", inset:0,
-                background:`linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 100%)`}}/>
-              {/* Mood label sopra la foto */}
-              <div style={{position:"absolute", top:10, left:12,
-                background:t.accent, borderRadius:8, padding:"3px 10px",
-                fontSize:9, fontWeight:600, letterSpacing:"1px",
-                textTransform:"uppercase", color:"white"}}>{p.mood}</div>
-              {/* Distanza in basso a destra */}
-              <div style={{position:"absolute", bottom:10, right:12,
-                background:"rgba(0,0,0,0.5)", borderRadius:8, padding:"3px 10px",
-                fontSize:10, color:"white"}}>📍 {p.dist}</div>
-              {/* Emoji + titolo sovrapposti in basso */}
-              <div style={{position:"absolute", bottom:10, left:12, display:"flex", alignItems:"center", gap:8}}>
-                <span style={{fontSize:20}}>{p.emoji}</span>
-                <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17,
-                  color:"white", fontWeight:400, lineHeight:1.2, textShadow:"0 1px 4px rgba(0,0,0,0.5)"}}>{p.title}</span>
-              </div>
             </div>
           )}
+
+          {/* Striscia colorata — sempre visibile */}
+          <div style={{height:3, background:`linear-gradient(90deg, ${t.color}, ${t.accent})`}}/>
+
+          {/* Contenuto testuale — SEMPRE visibile indipendentemente dalla foto */}
           <div style={{padding:"12px 14px"}}>
-            {!p.photo && (
-              <div style={{display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:8}}>
-                <div style={{display:"flex", alignItems:"center", gap:10}}>
-                  <span style={{fontSize:22}}>{p.emoji}</span>
-                  <div>
-                    <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17,
-                      fontWeight:400, color:c.warm, lineHeight:1.2}}>{p.title}</div>
-                    <div style={{fontSize:10, color:t.accent, marginTop:2, fontWeight:500,
-                      letterSpacing:"0.5px", textTransform:"uppercase"}}>{p.mood}</div>
-                  </div>
+            <div style={{display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:6}}>
+              <div style={{display:"flex", alignItems:"center", gap:9, flex:1, minWidth:0}}>
+                <span style={{fontSize:22, flexShrink:0}}>{p.emoji}</span>
+                <div style={{minWidth:0}}>
+                  <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17,
+                    fontWeight:400, color:c.warm, lineHeight:1.25}}>{p.title}</div>
+                  <div style={{fontSize:9, color:t.accent, marginTop:3, fontWeight:600,
+                    letterSpacing:"1px", textTransform:"uppercase"}}>{p.mood}</div>
                 </div>
-                <span style={{fontSize:11, color:c.hazel, background:`${c.hazel}12`,
-                  borderRadius:20, padding:"3px 9px", flexShrink:0, marginLeft:8}}>{p.dist}</span>
               </div>
-            )}
-            <p style={{fontSize:13, color:c.mastic, lineHeight:1.7, margin:0}}>{p.desc}</p>
+              <span style={{fontSize:10, color:c.hazel, background:`${c.hazel}15`,
+                borderRadius:20, padding:"3px 9px", flexShrink:0, marginLeft:8,
+                whiteSpace:"nowrap"}}>{p.dist}</span>
+            </div>
+            <p style={{fontSize:12.5, color:c.mastic, lineHeight:1.7, margin:0,
+              paddingLeft:31}}>{p.desc}</p>
           </div>
         </a>
       ))}
