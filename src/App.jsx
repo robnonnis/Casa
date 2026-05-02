@@ -80,8 +80,8 @@ const Ic = {
   pin:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
   // 🧭 Bussola per "Da scoprire"
   compass:  ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill={c.warm} fillOpacity="0.15"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>,
-  // 🍽️ Piatto con posate
-  pasta:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><line x1="5" y1="3" x2="5" y2="21"/><line x1="19" y1="3" x2="19" y2="21"/><line x1="3" y1="5" x2="7" y2="5"/><line x1="3" y1="9" x2="7" y2="9"/></svg>,
+  // 🍽️ Forchetta e coltello — SVG pulito
+  pasta:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.4}}><path d="M3 2v4a4 4 0 004 4v10" strokeLinecap="round"/><path d="M7 2v4" strokeLinecap="round"/><path d="M11 2v4" strokeLinecap="round"/><path d="M7 6a4 4 0 004-4" strokeLinecap="round"/><line x1="21" y1="2" x2="21" y2="22" strokeLinecap="round"/><path d="M17 2v8a4 4 0 004 4v0" strokeLinecap="round"/></svg>,
   cal:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
   star:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
   // 🛒 Carrello della spesa
@@ -121,11 +121,30 @@ function PH({go}) {
         <div style={{width:32,height:1,background:c.hazel,margin:"16px auto 0"}}/>
       </div>
 
-      <div style={s.sectionLabel}>Esplora la guida</div>
+      {/* Sezione urgente per chi arriva */}
+      <div style={{fontSize:9, letterSpacing:"4px", textTransform:"uppercase", color:c.mastic,
+        margin:"22px 0 10px", textAlign:"center"}}>All'arrivo</div>
+      <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, padding:"0 20px", maxWidth:400, margin:"0 auto 4px"}}>
+        {[
+          ["benvenuto", <Ic.home/>, "Benvenuto", "Informazioni & contatti"],
+          ["checkin",   <Ic.lock/>, "Check-in / out", "Orari & istruzioni"],
+        ].map(([id,icon,label,sub])=>(
+          <div key={id} onClick={()=>go(id)} style={{
+            background:`linear-gradient(135deg, ${c.hazel}18, ${c.hazelL}28)`,
+            borderRadius:18, padding:"18px 14px", cursor:"pointer",
+            border:`1px solid ${c.hazel}40`, textAlign:"center",
+          }}>
+            <div style={{marginBottom:8}}>{icon}</div>
+            <div style={{fontSize:11, fontWeight:500, color:c.warm, letterSpacing:"0.5px"}}>{label}</div>
+            <div style={{fontSize:9.5, color:c.mastic, marginTop:3, lineHeight:1.3}}>{sub}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{fontSize:9, letterSpacing:"4px", textTransform:"uppercase", color:c.mastic,
+        margin:"20px 0 12px", textAlign:"center"}}>La guida completa</div>
       <div style={s.grid}>
         {[
-          ["benvenuto",    <Ic.home/>,    "Benvenuto"],
-          ["checkin",      <Ic.lock/>,    "Check-in / out"],
           ["appartamento", <Ic.building/>,"L'appartamento"],
           ["wifi",         <Ic.wifi/>,    "Wi-Fi"],
           ["regole",       <Ic.check/>,   "Regole casa"],
@@ -528,30 +547,37 @@ function Esplorare({go}) {
         { title:"Chiesa romanica di Santa Maria", dist:"5 min", emoji:"⛪",
           mood:"Patrimonio del XII sec.",
           desc:"Pietra calcarea, volte basse e luce filtrata. Una delle chiese medievali più integre del Campidano — vale dieci minuti di sosta.",
+          photo:"https://images.unsplash.com/photo-1568967729153-b97584a1c2f0?w=600&q=80",
           link:"https://maps.google.com/?q=Chiesa+Santa+Maria+Uta"},
         { title:"Parco S'Ollivariu", dist:"5 min", emoji:"🌳",
           mood:"Mattinata tranquilla",
           desc:"Lecci, sentieri ombreggiati e silenzio. Il posto giusto per iniziare la giornata prima che il paese si svegli.",
+          photo:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80",
           link:"https://maps.google.com/?q=Parco+S+Ollivariu+Uta"},
         { title:"Cinema Vittoria", dist:"a piedi", emoji:"🎬",
           mood:"Sala storica anni '50",
           desc:"Una piccola sala cinematografica storica nel cuore di Uta. Programmazione mista, atmosfera d'altri tempi. Un'esperienza autentica e rara.",
+          photo:"https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80",
           link:"https://maps.google.com/?q=Cinema+Vittoria+Uta+Sardegna"},
         { title:"Laguna di Santa Gilla — uccelli migratori", dist:"10 min", emoji:"🦩",
           mood:"Spettacolo naturale gratuito",
           desc:"Laguna costiera dove svernano fenicotteri rosa, aironi, cormorani e migliaia di uccelli migratori. Non serve una riserva — basta affacciarsi dalla strada panoramica per uno spettacolo unico.",
+          photo:"https://images.unsplash.com/photo-1516020382113-a7e8fc38eac9?w=600&q=80",
           link:"https://maps.google.com/?q=Laguna+Santa+Gilla+Cagliari"},
         { title:"Saline di Conti Vecchi", dist:"10 min", emoji:"🧂",
           mood:"Foto imperdibili",
           desc:"Ex saline industriali con vasche che cambiano colore dal bianco candido al rosa acceso. Un paesaggio surreale e fotogenico a due passi.",
+          photo:"https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=600&q=80",
           link:"https://maps.google.com/?q=Saline+Conti+Vecchi+Assemini"},
         { title:"Oasi del Cervo e della Luna — Monte Arcosu", dist:"20 min", emoji:"🦌",
           mood:"Foresta primordiale · WWF",
           desc:"La più grande foresta mediterranea privata d'Europa, gestita dal WWF. Sede del rarissimo Cervo sardo. Trekking tra lecci e sughere. All'interno dell'oasi si trova La Locanda dei Buoni e Cattivi: cucina sarda autentica nel bosco — da non perdere.",
+          photo:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
           link:"https://maps.google.com/?q=Oasi+WWF+Monte+Arcosu+Uta+Sardegna"},
         { title:"Parco Naturale di Gutturu Mannu", dist:"25 min", emoji:"🏞️",
           mood:"Wilderness del Sulcis",
           desc:"Uno dei parchi più estesi e meno frequentati della Sardegna. Boschi di lecci, torrenti, fauna selvatica. Sentieri per tutti i livelli — quasi sconosciuto ai turisti.",
+          photo:"https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=600&q=80",
           link:"https://maps.google.com/?q=Gutturu+Mannu+Sardegna"},
       ]
     },
@@ -563,22 +589,27 @@ function Esplorare({go}) {
         { title:"Poetto — 11 km di sabbia fine", dist:"15 min", emoji:"🏖️",
           mood:"Mare & relax",
           desc:"La spiaggia urbana più lunga della Sardegna. D'estate chioschi e movida, in primavera solo vento e orizzonte. Entrami validi.",
+          photo:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
           link:"https://maps.google.com/?q=Spiaggia+Poetto+Cagliari"},
         { title:"Sella del Diavolo", dist:"20 min", emoji:"🥾",
           mood:"Tramonto da ricordare",
           desc:"Il promontorio tra Poetto e Calamosca. Il sentiero sale tra mirto e lentisco: in cima, il Golfo di Cagliari si apre tutto insieme.",
+          photo:"https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&q=80",
           link:"https://maps.google.com/?q=Sella+del+Diavolo+Cagliari"},
         { title:"Molentargius — fenicotteri & bici fino al Poetto", dist:"15 min", emoji:"🦩",
           mood:"Esperienza unica da non perdere",
           desc:"Parco naturale con colonie di fenicotteri rosa che nidificano tutto l'anno — fenomeno rarissimo in Europa. Il percorso in bici attraverso le saline e lo stagno fino alla spiaggia del Poetto è un'esperienza indimenticabile: natura selvatica e mare nello stesso giro. Noleggio bici disponibile all'ingresso del parco.",
+          photo:"https://images.unsplash.com/photo-1516994090395-c43e73028c44?w=600&q=80",
           link:"https://maps.google.com/?q=Parco+Molentargius+Cagliari"},
         { title:"Parco di Monte Claro", dist:"20 min", emoji:"🌳",
           mood:"Verde nel cuore di Cagliari",
           desc:"Il grande parco storico di Cagliari con villa ottocentesca, laghetto, alberi centenari e percorsi pedonali. Perfetto per una mattinata rilassante in città.",
+          photo:"https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?w=600&q=80",
           link:"https://maps.google.com/?q=Parco+Monte+Claro+Cagliari"},
         { title:"Marina, Castello & Su Siccu", dist:"20 min", emoji:"🏙️",
           mood:"Aperitivo & storia",
           desc:"Il quartiere Marina per i tapas sardi e i vicoli animati; Castello per i panorami sul golfo; Su Siccu per una serata sul lungomare.",
+          photo:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
           link:"https://maps.google.com/?q=Cagliari+centro+storico"},
       ]
     },
@@ -590,18 +621,22 @@ function Esplorare({go}) {
         { title:"San Sperate — Pinuccio Sciola", dist:"15 min", emoji:"🎨",
           mood:"Da non perdere",
           desc:"Il paese-museo: ogni muro è un'opera, ogni vicolo una sorpresa. Le pietre sonore di Sciola vibrano al tocco — un'esperienza che non si dimentica.",
+          photo:"https://images.unsplash.com/photo-1578926288207-32356e3c7427?w=600&q=80",
           link:"https://maps.google.com/?q=Murales+San+Sperate+Sardegna"},
         { title:"Scavi di Nora", dist:"25 min", emoji:"🏛️",
           mood:"2.800 anni di storia",
           desc:"Teatro romano, terme puniche, mosaici e colonne — tutto affacciato sul mare. Una delle città antiche più scenografiche d'Italia.",
+          photo:"https://images.unsplash.com/photo-1525874684015-58379d421a52?w=600&q=80",
           link:"https://maps.google.com/?q=Nora+sito+romano+Pula"},
         { title:"Villa d'Orri", dist:"25 min", emoji:"🏰",
           mood:"Eleganza ottocentesca",
           desc:"Dimora nobiliare immersa in un parco di lecci centenari. Architettura neoclassica e atmosfera sospesa nel tempo.",
+          photo:"https://images.unsplash.com/photo-1592494804031-adb8f29d87fe?w=600&q=80",
           link:"https://maps.google.com/?q=Villa+d+Orri+Sarroch"},
         { title:"Miniere & Geoparco di Iglesias", dist:"50 min", emoji:"⛏️",
           mood:"Patrimonio UNESCO",
           desc:"Gallerie, laverie e paesaggi industriali restituiti alla memoria collettiva. Il Museo del Carbone di Serbariu è il punto di partenza ideale.",
+          photo:"https://images.unsplash.com/photo-1519911196513-f4afdf5afcb2?w=600&q=80",
           link:"https://maps.google.com/?q=Miniere+Iglesias+Sardegna"},
       ]
     },
@@ -613,46 +648,57 @@ function Esplorare({go}) {
         { title:"Cantine Argiolas, Mesa, Audarya", dist:"20–40 min", emoji:"🍷",
           mood:"Degustazione",
           desc:"Vermentino, Cannonau, Carignano. Le cantine del Campidano aprono le porte per visite e degustazioni in paesaggi da cartolina.",
+          photo:"https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80",
           link:"https://maps.google.com/?q=Cantine+Argiolas+Serdiana"},
         { title:"Cammini — Sant'Efisio, 100 Torri, Santa Barbara", dist:"vari", emoji:"🚶",
           mood:"Pellegrinaggio & trekking",
           desc:"Antichi percorsi a piedi attraverso la Sardegna del sud. Il Cammino dei 100 Torri costiero è tra i più scenografici; Sant'Efisio il più spirituale.",
+          photo:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80",
           link:"https://maps.google.com/?q=Cammino+Sant+Efisio+Sardegna"},
         { title:"Sentieri del Carignano — Sulcis", dist:"50 min", emoji:"🥾",
           mood:"Viticoltura eroica",
           desc:"Vigneti a piede franco tra i più antichi d'Europa, aggrappati alle scogliere a strapiombo sul mare. Un trekking fuori dal comune.",
+          photo:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&q=80",
           link:"https://maps.google.com/?q=Carignano+del+Sulcis+vigneti"},
         { title:"Chia — dune e torri", dist:"45 min", emoji:"🏖️",
           mood:"Spiaggia da sogno",
           desc:"Acqua caraibica, dune di sabbia bianca e una torre aragonese sul promontorio. Tra le spiagge più belle d'Europa. Arrivate presto.",
+          photo:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
           link:"https://maps.google.com/?q=Spiaggia+Chia+Sardegna"},
         { title:"Belvedere Nebida & Pan di Zucchero", dist:"1h 10min", emoji:"🗼",
           mood:"Panorama mozzafiato",
           desc:"Lo scoglio più alto del Mediterraneo visto dall'alto. Al tramonto la luce arancione sulla roccia bianca è inarrivabile.",
+          photo:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80",
           link:"https://maps.google.com/?q=Belvedere+Nebida+Sardegna"},
         { title:"Carloforte — Isola di San Pietro", dist:"1h 20min + traghetto", emoji:"⛵",
           mood:"Isola nell'isola",
           desc:"Borgo tabarkino con accento ligure, strade strette e tonno rosso del Mediterraneo. Una giornata intera non basta.",
+          photo:"https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80",
           link:"https://maps.google.com/?q=Carloforte+Isola+San+Pietro"},
         { title:"Villasimius & Costa Rei", dist:"1h", emoji:"🌊",
           mood:"Fondali cristallini",
           desc:"Il sud-est della Sardegna è quasi caraibico. Acque trasparenti, barriera corallina, dune di quarzo rosa. Perfetto per snorkeling.",
+          photo:"https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80",
           link:"https://maps.google.com/?q=Villasimius+Sardegna"},
         { title:"Spiaggia di Scivu & Torre dei Corsari", dist:"1h 10min", emoji:"🏖️",
           mood:"Selvaggia e incontaminata",
           desc:"Due spiagge rimaste intatte, senza strade asfaltate. Sabbia finissima e mare verde smeraldo tra le dune del Sulcis.",
+          photo:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=80",
           link:"https://maps.google.com/?q=Spiaggia+Scivu+Sardegna"},
         { title:"Dune di Piscinas", dist:"1h 20min", emoji:"🏜️",
           mood:"Il deserto d'Europa",
           desc:"Le dune più alte d'Europa — fino a 60 metri — si affacciano su un mare spettacolare. Un paesaggio da Sahara nel cuore della Sardegna.",
+          photo:"https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80",
           link:"https://maps.google.com/?q=Dune+di+Piscinas+Sardegna"},
         { title:"Golfo di Orosei & Cala Goloritzé", dist:"~3h", emoji:"🌊",
           mood:"Top 10 spiagge al mondo",
           desc:"Cala Goloritzé, Cala Luna, Cala Mariolu — le calette del golfo compaiono ogni anno tra le spiagge più belle del mondo. Vale il viaggio.",
+          photo:"https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80",
           link:"https://maps.google.com/?q=Golfo+di+Orosei+Sardegna"},
         { title:"Arcipelago della Maddalena", dist:"~3h", emoji:"⛵",
           mood:"Parco Nazionale marino",
           desc:"Sette isole, acque trasparenti e graniti rosa. Traghetto da Palau. Una delle aree marine protette più belle del Mediterraneo.",
+          photo:"https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80",
           link:"https://maps.google.com/?q=Arcipelago+della+Maddalena+Sardegna"},
       ]
     },
@@ -787,32 +833,59 @@ function Esplorare({go}) {
         </div>
       </div>
 
-      {/* Card esperienze */}
+      {/* Card esperienze con foto */}
       {t.data.map((p,i)=>(
         <a key={i} href={p.link} target="_blank" rel="noreferrer" style={{
           display:"block", textDecoration:"none",
-          background:c.white, borderRadius:18, marginBottom:10,
+          background:c.white, borderRadius:18, marginBottom:12,
           border:`1px solid ${c.hazel}15`, overflow:"hidden",
+          boxShadow:"0 2px 8px rgba(74,55,40,0.08)",
         }}
-          onMouseEnter={e=>e.currentTarget.style.borderColor=t.accent}
-          onMouseLeave={e=>e.currentTarget.style.borderColor=`${c.hazel}15`}>
-          {/* Striscia colorata top */}
-          <div style={{height:3, background:`linear-gradient(90deg, ${t.color}, ${t.accent})`}}/>
-          <div style={{padding:"14px 16px"}}>
-            <div style={{display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:6}}>
-              <div style={{display:"flex", alignItems:"center", gap:10}}>
-                <span style={{fontSize:22}}>{p.emoji}</span>
-                <div>
-                  <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17,
-                    fontWeight:400, color:c.warm, lineHeight:1.2}}>{p.title}</div>
-                  <div style={{fontSize:10, color:t.accent, marginTop:2, fontWeight:500,
-                    letterSpacing:"0.5px", textTransform:"uppercase"}}>{p.mood}</div>
-                </div>
+          onMouseEnter={e=>{e.currentTarget.style.borderColor=t.accent;e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow=`0 6px 16px rgba(74,55,40,0.14)`;}}
+          onMouseLeave={e=>{e.currentTarget.style.borderColor=`${c.hazel}15`;e.currentTarget.style.transform="";e.currentTarget.style.boxShadow="0 2px 8px rgba(74,55,40,0.08)";}}>
+          {/* Foto di sfondo con gradient overlay */}
+          {p.photo && (
+            <div style={{position:"relative", height:140, overflow:"hidden"}}>
+              <img src={p.photo} alt={p.title}
+                style={{width:"100%", height:"100%", objectFit:"cover", display:"block"}}
+                onError={e=>e.target.parentElement.style.display="none"}
+              />
+              <div style={{position:"absolute", inset:0,
+                background:`linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 100%)`}}/>
+              {/* Mood label sopra la foto */}
+              <div style={{position:"absolute", top:10, left:12,
+                background:t.accent, borderRadius:8, padding:"3px 10px",
+                fontSize:9, fontWeight:600, letterSpacing:"1px",
+                textTransform:"uppercase", color:"white"}}>{p.mood}</div>
+              {/* Distanza in basso a destra */}
+              <div style={{position:"absolute", bottom:10, right:12,
+                background:"rgba(0,0,0,0.5)", borderRadius:8, padding:"3px 10px",
+                fontSize:10, color:"white"}}>📍 {p.dist}</div>
+              {/* Emoji + titolo sovrapposti in basso */}
+              <div style={{position:"absolute", bottom:10, left:12, display:"flex", alignItems:"center", gap:8}}>
+                <span style={{fontSize:20}}>{p.emoji}</span>
+                <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17,
+                  color:"white", fontWeight:400, lineHeight:1.2, textShadow:"0 1px 4px rgba(0,0,0,0.5)"}}>{p.title}</span>
               </div>
-              <span style={{fontSize:11, color:c.hazel, background:`${c.hazel}12`,
-                borderRadius:20, padding:"3px 9px", flexShrink:0, marginLeft:8, whiteSpace:"nowrap"}}>{p.dist}</span>
             </div>
-            <p style={{fontSize:13, color:c.mastic, lineHeight:1.7, margin:0, paddingLeft:32}}>{p.desc}</p>
+          )}
+          <div style={{padding:"12px 14px"}}>
+            {!p.photo && (
+              <div style={{display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:8}}>
+                <div style={{display:"flex", alignItems:"center", gap:10}}>
+                  <span style={{fontSize:22}}>{p.emoji}</span>
+                  <div>
+                    <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17,
+                      fontWeight:400, color:c.warm, lineHeight:1.2}}>{p.title}</div>
+                    <div style={{fontSize:10, color:t.accent, marginTop:2, fontWeight:500,
+                      letterSpacing:"0.5px", textTransform:"uppercase"}}>{p.mood}</div>
+                  </div>
+                </div>
+                <span style={{fontSize:11, color:c.hazel, background:`${c.hazel}12`,
+                  borderRadius:20, padding:"3px 9px", flexShrink:0, marginLeft:8}}>{p.dist}</span>
+              </div>
+            )}
+            <p style={{fontSize:13, color:c.mastic, lineHeight:1.7, margin:0}}>{p.desc}</p>
           </div>
         </a>
       ))}
@@ -934,6 +1007,9 @@ function Ristoranti({go}) {
       </div>
 
       <RSection title="A Uta — a piedi">
+        <RCard emoji="🥡" nome="Al Malibù" dist="vicino" tipo="Gastronomia · Asporto · Tipicità sarde" highlight
+          piatti="Gastronomia locale con prodotti tipici sardi da asporto. Ideale per portare in veranda formaggi, salumi, pane carasau e piatti pronti della tradizione."
+          link="https://maps.google.com/?q=Al+Malibù+Uta+Sardegna"/>
         <RCard emoji="🍔" nome="Slim Pickins" stelle="4.9" dist="vicino" tipo="American Fusion" highlight
           piatti="Burger gourmet, pulled pork, ali di pollo croccanti con ingredienti locali in chiave americana."
           link="https://maps.google.com/?q=Slim+Pickins+Uta"/>
