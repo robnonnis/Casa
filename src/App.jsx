@@ -1224,11 +1224,11 @@ function Spesa({go}) {
 
 function FAQ({go}) {
   const rifiuti = [
-    {n:"🟢 Umido",g:"Mar · Gio · Sab",s:"sacchetto marrone"},
-    {n:"🟡 Plastica & Metalli",g:"Lun · Mer",s:"sacchetto giallo"},
-    {n:"🔵 Carta e cartone",g:"Lun",s:"sacchetto blu"},
-    {n:"♻️ Vetro",g:"Ven",s:"sacchetto verde"},
-    {n:"⚫ Indifferenziato",g:"Mar · Ven",s:"sacchetto nero"},
+    {n:"🟢 Umido",            g:"Giovedì · Venerdì · Sabato",   s:"sacchetto marrone"},
+    {n:"🟡 Plastica",         g:"Giovedì · Sabato",             s:"sacchetto giallo"},
+    {n:"⚫ Secco",             g:"Venerdì",                      s:"sacchetto nero"},
+    {n:"🔵 Carta e Cartone",  g:"Martedì",                      s:"sacchetto blu"},
+    {n:"♻️ Vetro e Alluminio",g:"Mercoledì — senza busta",      s:"mastello"},
   ];
   return <div style={s.app}>
     <PageHead title="Domande frequenti" back={()=>go("home")} icon={<Ic.faq/>}/>
@@ -1242,8 +1242,8 @@ function FAQ({go}) {
             </div>
           ))}
         </div>
-        <div style={{...s.darkBox,display:"flex",gap:10,marginTop:10,marginBottom:0}}><span>⚠️</span><p style={{fontSize:12,color:"rgba(245,240,232,0.8)",lineHeight:1.6,margin:0}}><strong style={{color:c.sand}}>Orario esposizione:</strong> entro le 6:00 o la sera prima dopo le 20:00.</p></div>
-        <a href="https://www.cosir.it/raccolta-differenziata/" target="_blank" rel="noreferrer" style={s.pdfBtn}><Ic.docW/> Calendario COSIR 2025–2026</a>
+        <div style={{...s.darkBox,display:"flex",gap:10,marginTop:10,marginBottom:0}}><span>⚠️</span><p style={{fontSize:12,color:"rgba(245,240,232,0.8)",lineHeight:1.6,margin:0}}><strong style={{color:c.sand}}>Esposizione:</strong> entro le 6:00 del mattino o la sera precedente dopo le 20:00. Buste nere vietate.<br/>Sito ufficiale: <a href="https://uta.cosir.org" target="_blank" rel="noreferrer" style={{color:c.hazelL}}>uta.cosir.org</a></p></div>
+        <a href="https://uta.cosir.org/wp-content/uploads/2026/03/20260320-Calendario-Uta-Domestiche.pdf" target="_blank" rel="noreferrer" style={s.pdfBtn}><Ic.docW/> Calendario COSIR (PDF ufficiale)</a>
       </Card>
       <Card><CT text="❄️ Climatizzatori"/><p style={{fontSize:14,lineHeight:1.75,color:c.mastic,margin:0}}>Controllabili via app Wi-Fi o telecomando. In camera il telecomando è nel cassetto del comodino.</p></Card>
       <Card><CT text="🚨 Emergenze"/>
