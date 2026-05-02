@@ -70,18 +70,18 @@ const Ic = {
   back:     ()=><svg viewBox="0 0 24 24" style={{width:16,height:16,stroke:"currentColor",fill:"none",strokeWidth:1.5}}><polyline points="15 18 9 12 15 6"/></svg>,
   // 🏠 Casa con porta e tetto
   home:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>,
-  // 🔑 Chiave
-  lock:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><circle cx="7" cy="17" r="4"/><path d="M11 17h9v-2a6 6 0 00-6-6 6 6 0 00-6 6"/><line x1="18" y1="11" x2="18" y2="17"/><line x1="21" y1="14" x2="18" y2="14"/></svg>,
+  // 🧳 Valigia check-in
+  lock:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="12" strokeWidth="3" strokeLinecap="round"/><path d="M8 12h8"/></svg>,
   wifi:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1" fill={c.warm}/></svg>,
-  // 🛋️ Divano/appartamento
-  building: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><rect x="2" y="13" width="20" height="8" rx="1"/><path d="M6 13V9a2 2 0 012-2h8a2 2 0 012 2v4"/><path d="M5 13v2"/><path d="M19 13v2"/><rect x="5" y="15" width="4" height="3" rx="1"/><rect x="15" y="15" width="4" height="3" rx="1"/></svg>,
+  // 🏠 Chiave di casa per appartamento
+  building: ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,
   // ✓ Lista regole
   check:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><polyline points="3 6 4 7 6 5"/><polyline points="3 12 4 13 6 11"/><polyline points="3 18 4 19 6 17"/></svg>,
   pin:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
   // 🧭 Bussola per "Da scoprire"
   compass:  ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill={c.warm} fillOpacity="0.15"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>,
-  // 🍝 Piatto di pasta
-  pasta:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><ellipse cx="12" cy="15" rx="9" ry="4"/><path d="M3 15c0-4.97 4.03-9 9-9s9 4.03 9 9"/><path d="M8 9.5C8.5 7 10 5.5 12 5.5s3.5 1.5 4 4"/><path d="M10 7c.3-1.2 1-2 2-2"/></svg>,
+  // 🍽️ Forchetta e coltello per ristoranti
+  pasta:    ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><line x1="18" y1="2" x2="18" y2="22"/><path d="M22 2l-4 6h4"/><path d="M6 2v6a4 4 0 004 4v8"/></svg>,
   cal:      ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
   star:     ()=><svg viewBox="0 0 24 24" style={{width:28,height:28,stroke:c.warm,fill:"none",strokeWidth:1.3}}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
   // 🛒 Carrello della spesa
@@ -174,37 +174,117 @@ function Benvenuto({go}) {
   return <div style={s.app}>
     <PageHead title="Benvenuti a Casa Uta" back={()=>go("home")} icon={<Ic.home/>}/>
     <div style={s.content}>
-      <div style={s.hlBox}>
-        <div style={s.hlTitle}>Siamo felici di ospitarvi</div>
-        <p style={{fontSize:14,lineHeight:1.7,opacity:0.92,margin:0}}>Questa guida vi aiuterà a vivere al meglio il soggiorno. Per qualsiasi necessità non esitate a contattarci.</p>
-      </div>
 
-      {/* Dove siamo */}
+      {/* Banner benvenuto — font a mano */}
+      <div style={{...s.hlBox, textAlign:"center", padding:"28px 20px"}}>
+        <div style={{fontFamily:"'Dancing Script', 'Caveat', cursive", fontSize:32, fontWeight:700,
+          color:"white", lineHeight:1.2, marginBottom:10}}>
+          Siamo felici di ospitarvi
+        </div>
+        <p style={{fontSize:13.5, lineHeight:1.75, opacity:0.95, margin:0}}>
+          Questa guida vi aiuterà a vivere al meglio il soggiorno.<br/>
+          Per qualsiasi necessità non esitate a contattarci.
+        </p>
+      </div>
+      {/* Carica font corsivo da Google */}
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+
+      {/* Dove siamo + anteprima mappa */}
       <Card>
         <CT icon={<Ic.pin/>} text="Dove siamo"/>
-        <p style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:20,margin:"4px 0 12px",color:c.warm}}>Via Cimitero 38<br/>Uta (CA) — Sardegna</p>
-        <a href="https://maps.google.com/?q=Via+Cimitero+38+Uta+Cagliari" target="_blank" rel="noreferrer" style={s.mapBtn}><Ic.mapW/> Apri in Google Maps</a>
+        <p style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:20,margin:"4px 0 12px",color:c.warm}}>
+          Via Cimitero 38<br/>Uta (CA) — Sardegna
+        </p>
+        {/* Anteprima mappa statica via Google Maps embed */}
+        <a href="https://maps.google.com/?q=Via+Cimitero+38+Uta+Cagliari" target="_blank" rel="noreferrer"
+          style={{display:"block", borderRadius:12, overflow:"hidden", marginBottom:12, textDecoration:"none"}}>
+          <img
+            src="https://maps.googleapis.com/maps/api/staticmap?center=39.2929,8.9621&zoom=15&size=400x160&scale=2&markers=color:0xc4956a%7C39.2929,8.9621&style=feature:all%7Celement:geometry%7Ccolor:0xf0e6d6&style=feature:road%7Celement:geometry%7Ccolor:0xd4aa85&key=AIzaSyD-placeholder"
+            alt="Mappa Casa Uta"
+            style={{width:"100%", height:140, objectFit:"cover", display:"block"}}
+            onError={e=>{
+              e.target.style.display="none";
+              e.target.nextSibling.style.display="flex";
+            }}
+          />
+          <div style={{display:"none", background:`linear-gradient(135deg, ${c.sand}, ${c.hazelL}60)`,
+            height:140, borderRadius:12, alignItems:"center", justifyContent:"center",
+            flexDirection:"column", gap:8}}>
+            <span style={{fontSize:32}}>🗺️</span>
+            <span style={{fontSize:12, color:c.mastic}}>Via Cimitero 38, Uta</span>
+          </div>
+        </a>
+        <a href="https://maps.google.com/?q=Via+Cimitero+38+Uta+Cagliari" target="_blank" rel="noreferrer" style={s.mapBtn}>
+          <Ic.mapW/> Apri in Google Maps
+        </a>
       </Card>
 
-      {/* Come arrivare — integrato */}
+      {/* Come arrivare — ordine: aereo/nave, da altre città, mezzi pubblici */}
       <Card>
         <CT icon={<Ic.pin/>} text="Come arrivare"/>
-        <Row l="✈️ Aeroporto di Cagliari" v="~10 min" link="https://maps.google.com/?q=Aeroporto+Cagliari+Elmas"/>
-        <Row l="🏖️ Poetto (mare)" v="~15 min" link="https://maps.google.com/?q=Spiaggia+Poetto+Cagliari"/>
-        <Row l="🏙️ Cagliari centro" v="~20 min" link="https://maps.google.com/?q=Cagliari+centro+storico"/>
-        <Row l="⛴️ Porto di Cagliari" v="~20 min" link="https://maps.google.com/?q=Porto+di+Cagliari"/>
-        <Row l="🚌 ARST Linea 125" v="orari ›" link="https://www.arst.sardegna.it/servizi-orari/"/>
-        <p style={{fontSize:11,color:c.mastic,padding:"2px 0 8px"}}>Fermata vicina · Prima 05:40 · Ultima ~22:00</p>
-        <Row l="🚆 Treno Uta-Villaspeciosa" v="orari ›" link="https://www.trenitalia.com" last/>
-        <p style={{fontSize:11,color:c.mastic,padding:"2px 0 0"}}>06:27–20:53 · ~22 min per Cagliari</p>
+
+        <div style={{fontSize:10,letterSpacing:"2px",textTransform:"uppercase",color:c.mastic,
+          padding:"0 0 8px",marginBottom:4,borderBottom:`1px solid ${c.sand}`}}>✈️ &nbsp;In volo o in nave</div>
+        <Row l="Aeroporto di Cagliari-Elmas" v="~10 min" link="https://maps.google.com/?q=Aeroporto+Cagliari+Elmas"/>
+        <Row l="Porto di Cagliari" v="~20 min" link="https://maps.google.com/?q=Porto+di+Cagliari"/>
+
+        <div style={{fontSize:10,letterSpacing:"2px",textTransform:"uppercase",color:c.mastic,
+          padding:"12px 0 8px",marginBottom:4,borderBottom:`1px solid ${c.sand}`}}>🚗 &nbsp;Da altre città</div>
+        <Row l="Cagliari" v="~20 min" link="https://maps.google.com/?q=Cagliari+centro+storico"/>
+        <Row l="Oristano" v="~1h" link="https://maps.google.com/?q=Oristano+Sardegna"/>
+        <Row l="Nuoro" v="~2h" link="https://maps.google.com/?q=Nuoro+Sardegna"/>
+        <Row l="Sassari" v="~2h 30min" link="https://maps.google.com/?q=Sassari+Sardegna"/>
+
+        <div style={{fontSize:10,letterSpacing:"2px",textTransform:"uppercase",color:c.mastic,
+          padding:"12px 0 8px",marginBottom:4,borderBottom:`1px solid ${c.sand}`}}>🚌 &nbsp;Trasporto pubblico</div>
+        <div style={{display:"flex", flexDirection:"column", gap:8, paddingTop:4}}>
+          {[
+            {label:"Treno · Trenitalia",sub:"Stazione Uta-Villaspeciosa ~5 min · 06:27–20:53",link:"https://www.trenitalia.com",bg:"#1a3a6a",emoji:"🚆"},
+            {label:"Bus · ARST",sub:"Linea 125 Uta–Cagliari · Prima 05:40 · Ultima ~22:00",link:"https://www.arst.sardegna.it",bg:"#2a5a2a",emoji:"🚌"},
+            {label:"Bus urbano · CTM",sub:"Rete metropolitana di Cagliari",link:"https://www.ctmcagliari.it",bg:"#6a2a1a",emoji:"🚎"},
+          ].map(({label,sub,link,bg,emoji})=>(
+            <a key={label} href={link} target="_blank" rel="noreferrer" style={{
+              display:"flex", alignItems:"center", gap:12, background:bg,
+              borderRadius:12, padding:"10px 14px", textDecoration:"none",
+            }}>
+              <span style={{fontSize:20}}>{emoji}</span>
+              <div style={{flex:1}}>
+                <div style={{fontSize:13, color:"white", fontWeight:500}}>{label}</div>
+                <div style={{fontSize:10.5, color:"rgba(255,255,255,0.6)", marginTop:2}}>{sub}</div>
+              </div>
+              <span style={{fontSize:14, color:"rgba(255,255,255,0.5)"}}>›</span>
+            </a>
+          ))}
+        </div>
       </Card>
 
-      {/* Contatti */}
-      <Card>
-        <CT icon={<Ic.phone/>} text="Contatti"/>
-        <a href="tel:+393284699520" style={s.tel}><span style={{fontSize:13.5,color:c.warm}}>📱 Alessandro</span><span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:16,color:c.hazel}}>328 469 9520</span></a>
-        <a href="tel:+393473208852" style={s.telLast}><span style={{fontSize:13.5,color:c.warm}}>📱 Roberta</span><span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontSize:16,color:c.hazel}}>347 320 8852</span></a>
-      </Card>
+      {/* Contatti — versione più curata */}
+      <div style={{background:`linear-gradient(135deg, ${c.hazel}20, ${c.hazelL}30)`,
+        borderRadius:18, padding:"20px 18px", border:`1px solid ${c.hazel}40`}}>
+        <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:19, fontWeight:400,
+          color:c.warm, marginBottom:14}}>Siamo qui per voi</div>
+        {[
+          {name:"Alessandro", num:"328 469 9520", tel:"tel:+393284699520", emoji:"👨"},
+          {name:"Roberta", num:"347 320 8852", tel:"tel:+393473208852", emoji:"👩"},
+        ].map(({name,num,tel,emoji})=>(
+          <a key={name} href={tel} style={{
+            display:"flex", alignItems:"center", gap:14,
+            padding:"12px 0", borderBottom:`1px solid ${c.hazel}30`,
+            textDecoration:"none", marginBottom:0,
+          }}>
+            <div style={{width:42, height:42, borderRadius:"50%",
+              background:`linear-gradient(135deg, ${c.hazel}, ${c.hazelL})`,
+              display:"flex", alignItems:"center", justifyContent:"center",
+              fontSize:20, flexShrink:0}}>{emoji}</div>
+            <div style={{flex:1}}>
+              <div style={{fontSize:14, color:c.warm, fontWeight:500}}>{name}</div>
+              <div style={{fontSize:12, color:c.mastic, marginTop:2}}>Proprietario · disponibile sempre</div>
+            </div>
+            <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",
+              fontSize:17, color:c.hazel, fontWeight:400}}>{num}</div>
+          </a>
+        ))}
+      </div>
     </div>
   </div>;
 }
@@ -267,64 +347,114 @@ function Wifi({go}) {
   </div>;
 }
 
+const FOTO = {
+  cucina:    "https://res.cloudinary.com/dovpg47yh/image/upload/v1777653108/IMG_9577_xhquge.png",
+  camera:    "https://res.cloudinary.com/dovpg47yh/image/upload/v1777653099/IMG_9578_zsnug5.png",
+  veranda1:  "https://res.cloudinary.com/dovpg47yh/image/upload/v1777734588/IMG_9647_sdz159.png",
+  veranda2:  "https://res.cloudinary.com/dovpg47yh/image/upload/v1777734588/IMG_9650_ipg8kw.png",
+  ingresso:  "https://res.cloudinary.com/dovpg47yh/image/upload/v1777734589/IMG_9649_gyjnyf.png",
+  bagno:     "https://res.cloudinary.com/dovpg47yh/image/upload/v1777734584/IMG_9645_wvvvpr.png",
+  cancello:  "https://res.cloudinary.com/dovpg47yh/image/upload/v1777734586/IMG_9646_onqx6z.png",
+};
+
+function FotoSlide({imgs, height=200}) {
+  const [idx, setIdx] = useState(0);
+  if (!imgs || imgs.length === 0) return null;
+  return (
+    <div style={{position:"relative", marginBottom:14}}>
+      <img src={imgs[idx]} alt="" style={{width:"100%", height, objectFit:"cover", borderRadius:14, display:"block"}}/>
+      {imgs.length > 1 && (
+        <>
+          <button onClick={()=>setIdx((idx-1+imgs.length)%imgs.length)} style={{
+            position:"absolute", left:8, top:"50%", transform:"translateY(-50%)",
+            background:"rgba(255,255,255,0.85)", border:"none", borderRadius:"50%",
+            width:32, height:32, cursor:"pointer", fontSize:16, display:"flex", alignItems:"center", justifyContent:"center"
+          }}>‹</button>
+          <button onClick={()=>setIdx((idx+1)%imgs.length)} style={{
+            position:"absolute", right:8, top:"50%", transform:"translateY(-50%)",
+            background:"rgba(255,255,255,0.85)", border:"none", borderRadius:"50%",
+            width:32, height:32, cursor:"pointer", fontSize:16, display:"flex", alignItems:"center", justifyContent:"center"
+          }}>›</button>
+          <div style={{position:"absolute", bottom:8, left:"50%", transform:"translateX(-50%)",
+            display:"flex", gap:4}}>
+            {imgs.map((_,i)=><div key={i} style={{width:i===idx?16:6, height:6,
+              borderRadius:3, background:i===idx?"white":"rgba(255,255,255,0.5)", transition:"width .2s"}}/>)}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 function Appartamento({go}) {
-  const rooms = [
-    {icon:"🍳", name:"Cucina", items:["Piano cottura a induzione","Forno elettrico","Lavastoviglie","Frigorifero","Cappa aspirante","Climatizzatore Wi-Fi","Tavolo allungabile + 4 sedie","Divano letto 3 posti","Vetrata scorrevole su veranda","Soffitto affrescato anni '50 — motivi floreali rosa"]},
-    {icon:"🛏️", name:"Camera da letto", items:["Letto matrimoniale con contenitore","Armadio ~4 metri","Settimino","Comodini con applique su entrambi i lati","Condizionatore Wi-Fi","Soffitto affrescato anni '50 — geometrie dorate"]},
-    {icon:"🚿", name:"Bagno", items:["Box doccia scorrevole 80×100 cm","Colonna doccia con getti massaggio","Mobile lavandino con cassettoni","Specchio con illuminazione LED","Ventilazione automatica"]},
-  ];
   return <div style={s.app}>
     <PageHead title="L'Appartamento" sub="50 m² interno · 40 m² veranda" back={()=>go("home")} icon={<Ic.building/>}/>
     <div style={s.content}>
 
-      {/* Banner affreschi — unico, evocativo */}
-      <div style={{background:`linear-gradient(160deg, #7a5840, #96704e)`, borderRadius:20, overflow:"hidden", marginBottom:14}}>
-        <div style={{background:"linear-gradient(135deg, #7a5840 0%, #96704e 50%, #b08060 100%)", padding:"24px 20px 20px"}}>
-          <div style={{display:"flex", alignItems:"flex-start", gap:16}}>
-            <div style={{fontSize:40, flexShrink:0, lineHeight:1}}>🎨</div>
-            <div>
-              <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:26, fontWeight:300, color:c.cream, lineHeight:1.1, marginBottom:8}}>
-                Affreschi originali<br/><em style={{fontStyle:"italic", color:c.sand}}>degli anni Cinquanta</em>
-              </div>
-              <p style={{fontSize:13, color:"rgba(245,240,232,0.75)", lineHeight:1.7, margin:0}}>
-                I soffitti di cucina e camera sono dipinti a mano da artigiani sardi. Motivi floreali nella cucina, geometrie dorate nella camera. Un patrimonio artistico raro, rimasto intatto per settant'anni.
-              </p>
-            </div>
-          </div>
-          <div style={{display:"flex", gap:8, marginTop:16}}>
-            {[["🌸","Cucina","Floreale rosa"],["✦","Camera","Geometrico oro"],["🕯️","Anni '50","Artigianato sardo"]].map(([em,label,desc])=>(
-              <div key={label} style={{flex:1, background:"rgba(255,255,255,0.12)", borderRadius:12, padding:"10px 8px", textAlign:"center"}}>
-                <div style={{fontSize:18, marginBottom:4}}>{em}</div>
-                <div style={{fontSize:11, color:c.sand, fontWeight:500}}>{label}</div>
-                <div style={{fontSize:9.5, color:"rgba(245,240,232,0.45)", marginTop:2, lineHeight:1.3}}>{desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* Hero gallery ingresso/esterno */}
+      <FotoSlide imgs={[FOTO.cancello, FOTO.ingresso, FOTO.veranda1, FOTO.veranda2]} height={220}/>
 
       {/* Panoramica rapida */}
       <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:8, marginBottom:14}}>
         {[["~50 m²","Interno"],["~40 m²","Veranda"],["2×","Clima Wi-Fi"]].map(([val,label])=>(
-          <div key={label} style={{background:c.white, borderRadius:14, padding:"14px 8px", textAlign:"center", border:`1px solid ${c.hazel}15`}}>
+          <div key={label} style={{background:c.white, borderRadius:14, padding:"14px 8px", textAlign:"center", border:`1px solid ${c.hazel}20`}}>
             <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:22, color:c.hazel, lineHeight:1}}>{val}</div>
             <div style={{fontSize:10, color:c.mastic, marginTop:4, letterSpacing:"0.5px"}}>{label}</div>
           </div>
         ))}
       </div>
 
-      {rooms.map(({icon,name,items})=>(
-        <Card key={name}>
-          <CT text={`${icon} ${name}`}/>
-          {items.map((t,i)=><Rule key={i} t={t} last={i===items.length-1}/>)}
-        </Card>
-      ))}
-
+      {/* Cucina */}
       <Card>
-        <CT text="🌿 Veranda e giardino"/>
-        <p style={{fontSize:14,lineHeight:1.75,color:c.mastic,margin:0}}>Veranda coperta ~40 m² con accesso diretto dalla vetrata scorrevole della cucina. Giardinetto privato — ideale per colazioni all'aperto, aperitivi al tramonto o semplicemente stare fuori.</p>
+        <CT text="🍳 Cucina"/>
+        <FotoSlide imgs={[FOTO.cucina]} height={180}/>
+        {["Piano cottura a induzione","Forno elettrico","Lavastoviglie","Frigorifero","Climatizzatore Wi-Fi","Tavolo allungabile + 4 sedie","Divano letto 3 posti","Vetrata su veranda"].map((t,i,a)=>(
+          <Rule key={i} t={t} last={i===a.length-1}/>
+        ))}
+        <div style={{marginTop:10, background:`linear-gradient(135deg,${c.hazel}15,${c.hazelL}20)`,
+          borderRadius:10, padding:"10px 12px", display:"flex", alignItems:"center", gap:10}}>
+          <span style={{fontSize:20}}>🌸</span>
+          <span style={{fontSize:12, color:c.warm, lineHeight:1.5}}>
+            <strong>Affresco anni '50</strong> — motivi floreali rosa dipinti a mano da artigiani sardi
+          </span>
+        </div>
       </Card>
 
+      {/* Camera */}
+      <Card>
+        <CT text="🛏️ Camera da letto"/>
+        <FotoSlide imgs={[FOTO.camera]} height={180}/>
+        {["Letto matrimoniale con contenitore","Armadio ~4 metri","Settimino","Comodini con applique su entrambi i lati","Condizionatore Wi-Fi"].map((t,i,a)=>(
+          <Rule key={i} t={t} last={i===a.length-1}/>
+        ))}
+        <div style={{marginTop:10, background:`linear-gradient(135deg,${c.hazel}15,${c.hazelL}20)`,
+          borderRadius:10, padding:"10px 12px", display:"flex", alignItems:"center", gap:10}}>
+          <span style={{fontSize:20}}>✦</span>
+          <span style={{fontSize:12, color:c.warm, lineHeight:1.5}}>
+            <strong>Affresco anni '50</strong> — geometrie dorate, unico nel suo genere
+          </span>
+        </div>
+      </Card>
+
+      {/* Bagno */}
+      <Card>
+        <CT text="🚿 Bagno"/>
+        <FotoSlide imgs={[FOTO.bagno]} height={160}/>
+        {["Box doccia scorrevole 80×100 cm","Colonna doccia con getti massaggio","Mobile lavandino con cassettoni","Specchio con illuminazione LED","Ventilazione automatica"].map((t,i,a)=>(
+          <Rule key={i} t={t} last={i===a.length-1}/>
+        ))}
+      </Card>
+
+      {/* Veranda */}
+      <Card>
+        <CT text="🌿 Veranda e giardino"/>
+        <FotoSlide imgs={[FOTO.veranda1, FOTO.veranda2]} height={160}/>
+        <p style={{fontSize:14,lineHeight:1.75,color:c.mastic,margin:0}}>
+          Veranda coperta ~40 m² con accesso diretto dalla vetrata della cucina. Giardinetto privato — ideale per colazioni all'aperto e aperitivi al tramonto.
+        </p>
+      </Card>
+
+      {/* Tag dotazioni */}
       <div style={{display:"flex",flexWrap:"wrap",gap:8, marginTop:4}}>
         {["Wi-Fi fibra","2 Climatizzatori","Parcheggio libero","Giardino privato","Lavastoviglie","Forno"].map((t,i)=>(
           <span key={t} style={i===0?s.tagA:s.tag}>{t}</span>
@@ -407,10 +537,18 @@ function Esplorare({go}) {
           mood:"Patrimonio del XII sec.",
           desc:"Pietra calcarea, volte basse e luce filtrata. Una delle chiese medievali più integre del Campidano — vale dieci minuti di sosta.",
           link:"https://maps.google.com/?q=Chiesa+Santa+Maria+Uta"},
-        { title:"Fenicotteri — Oasi WWF Santa Gilla", dist:"10 min", emoji:"🦩",
+        { title:"Fenicotteri di Santa Gilla", dist:"10 min", emoji:"🦩",
           mood:"Spettacolo della natura",
-          desc:"Migliaia di fenicotteri rosa sullo sfondo della laguna. Visibili quasi tutto l'anno — una scena che non ci si aspetta così vicino a casa.",
+          desc:"Migliaia di fenicotteri rosa nella laguna di Santa Gilla. Visibili quasi tutto l'anno — una scena che non ci si aspetta così vicino a casa.",
+          link:"https://maps.google.com/?q=Laguna+Santa+Gilla+Cagliari"},
+        { title:"Oasi WWF di Santa Gilla", dist:"10 min", emoji:"🌿",
+          mood:"Riserva naturale",
+          desc:"La riserva naturale che protegge la laguna. Birdwatching, passeggiate e percorsi naturalistici. Ingresso libero.",
           link:"https://maps.google.com/?q=Oasi+WWF+Santa+Gilla"},
+        { title:"🍽️ La Locanda dei Buoni e Cattivi", dist:"10 min", emoji:"🏡",
+          mood:"Chicca locale — ristoro all'oasi",
+          desc:"Un posto speciale dentro l'oasi di Santa Gilla: cucina sarda genuina in un contesto naturalistico unico. Ambiente informale e autentico.",
+          link:"https://maps.google.com/?q=La+Locanda+dei+Buoni+e+Cattivi+Santa+Gilla"},
         { title:"Saline di Conti Vecchi", dist:"10 min", emoji:"🧂",
           mood:"Foto imperdibili",
           desc:"Le vasche cambiano colore dal bianco candido al rosa acceso a seconda della stagione. Un paesaggio industriale-naturale unico.",
@@ -496,6 +634,22 @@ function Esplorare({go}) {
           mood:"Fondali cristallini",
           desc:"Il sud-est della Sardegna è quasi caraibico. Acque trasparenti, barriera corallina, dune di quarzo rosa. Perfetto per snorkeling.",
           link:"https://maps.google.com/?q=Villasimius+Sardegna"},
+        { title:"Spiaggia di Scivu & Torre dei Corsari", dist:"1h 10min", emoji:"🏖️",
+          mood:"Selvaggia e incontaminata",
+          desc:"Due spiagge rimaste intatte, senza strade asfaltate. Sabbia finissima e mare verde smeraldo tra le dune del Sulcis.",
+          link:"https://maps.google.com/?q=Spiaggia+Scivu+Sardegna"},
+        { title:"Dune di Piscinas", dist:"1h 20min", emoji:"🏜️",
+          mood:"Il deserto d'Europa",
+          desc:"Le dune più alte d'Europa — fino a 60 metri — si affacciano su un mare spettacolare. Un paesaggio da Sahara nel cuore della Sardegna.",
+          link:"https://maps.google.com/?q=Dune+di+Piscinas+Sardegna"},
+        { title:"Golfo di Orosei & Cala Goloritzé", dist:"~3h", emoji:"🌊",
+          mood:"Top 10 spiagge al mondo",
+          desc:"Cala Goloritzé, Cala Luna, Cala Mariolu — le calette del golfo compaiono ogni anno tra le spiagge più belle del mondo. Vale il viaggio.",
+          link:"https://maps.google.com/?q=Golfo+di+Orosei+Sardegna"},
+        { title:"Arcipelago della Maddalena", dist:"~3h", emoji:"⛵",
+          mood:"Parco Nazionale marino",
+          desc:"Sette isole, acque trasparenti e graniti rosa. Traghetto da Palau. Una delle aree marine protette più belle del Mediterraneo.",
+          link:"https://maps.google.com/?q=Arcipelago+della+Maddalena+Sardegna"},
       ]
     },
   ];
@@ -568,8 +722,8 @@ function Esplorare({go}) {
             <div style={{display:"flex", alignItems:"center", gap:16, marginBottom:14, paddingBottom:14, borderBottom:"1px solid rgba(255,255,255,0.08)"}}>
               <span style={{fontSize:44, lineHeight:1}}>{meteo.current.ico}</span>
               <div>
-                <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:40, color:"white", lineHeight:1}}>{meteo.current.temp}°<span style={{fontSize:18, color:"rgba(245,240,232,0.5)", fontFamily:"'Jost',sans-serif", fontWeight:200, marginLeft:4}}>C</span></div>
-                <div style={{fontSize:13, color:"rgba(245,240,232,0.7)", marginTop:2}}>{meteo.current.label}</div>
+                <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:40, color:"white", lineHeight:1, fontWeight:600}}>{meteo.current.temp}°<span style={{fontSize:18, color:"rgba(245,240,232,0.5)", fontFamily:"'Jost',sans-serif", fontWeight:200, marginLeft:4}}>C</span></div>
+                <div style={{fontSize:14, color:"white", marginTop:2, fontWeight:500}}>{meteo.current.label}</div>
                 <div style={{display:"flex", gap:12, marginTop:4}}>
                   <span style={{fontSize:10, color:"rgba(245,240,232,0.4)"}}>💨 {meteo.current.wind} km/h</span>
                   <span style={{fontSize:10, color:"rgba(245,240,232,0.4)"}}>💧 {meteo.current.hum}%</span>
@@ -583,7 +737,7 @@ function Esplorare({go}) {
                 <div key={i} style={{textAlign:"center", background:"rgba(255,255,255,0.05)", borderRadius:12, padding:"10px 6px"}}>
                   <div style={{fontSize:9, letterSpacing:"2px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginBottom:4}}>{g.day}</div>
                   <div style={{fontSize:24, lineHeight:1, marginBottom:4}}>{g.ico}</div>
-                  <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:17, color:"white"}}>{g.max}°</div>
+                  <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:18, color:"white", fontWeight:600}}>{g.max}°</div>
                   <div style={{fontSize:10, color:"rgba(245,240,232,0.4)"}}>{g.min}° min</div>
                   {g.rain > 0 && <div style={{fontSize:10, color:"#6aaee0", marginTop:3}}>💧{g.rain}mm</div>}
                 </div>
@@ -665,17 +819,6 @@ function Servizi({go}) {
   return <div style={s.app}>
     <PageHead title="Servizi utili" back={()=>go("home")} icon={<Ic.faq/>}/>
     <div style={s.content}>
-
-      <Card>
-        <CT text="🛒 Spesa — a piedi"/>
-        <Row l="COOP — Via Sa Mura 23 ⭐4.6" v="vicino ›" link="https://maps.google.com/?q=COOP+Via+Sa+Mura+Uta"/>
-        <p style={{fontSize:11,color:c.mastic,padding:"2px 0 8px"}}>Lun–Sab 8:00–13:00 / 17:00–20:00 · Dom 8:30–12:30</p>
-        <Row l="ARD Discount — Vico I Decimo 21 ⭐4.5" v="vicino ›" link="https://maps.google.com/?q=ARD+Discount+Uta"/>
-        <Row l="MD — Via P. Mascagni 1 ⭐4.5" v="vicino ›" link="https://maps.google.com/?q=MD+Supermercato+Uta"/>
-        <p style={{fontSize:11,color:c.mastic,padding:"2px 0 8px"}}>Orario continuato 8:30–20:00</p>
-        <Row l="Superpan — Assemini ⭐4.1" v="~15 min ›" link="https://maps.google.com/?q=Superpan+Assemini" last/>
-        <p style={{fontSize:11,color:c.mastic,padding:"2px 0 0"}}>Lun–Sab 8:30–21:30 · Dom 8:30–14:00/16:30–21:00</p>
-      </Card>
 
       <Card>
         <CT text="💊 Salute"/>
@@ -1062,6 +1205,7 @@ function Spesa({go}) {
     <PageHead title="Fare la spesa" back={()=>go("home")} icon={<Ic.bag/>}/>
     <div style={s.content}>
       <Card><CT text="🏠 A Uta — a piedi"/>
+        <Row l="🛒 Conad — il più vicino" v="vicino ›" link="https://maps.google.com/?q=Conad+Uta+Cagliari"/>
         <Row l="🛒 COOP — Via Sa Mura 23 ⭐4.6" v="vicino ›" link="https://maps.google.com/?q=COOP+Via+Sa+Mura+Uta"/>
         <p style={{fontSize:11,color:c.mastic,padding:"2px 0 8px"}}>Lun–Sab 8:00–13:00 / 17:00–20:00 · Dom 8:30–12:30</p>
         <Row l="🛒 ARD Discount — Vico I Decimo 21 ⭐4.5" v="vicino ›" link="https://maps.google.com/?q=ARD+Discount+Uta"/>
@@ -1080,11 +1224,11 @@ function Spesa({go}) {
 
 function FAQ({go}) {
   const rifiuti = [
-    {n:"🟢 Umido",g:"Lun/Mar/Gio/Ven",s:"sacchetto marrone"},
-    {n:"🟡 Plastica",g:"Lun e Mer",s:"sacchetto giallo"},
-    {n:"🔵 Carta/cartone",g:"Mar e Mer (alterne)",s:"sacchetto blu"},
-    {n:"♻️ Vetro/alluminio",g:"Mer (alterne) — senza busta",s:"mastello"},
-    {n:"⚫ Secco",g:"Mar e Sab",s:"sacchetto nero"},
+    {n:"🟢 Umido",g:"Mar · Gio · Sab",s:"sacchetto marrone"},
+    {n:"🟡 Plastica & Metalli",g:"Lun · Mer",s:"sacchetto giallo"},
+    {n:"🔵 Carta e cartone",g:"Lun",s:"sacchetto blu"},
+    {n:"♻️ Vetro",g:"Ven",s:"sacchetto verde"},
+    {n:"⚫ Indifferenziato",g:"Mar · Ven",s:"sacchetto nero"},
   ];
   return <div style={s.app}>
     <PageHead title="Domande frequenti" back={()=>go("home")} icon={<Ic.faq/>}/>
@@ -1099,7 +1243,7 @@ function FAQ({go}) {
           ))}
         </div>
         <div style={{...s.darkBox,display:"flex",gap:10,marginTop:10,marginBottom:0}}><span>⚠️</span><p style={{fontSize:12,color:"rgba(245,240,232,0.8)",lineHeight:1.6,margin:0}}><strong style={{color:c.sand}}>Orario esposizione:</strong> entro le 6:00 o la sera prima dopo le 20:00.</p></div>
-        <a href="https://mycity.s3.sbg.io.cloud.ovh.net/4457468/20250311-Calendario-Uta-Domestiche.pdf" target="_blank" rel="noreferrer" style={s.pdfBtn}><Ic.docW/> Calendario COSIR 2025–2026</a>
+        <a href="https://www.cosir.it/raccolta-differenziata/" target="_blank" rel="noreferrer" style={s.pdfBtn}><Ic.docW/> Calendario COSIR 2025–2026</a>
       </Card>
       <Card><CT text="❄️ Climatizzatori"/><p style={{fontSize:14,lineHeight:1.75,color:c.mastic,margin:0}}>Controllabili via app Wi-Fi o telecomando. In camera il telecomando è nel cassetto del comodino.</p></Card>
       <Card><CT text="🚨 Emergenze"/>
