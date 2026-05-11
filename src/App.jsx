@@ -32,10 +32,10 @@ const Foto = ({ src, alt, style, onClick }) => (
 
 const s = {
   app: { minHeight:"100vh", fontFamily:"'Jost', sans-serif", fontWeight:300, color:c.warm, background:c.cream, maxWidth:480, margin:"0 auto" },
-  hero: { background:`linear-gradient(160deg, #5c4230 0%, #7a5840 100%)`, textAlign:"center", padding:"52px 24px 40px", borderRadius:"0 0 28px 28px", position:"relative", overflow:"hidden" },
-  heroTitle: { fontFamily:"'Cormorant Garamond', Georgia, serif", fontWeight:300, fontSize:58, lineHeight:1.0, color:c.cream, margin:0, letterSpacing:1 },
+  hero: { background:`linear-gradient(160deg, #2e1f12 0%, #4a3020 100%)`, textAlign:"center", padding:"52px 24px 40px", borderRadius:"0 0 28px 28px", position:"relative", overflow:"hidden" },
+  heroTitle: { fontFamily:"'Cormorant Garamond', Georgia, serif", fontWeight:300, fontSize:58, lineHeight:1.0, color:"#faf6ef", margin:0, letterSpacing:1 },
   heroSub: { fontSize:9, letterSpacing:"4px", textTransform:"uppercase", color:"rgba(245,240,232,0.4)", marginTop:14 },
-  eye: { fontSize:9, letterSpacing:"5px", textTransform:"uppercase", color:c.hazel, fontWeight:600, marginBottom:12 },
+  eye: { fontSize:10, letterSpacing:"4px", textTransform:"uppercase", color:"#d4aa85", fontWeight:500, marginBottom:12 },
   sectionLabel: { fontSize:9, letterSpacing:"4px", textTransform:"uppercase", color:c.mastic, margin:"24px 0 16px", textAlign:"center" },
   grid: { display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12, padding:"0 20px", maxWidth:400, margin:"0 auto" },
   card: { background:c.white, borderRadius:20, padding:"22px 8px 16px", display:"flex", flexDirection:"column", alignItems:"center", gap:8, cursor:"pointer", border:`1px solid ${c.hazel}20` },
@@ -125,9 +125,9 @@ function PH({go}) {
         <div style={{position:"absolute",top:-40,left:-40,width:140,height:140,background:`radial-gradient(circle, ${c.hazel}20 0%, transparent 70%)`,pointerEvents:"none"}}/>
         <div style={s.eye}>Uta · Cagliari · Sardegna</div>
         <h1 style={s.heroTitle}>
-          Ben<em style={{fontStyle:"italic", color:c.sand}}>venuti</em>
+          Ben<em style={{fontStyle:"italic", color:"#f0e0c8"}}>venuti</em>
         </h1>
-        <div style={{fontSize:10, letterSpacing:"3.5px", textTransform:"uppercase", color:"rgba(245,240,232,0.35)", marginTop:14, fontFamily:"'Jost', sans-serif", fontWeight:200}}>Casa Uta — Via Cimitero 38</div>
+        <div style={{fontSize:11, letterSpacing:"3px", textTransform:"uppercase", color:"rgba(245,240,232,0.75)", marginTop:14, fontFamily:"'Jost', sans-serif", fontWeight:300}}>Casa Uta — Via Cimitero 38</div>
         <div style={{width:32,height:1,background:c.hazel,margin:"16px auto 0"}}/>
       </div>
 
