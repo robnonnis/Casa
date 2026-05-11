@@ -489,6 +489,23 @@ function Appartamento({go}) {
           <span key={t} style={i===0?s.tagA:s.tag}>{t}</span>
         ))}
       </div>
+
+      {/* Banner Ladiri */}
+      <div style={{background:`linear-gradient(135deg,${c.hazel}18,${c.hazelL}28)`,
+        borderRadius:16, padding:"16px 18px", marginTop:14,
+        border:`1px solid ${c.hazel}35`, display:"flex", gap:14, alignItems:"flex-start"}}>
+        <span style={{fontSize:28, flexShrink:0}}>🧱</span>
+        <div>
+          <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:18,
+            fontWeight:400, color:c.warm, marginBottom:6}}>Costruita in <em>ladiri</em></div>
+          <p style={{fontSize:13, color:c.mastic, lineHeight:1.7, margin:0}}>
+            La casa è edificata con i tradizionali mattoni di argilla cruda essiccata al sole,
+            tipici dell'architettura rurale del Campidano sardo. I <strong>ladiri</strong> garantiscono
+            un'eccellente coibentazione naturale: fresco d'estate, caldo d'inverno.
+            Un patrimonio costruttivo millenario, autentico e raro.
+          </p>
+        </div>
+      </div>
     </div>
   </div>;
 }
@@ -910,11 +927,33 @@ function Servizi({go}) {
       </Card>
 
       <Card>
-        <CT text="🏦 Banca & Servizi"/>
-        <Row l="ATM Banco di Sardegna" v="vicino ›" link="https://maps.google.com/?q=Banco+di+Sardegna+Uta"/>
-        <Row l="ATM Poste Italiane" v="vicino ›" link="https://maps.google.com/search?q=Poste+Italiane+Uta"/>
-        <Row l="Tabaccheria Coccinella ⭐4.9" v="vicino ›" link="https://maps.google.com/?q=Coccinella+Tabaccheria+Uta"/>
-        <Row l="Comune di Uta" v="vicino ›" link="https://maps.google.com/?q=Comune+di+Uta" last/>
+        <CT text="🧺 Lavanderie"/>
+        <Row l="Lavanderia a gettoni — Via Umberto I 33, Uta" v="~5 min ›"
+          link="https://maps.google.com/?q=Via+Umberto+I+33+Uta+Cagliari"/>
+        <Row l="Lavanda Self Service ⭐4.5 — Via Nazionale 55, Decimomannu" v="~10 min ›"
+          link="https://maps.google.com/?q=Via+Nazionale+55+Decimomannu"/>
+        <p style={{fontSize:11,color:c.mastic,padding:"2px 0 8px"}}>
+          Aperta tutti i giorni · lun–sab 06:30 · dom 07:00 · tel. 340 268 7577 · anche ritiro a domicilio
+        </p>
+        <Row l="Lavanderia Sarigu Giustina — Via Nazionale 48, Decimomannu" v="~10 min ›"
+          link="https://maps.google.com/?q=Via+Nazionale+48+Decimomannu" last/>
+        <p style={{fontSize:11,color:c.mastic,padding:"2px 0 0"}}>tel. 070 961186</p>
+      </Card>
+
+      <Card>
+        <CT text="🏦 Bancomat ATM"/>
+        <Row l="🏦 Banco di Sardegna — Via Santa Giusta 44" v="vicino ›"
+          link="https://maps.google.com/?q=Banco+di+Sardegna+Via+Santa+Giusta+44+Uta"/>
+        <p style={{fontSize:11,color:c.mastic,padding:"2px 0 8px"}}>Filiale con ATM · tel. 070 969008</p>
+        <Row l="📮 Postamat — Poste Italiane Uta" v="vicino ›"
+          link="https://maps.google.com/?q=Poste+Italiane+Uta+Cagliari" last/>
+        <p style={{fontSize:11,color:c.mastic,padding:"2px 0 0"}}>Sportello ATM h24 · 7 giorni su 7</p>
+      </Card>
+
+      <Card>
+        <CT text="🏛️ Altri servizi"/>
+        <Row l="🚬 Tabaccheria Coccinella ⭐4.9" v="vicino ›" link="https://maps.google.com/?q=Coccinella+Tabaccheria+Uta"/>
+        <Row l="🏛️ Comune di Uta" v="vicino ›" link="https://maps.google.com/?q=Comune+di+Uta" last/>
       </Card>
 
       <Card>
